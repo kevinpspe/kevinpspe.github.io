@@ -1,45 +1,6 @@
-# Correlation vs. Causation
-
-In this chapter, we discuss why correlation is not causation:
-
-1.  Discuss the concept of **correlation**.
-2.  Discuss how **confounders** mean correlation is not equal to causation.
-3.  How we can go from correlation to causation (called **identification**)
+# Issue of Selection Bias
 
 <br />
-
-## What is Correlation?
-
-**Correlation** is how one variable changes when another variable changes.
-
-To calculate a correlation between treatment and control, we divide all the individuals into our study into two groups - individuals who receive the treatment, and individuals who don't (untreated). Then:
-
--   Find the average outcome $Y$ of those who receive the treatment: $\mean Y_\text{treated}$.
--   Find the average outcome $Y$ values those who do not get the treatment: $\mean Y_\text{untreated}$.
-
-::: aside
-Note: the bar/line over the $Y$ is the statistical symbol for mean/average.
-:::
-
-Then, compare the two average values by finding their difference:
-
-$$
-\text{correlation} = \mean Y_{\scriptstyle{\text{treated}}} - \mean Y_\text{untreated}
-$$
-
-Our result will either be positive, negative, or zero:
-
-| Type of Correlation                                      | Interpretation                                                                 |
-|:---------------------------------------------------------|:-------------------------------------------------------------------------------|
-| **Positive Correlation** between treatment and outcome.  | Getting the treatment is related with **higher** outcome values on average.    |
-| **Negative Correlation** between treatment and outcome.  | Getting the treatment is related with **lower** outcome values on average.     |
-| **No (Zero) Correlation** between treatment and outcome. | Getting the treatment **has no relationship** with the average outcome values. |
-
-: Note how I used the world **related** - correlation is not causation. {#tbl-corr tbl-colwidths="\[50,50\]" .bordered}
-
-<br />
-
-## Why Correlation is not Causation: Selection Bias
 
 Let us look at this causal question:
 
@@ -73,17 +34,19 @@ But does that mean hospital treatment **causes** worse health outcomes? **No!** 
 
 Thus, we cannot tell if the difference in health outcomes between treated and untreated is due to the treatment, or due to **their pre-existing differences**.
 
+<br />
+
 We can illustrate the same point using potential outcomes from last chapter:
 
 |                       | Treated                                                                                                | Untreated                                                                                                  |
-|:----------------------|:-------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------|
+|:-----------------|:--------------------------|:--------------------------|
 | Observed $\mean Y$    | $\mean Y_\text{treated} = \textcolor{purple}{\mean Y_{\text{treated}}^{(1)}}$                          | $\mean Y_\text{untreated} = \textcolor{purple}{\mean Y_{\text{untreated}}^{(0)}}$                          |
 | Counterfactual        | $\textcolor{red}{\mean Y_{\text{treated}}^{(0)}}$                                                      | $\textcolor{red}{\mean Y_{\text{untreated}}^{(1)}}$                                                        |
 | Real Treatment Effect | $\textcolor{purple}{\mean Y_{\text{treated}}^{(1)}} - \textcolor{red}{\mean Y_{\text{treated}}^{(0)}}$ | $\textcolor{red}{\mean Y_{\text{untreated}}^{(1)}} - \textcolor{purple}{\mean Y_{\text{untreated}}^{(0)}}$ |
 
 : This table uses what we learned about counterfactuals (@tbl-observed) and treatment effects. {#tbl-selbias tbl-colwidths="\[24,38,38\]" .bordered}
 
-We see the real treatment effects. But how do these treatment effects compare to correlation? Recall our definition of correlation:
+We see the real treatment effects. But how do these treatment effects compare to correlation:
 
 $$
 \begin{align}
@@ -91,6 +54,10 @@ $$
 & = \textcolor{purple}{\mean Y_{\text{treated}}^{(1)}} - \textcolor{purple}{\mean Y_\text{untreated}^{(0)}}
 \end{align}
 $$
+
+::: aside
+Correlation is the difference in observed outcomes.
+:::
 
 If we compare this correlation equation to our treatment effects, in our table, we see:
 
@@ -103,13 +70,7 @@ $$
 
 Thus, if there is a difference between the average outcomes between treated and untreated **before** treatment is administered, then correlation is not equal to causation.
 
-::: aside
-Note: for details on selection bias, see [appendix B](details.qmd).
-:::
-
 <br />
-
-## Confounders and the Cause of Selection Bias
 
 A **confounder** is a third variable that has the following characteristics:
 
@@ -122,6 +83,8 @@ A confounder will cause some people to get the treatment, and others to not get 
 These two facts mean that before we even start the treatment, people who [will get]{.underline} the treatment **differ** from people who [will not get]{.underline} the treatment.
 
 Thus, [**confounders cause selection bias and pre-existing differences.**]{.underline}
+
+<br />
 
 For example, in our hospital-health example, a confounder could be **smoking**.
 
@@ -154,9 +117,3 @@ digraph example2 {
 :::
 
 This means that the treated group has more smokers and people with bad health than the untreated group. This pre-existing difference between treated and untreated means correlation is not equal to causation.
-
-So we now know that correlation is not equal to causation, because **confounders** cause **selection bias**. Thus, if we have a correlation, and we want to find the causal effect, we have to **eliminate the influence of confounders**, which will eliminate the reason correlation does not equal causation.
-
-Thus, researchers need to employ **research designs** that can eliminate the errors caused by confounders, and **identify** the causal effect. The rest of this book explores these research designs.
-
-<br />

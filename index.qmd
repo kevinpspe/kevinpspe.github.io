@@ -1,9 +1,14 @@
 # Welcome {.unnumbered}
 
+![](lse.png){fig-align="center" width="35%"}
+
 This is a collection of resources and notes for political science and political economy that I have collected throughout my postgraduate degree at the London School of Economics
 
 Most of these resources relate around causal inference, statistics, and game theory.
 
 I am continuously adding more to this collection as a learn more. Some parts may be incomplete, and you may see some changes in existing parts.
+
+::: aside
+:::
 
 <br />

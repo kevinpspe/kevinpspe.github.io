@@ -1,14 +1,6 @@
 # The Magic of Randomisation
 
-In this chapter, we discuss the topic of randomisation:
-
-1.  Why does **randomisation** solve selection bias?
-2.  What are the **limitations** of randomisation?
-3.  What is **statistical inference**, and why is it important?
-
 <br />
-
-## What is Randomisation?
 
 Let us say we are interested in this question:
 
@@ -57,7 +49,11 @@ digraph example2 {
 ```
 :::
 
-The key here is that the confounder is **influencing** who gets and doesn't get the treatment. But what if **randomness** (like flipping a coin) controls who gets the treatment or not. A coin will be flipped to decide if every person in our study will get the scholarship.
+The key here is that the confounder is **influencing** who gets and doesn't get the treatment.
+
+<br />
+
+But what if **randomness** (like flipping a coin) controls who gets the treatment or not. A coin will be flipped to decide if every person in our study will get the scholarship.
 
 This means that the randomness (the coin), and **not the confounder**, are causing selection into treatment. So now, we have this diagram:
 
@@ -87,6 +83,8 @@ Note how the confounder now no longer has an arrow to the treatment. It is no lo
 
 Since the confounder is no longer causing who gets the treatment and who doesn't, that means there is no more concern of selection bias.
 
+<br />
+
 Randomisation also means that since every individual has the same chance of entering treatment or control, that these two groups will be, on average, the same as each other. That means:
 
 $$
@@ -101,12 +99,12 @@ So if our treatment is randomly assigned (individuals randomly assigned to treat
 
 <br />
 
-## Limitations of Randomisation
-
 When should you use randomisation? The answer is **whenever possible**. Randomisation is the [**gold standard**]{.mark} of causal inference. There is no better method.
 
 -   Randomisation is possible if you are running your own experiment: you can use a random number generator to assign treatment.
 -   Randomisation is also possible if there is something that is being randomly assigned in the real world. For example, the US green card lottery randomly chooses who gets accepted.
+
+<br />
 
 However, randomisation is not always possible to do for a variety of reasons.
 
@@ -115,45 +113,3 @@ However, randomisation is not always possible to do for a variety of reasons.
 2.  Impracticality: Sometimes it just is impossible to randomly assign certain treatments. For example, you cannot assign countries to be dictatorships in order to test the causal effect.
 
 3.  Non-Compliance: Maybe you assign people randomly to treatment or control. But what if they don't comply with their assignment? Perhaps there is some confounder that means someone is more likely to not comply? To solve this, you will need to use **instrumental variables**.
-
-<br />
-
-## Statistical Inference and Uncertainty
-
-Even though with randomisation, correlation is equal to causation, there is still some uncertainty in our causal effect. Why?
-
-Imagine you are running a random experiment multiple times.
-
-1.  First time, you assign everyone to treatment or untreated randomly, then calculate the average difference between treatment and untreated.
-2.  Then you do the same thing again. Randomly assign everyone to treatment or untreated. However, because you are doing this randomly, **your treatment and untreated groups will be slightly different than from the first time**. Thus, your average difference between treatment and untreated will be slightly different.
-3.  Every time you re-run the experiment, you will get a slightly different result.
-
-So which result is correct? Well, what we can do is plot all of our average/mean causal effects on the horizontal axis, with vertical bars showing how often we get each result:
-
-![](images/clipboard-2444367374.png){fig-align="center" width="50%"}
-
-::: aside
-The higher the bar, the more frequently we got that causal estimate (mean/average difference between treatment and control).
-:::
-
-This graph is called the **sampling distribution**, and is a visualisation of the **uncertainty** in each of our causal estimates. If you just run one experiment, you could get any one of those results.
-
-Thus, our causal estimation process has a level of uncertainty - our estimates will change if we re-run our experiment. We can quantify this level of uncertainty with a **standard error** - basically, how much will our results change if we re-ran the experiment.
-
--   Smaller standard errors means we are more confident about our estimates: the results will not change much if we redo the experiment.
--   Larger standard errors means we are less certain about our estimates: the results will change a lot if we redo the experiment.
-
-What if our uncertainty means that we might not have a causal effect, even though we found a causal effect with our experiment?
-
-Well, with our standard errors, we can calculate how likely that there is zero (no) causal effect (called a **p-value**). This procedure is called a hypothesis test. Our p-value for a causal effect estimate tells us:
-
-| P-Value                | Implication                                                                                                                        | Conclusion                                                                                                         |
-|------------------------|------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------|
-| Less than 0.05 (5%)    | There is less than a 5% chance that there is a zero causal effect. This means a 95%+ chance that there is a causal effect.         | We can conclude that the causal effect is **statistically significant** and conclude treatment causes the outcome. |
-| Greater than 0.05 (5%) | There is greater than a 5% chance that there is zero causal effect. This means a 95% or less chance that there is a causal effect. | We cannot conclude that there is a causal effect. The effect is **not** statistically significant.                 |
-
-: {tbl-colwidths="\[20,40,40\]" .bordered}
-
-::: aside
-Note: a common question is why we determine significance at the threshold of 5%. The answer is tradition - there is no mathematical reason why we have to use 5%.
-:::

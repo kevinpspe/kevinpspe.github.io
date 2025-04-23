@@ -7,7 +7,6 @@ book:
   subtitle: "Collection of Resources on Causal Inference, Game Theory, and Statistics"
   author: "Kevin Li"
   search: true
-  cover-image: lse.png
   sidebar:
     collapse-level: 1
   chapters:
@@ -18,6 +17,7 @@ book:
         - frameworks.qmd
         - correlation.qmd
         - randomisation.qmd
+    - part: "Instrumental Variables"
     - part: "Regression Discontinuity"
       chapters:
         - rdd.qmd
@@ -36,17 +36,13 @@ book:
       chapters:
         - weighting.qmd
     - "---"
-    - part: "Statistical Theory"
-    - part: "Econometric Theory"
-    - "---"
     - part: "Multiple Linear Regression"
     - part: "Generalised Linear Model"
     - part: "Statistical Learning"
     - part: "Latent Variable Models"
     - "---"
-    - part: "Game Theory"
-    - part: "Mathematics"
-
+    - part: "Other Resources"
+    
 bibliography: references.bib
 
 format:

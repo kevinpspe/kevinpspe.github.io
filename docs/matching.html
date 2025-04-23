@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Overview of Matching – Kevin’s PSPE Resources</title>
+<title>How Matching Works – Kevin’s PSPE Resources</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -112,7 +112,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./matching.html">Matching Estimators</a></li><li class="breadcrumb-item"><a href="./matching.html">Overview of Matching</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./matching.html">Matching Estimators</a></li><li class="breadcrumb-item"><a href="./matching.html">How Matching Works</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -155,12 +155,12 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./frameworks.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Basics of Causation</span></a>
+  <a href="./frameworks.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Potential Outcomes</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./correlation.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Correlation vs.&nbsp;Causation</span></a>
+  <a href="./correlation.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Issue of Selection Bias</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -171,14 +171,18 @@ window.Quarto = {
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">Instrumental Variables</span></span>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
  <span class="menu-text">Regression Discontinuity</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./rdd.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Regression Discontinuity</span></a>
@@ -193,13 +197,13 @@ window.Quarto = {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
  <span class="menu-text">Differences-in-Differences</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./did.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Differences-in-Differences</span></a>
@@ -214,17 +218,17 @@ window.Quarto = {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
  <span class="menu-text">Matching Estimators</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./matching.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Overview of Matching</span></a>
+ <span class="menu-text">How Matching Works</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -249,13 +253,13 @@ window.Quarto = {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false">
  <span class="menu-text">Weighting Estimators</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./weighting.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Weighting Estimator</span></a>
@@ -266,10 +270,6 @@ window.Quarto = {
         <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Basics of Statistics</span></span>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <span class="sidebar-item-text sidebar-link text-start">
  <span class="menu-text">Multiple Linear Regression</span></span>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -278,7 +278,7 @@ window.Quarto = {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Dimensional Reduction</span></span>
+ <span class="menu-text">Statistical Learning</span></span>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
@@ -287,11 +287,7 @@ window.Quarto = {
         <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Game Theory</span></span>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Mathematics</span></span>
+ <span class="menu-text">Other Resources</span></span>
   </li>
     </ul>
     </div>
@@ -304,9 +300,9 @@ window.Quarto = {
 <!-- main -->
 <main class="content page-columns page-full" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./matching.html">Matching Estimators</a></li><li class="breadcrumb-item"><a href="./matching.html">Overview of Matching</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./matching.html">Matching Estimators</a></li><li class="breadcrumb-item"><a href="./matching.html">How Matching Works</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Overview of Matching</h1>
+<h1 class="title">How Matching Works</h1>
 </div>
 
 
@@ -323,29 +319,16 @@ window.Quarto = {
 </header>
 
 
-<p>Matching is a popular design used when the other designs aren’t possible, and we have a good idea of what the confounders are.</p>
-<div>
-  Validity:  <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><span> (2/5)</span>
-</div>
-<div>
-  Interpretability:  <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><span> (4/5)</span>
-</div>
 <p><br></p>
-<section id="what-is-matching" class="level2 page-columns page-full">
-<h2 class="anchored" data-anchor-id="what-is-matching">What is Matching?</h2>
 <p>Mia is in our study and receives the treatment. Mia’s individual causal effect is:</p>
 <p><span class="math display">\[
 \tau_{\text{Mia}} = \textcolor{purple}{Y^{(1)}_\text{Mia}} - \textcolor{red}{Y^{(0)}_\text{Mia}}
 \]</span></p>
 
 <div class="no-row-height column-margin column-container"><div class="margin-aside">
-<p>See <a href="./frameworks.html">chapter 1</a> if this looks confusing to you.</p>
-</div></div><p>Since Mia receives the treatment in real life, we cannot observe the counterfactual where Mia does not get the treatment (highlighted in red). Thus, we cannot calculate the treatment effect if we do not observe this.</p>
-<p>However, we can estimate Mia’s counterfactual by finding someone else in our study, who did not receive the treatment, but is also really <strong>similar</strong> to Mia in all other ways. We can use this other person’s outcome to “pretend” that it is the counterfactual of Mia.</p>
-
-<div class="no-row-height column-margin column-container"><div class="margin-aside">
-<p>When we say “similar”, we mean with similar values for their confounding variables.</p>
-</div></div><p>Let’s say Ava is really similar to Mia. Ava also happens to have not received the treatment. We can approximate Mia’s counterfactual using Ava’s observed outcome:</p>
+<p>The counterfactual in red is unobserved.</p>
+</div></div><p>Since Mia receives the treatment in real life, we cannot observe the counterfactual where Mia does not get the treatment. However, we can <strong>estimate</strong> Mia’s counterfactual by finding someone else in our study, who did not receive the treatment, but is also really <strong>similar</strong> to Mia in all other ways.</p>
+<p>Let’s say Ava is really similar to Mia. Ava also happens to have not received the treatment. We can approximate Mia’s counterfactual using Ava’s observed outcome:</p>
 <p><span class="math display">\[
 \textcolor{red}{Y^{(0)}_\text{Mia}} \approx \textcolor{purple}{Y^{(0)}_\text{Ava}}
 \]</span></p>
@@ -356,21 +339,15 @@ window.Quarto = {
 &amp; = Y_\text{Mia} - Y_\text{Ava}
 \end{align}
 \]</span></p>
-
-<div class="no-row-height column-margin column-container"><div class="margin-aside">
-<p>The hat on <span class="math inline">\(\hat\tau\)</span> indicates that this is an estimate, not the actual effect.</p>
-</div></div><p>We can do the matching for every single person in the treatment group - find them a person in the untreated group that is similar to them, and estimate the causal effect. We can average all of these individual causal effects to get an estimate of the <strong>ATT</strong>.</p>
+<p>We can do the matching for every single person in the treatment group, then average all of these individual causal effects to get an estimate of the <strong>ATT</strong>.</p>
 <p><span class="math display">\[
 \widehat\tau_\text{ATT} = \text{Average of all } \widehat\tau \text{ of each pair}
 \]</span></p>
 
 <div class="no-row-height column-margin column-container"><div class="margin-aside">
-<p>See <a href="frameworks.html#tbl-estimands" class="quarto-xref">Table&nbsp;<span>1.4</span></a> for what the ATT is, and how it differs from other causal effects.</p>
+<p>Matching only estimates the ATT, not ATE.</p>
 </div></div><p>By matching individuals with the <strong>same/very similar confounder values</strong>, we eliminate pre-existing differences, since our matched pairs will all be similar to each other. Thus, selection bias will not be a concern.</p>
 <p><br></p>
-</section>
-<section id="assumptions" class="level2">
-<h2 class="anchored" data-anchor-id="assumptions">Assumptions</h2>
 <p>For matching to work, we must meet the following three assumptions:</p>
 <div id="tbl-matching" class="bordered quarto-float quarto-figure quarto-figure-center anchored" data-tbl-colwidths="[22,39,39]">
 <figure class="quarto-float quarto-float-tbl figure">
@@ -413,9 +390,6 @@ Table&nbsp;1: Ensure all of these assumptions are met if you are using matching
 </figure>
 </div>
 <p><br></p>
-</section>
-<section id="estimators" class="level2">
-<h2 class="anchored" data-anchor-id="estimators">Estimators</h2>
 <p>There are three estimators to implement matching. These are essentially different ways to calculate which units are “closest” to each other for matching.</p>
 <table class="table-bordered table">
 <colgroup>
@@ -442,7 +416,7 @@ Table&nbsp;1: Ensure all of these assumptions are met if you are using matching
 <td>When genetic matching is not possible, and we have a large sample.</td>
 </tr>
 <tr class="odd">
-<td><mark>Genetic Matching</mark></td>
+<td><mark><a href="./genetic.html">Genetic Matching</a></mark></td>
 <td>Distance matching, but with an additional weights/emphasis parameter putting more emphasis on some confounders than others.</td>
 <td>Whenever possible. Can require a good computer and take long for large data sets.</td>
 </tr>
@@ -451,7 +425,6 @@ Table&nbsp;1: Ensure all of these assumptions are met if you are using matching
 <p>Use the sidebar or links in the table to access each estimator’s page.</p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
