@@ -1,0 +1,12 @@
+# Examiner Instruments
+
+Examiner Instruments are a niche design, used when treatment is assigned by some examiner, such as a judge, teacher, or teacher.
+
+```{=html}
+<div>
+  Validity: <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><span> (3/5)</span>
+</div>
+<div>
+  Interpretability:  <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><span> (3/5)</span>
+</div>
+```

@@ -1,0 +1,8 @@
+pre, code, .sourceCode {
+  font-size: 0.7rem;
+}
+
+.center-graph {
+  display: flex;
+  justify-content: center;
+}

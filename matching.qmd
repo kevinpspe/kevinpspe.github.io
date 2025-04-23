@@ -1,0 +1,94 @@
+# Overview of Matching {.unnumbered}
+
+Matching is a popular design used when the other designs aren't possible, and we have a good idea of what the confounders are.
+
+```{=html}
+<div>
+  Validity:  <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><span> (2/5)</span>
+</div>
+<div>
+  Interpretability:  <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><span> (4/5)</span>
+</div>
+```
+<br />
+
+## What is Matching?
+
+Mia is in our study and receives the treatment. Mia's individual causal effect is:
+
+$$
+\tau_{\text{Mia}} = \textcolor{purple}{Y^{(1)}_\text{Mia}} - \textcolor{red}{Y^{(0)}_\text{Mia}}
+$$
+
+::: aside
+See [chapter 1](frameworks.qmd) if this looks confusing to you.
+:::
+
+Since Mia receives the treatment in real life, we cannot observe the counterfactual where Mia does not get the treatment (highlighted in red). Thus, we cannot calculate the treatment effect if we do not observe this.
+
+However, we can estimate Mia's counterfactual by finding someone else in our study, who did not receive the treatment, but is also really **similar** to Mia in all other ways. We can use this other person's outcome to "pretend" that it is the counterfactual of Mia.
+
+::: aside
+When we say "similar", we mean with similar values for their confounding variables.
+:::
+
+Let's say Ava is really similar to Mia. Ava also happens to have not received the treatment. We can approximate Mia's counterfactual using Ava's observed outcome:
+
+$$
+\textcolor{red}{Y^{(0)}_\text{Mia}} \approx \textcolor{purple}{Y^{(0)}_\text{Ava}}
+$$
+
+Having approximated Mia's counterfactual, we can now estimate Mia's causal effect, as both quantities are observed:
+
+$$
+\begin{align}
+\widehat\tau_{\text{Mia}} & = \textcolor{purple}{Y^{(1)}_\text{Mia}} - \textcolor{purple}{Y^{(0)}_\text{Ava}} \\ 
+& = Y_\text{Mia} - Y_\text{Ava}
+\end{align}
+$$
+
+::: aside
+The hat on $\hat\tau$ indicates that this is an estimate, not the actual effect.
+:::
+
+We can do the matching for every single person in the treatment group - find them a person in the untreated group that is similar to them, and estimate the causal effect. We can average all of these individual causal effects to get an estimate of the **ATT**.
+
+$$
+\widehat\tau_\text{ATT} = \text{Average of all } \widehat\tau \text{ of each pair}
+$$
+
+::: aside
+See @tbl-estimands for what the ATT is, and how it differs from other causal effects.
+:::
+
+By matching individuals with the **same/very similar confounder values**, we eliminate pre-existing differences, since our matched pairs will all be similar to each other. Thus, selection bias will not be a concern.
+
+<br />
+
+## Assumptions
+
+For matching to work, we must meet the following three assumptions:
+
+| Assumption                                              | Description                                                                                                                                                                                                                               | How to Check                                                                                                                                                                                   |
+|:--------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [Conditional Ignorability]{.mark}                       | This essentially means that when we match, we must account for all possible confounders.                                                                                                                                                  | We can conduct balance checks. This will be shown in the estimator pages.                                                                                                                      |
+| [Common Support]{.mark}                                 | This means that no matter what an individual's confounder values are, they always have at least a chance of being put into both treatment and control. Or in other words, no one can have a 100% chance of being in treatment or control. | We can check if our sample has at least one treated and one untreated per every confounder value. However, this isn't a foolproof check, and its probably better to use theoretical reasoning. |
+| [Stable Unit Treatment Value Assumption (SUTVA)]{.mark} | Each person's treatment status only affects their own outcome, not anyone else. This means that if Ava is treated, that does not affect Mia's outcome.                                                                                    | We have to use our own theoretical reasoning.                                                                                                                                                  |
+
+: Ensure all of these assumptions are met if you are using matching {#tbl-matching tbl-colwidths="\[22,39,39\]" .bordered}
+
+<br />
+
+## Estimators
+
+There are three estimators to implement matching. These are essentially different ways to calculate which units are "closest" to each other for matching.
+
+| Estimator                                        | Description                                                                                                                 | When to Use                                                                                    |
+|--------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------|
+| [[Distance Matching](distance.qmd)]{.mark}       | Matches units by finding the units with the closest confounder values.                                                      | When genetic matching is not possible, and we have less than 5 confounders and a small sample. |
+| [[Propensity Score Matching](pscore.qmd)]{.mark} | Matches units based on how close their likelihood of receiving treatment is.                                                | When genetic matching is not possible, and we have a large sample.                             |
+| [Genetic Matching]{.mark}                        | Distance matching, but with an additional weights/emphasis parameter putting more emphasis on some confounders than others. | Whenever possible. Can require a good computer and take long for large data sets.              |
+
+: {tbl-colwidths="\[22,39,39\]" .bordered}
+
+Use the sidebar or links in the table to access each estimator's page.

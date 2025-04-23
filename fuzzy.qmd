@@ -1,0 +1,12 @@
+# Fuzzy Discontinuity
+
+Fuzzy Regression Discontinuity is a design used when treatment is influenced, but not perfectly determined, by being above or below a cutoff.
+
+```{=html}
+<div>
+  Validity: <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><span> (3/5)</span>
+</div>
+<div>
+  Interpretability:  <i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><span> (1/5)</span>
+</div>
+```

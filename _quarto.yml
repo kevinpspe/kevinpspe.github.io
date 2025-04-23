@@ -1,0 +1,83 @@
+project:
+  type: book
+  output-dir: docs
+
+book:
+  title: "Kevin's PSPE Resources"
+  subtitle: "Collection of Resources on Causal Inference, Game Theory, and Statistics"
+  author: "Kevin Li"
+  search: true
+  cover-image: lse.png
+  sidebar:
+    collapse-level: 1
+  chapters:
+    - index.qmd
+    - "---"
+    - part: "Basics of Causal Inference"
+      chapters:
+        - frameworks.qmd
+        - correlation.qmd
+        - randomisation.qmd
+    - part: "Regression Discontinuity"
+      chapters:
+        - rdd.qmd
+        - fuzzy.qmd
+    - part: "Differences-in-Differences"
+      chapters:
+        - did.qmd
+        - synthetic.qmd
+    - part: "Instrumental Variables"
+      chapters:
+        - iv.qmd
+        - fuzzy.qmd
+        - examiner.qmd
+    - part: "Matching Estimators"
+      chapters:
+        - matching.qmd
+        - distance.qmd
+        - pscore.qmd
+        - genetic.qmd
+    - part: "Weighting Estimators"
+      chapters:
+        - weighting.qmd
+    - part: "Regression Estimators"
+    - "---"
+    - part: "Basics of Statistics"
+    - part: "Multiple Linear Regression"
+    - part: "Generalised Linear Model"
+    - part: "Dimensional Reduction"
+    - part: "Latent Variable Models"
+    - "---"
+    - part: "Game Theory"
+    - part: "Mathematics"
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: cosmo
+    number-sections: false
+    css: styles.css
+    toc: true
+    toc-depth: 0
+    tbl-cap-location: bottom
+    reference-location: margin
+    grid:
+      sidebar-width: 285px
+      body-width: 730px
+      margin-width: 190px
+      gutter-width: 1.5em
+    html-math-method: mathjax
+    crossref:
+      eq-prefix: eq.
+      def-prefix: definition
+      thm-prefix: theorem
+    include-in-header:
+      text: |
+        <script src="mathjax-config.js"></script>
+    include-after-body:
+      text: |
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+editor: visual
+

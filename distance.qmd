@@ -1,0 +1,111 @@
+# Distance Matching {.unnumbered}
+
+See the page on [matching](matching.qmd) to understand the intuition of matching, and what estimators are available.
+
+<br />
+
+## What is Distance Matching?
+
+As we covered in the page on [matching](matching.qmd), Mia is in our study and receives the treatment. Mia's individual causal effect is:
+
+$$
+\tau_{\text{Mia}} = \textcolor{purple}{Y^{(1)}_\text{Mia}} - \textcolor{red}{Y^{(0)}_\text{Mia}}
+$$
+
+We don't observe Mia's untreated counterfactual, so we have to find someone in the untreated group, who is similar to Mia, to approximate her counterfactual.
+
+Distance matching matches an individual that is treated (like Mia) with one that is not treated based on how **close** their confounding values are. We define closeness by Mahalanobis distance:
+
+$$
+\delta_{i, j} = \sqrt{(\b x_i - \b x_j)^\top \b\Sigma_x^{-1} (\b x_i - \b x_j)}
+$$
+
+::: aside
+Where $i$ and $j$ are two units we want to measure the distance between, $\b x$ are their confounder values, and $\b\Sigma_x$ is the covariance matrix of confounders.
+:::
+
+Don't worry if that formula doesn't make much sense to you. It is basically a way to measure distance across multiple different confounders, adjusting for the scale at which confounders are measured. The treated and untreated units that have the smallest distance between them are matched together.
+
+Distance matching is not the best method of matching - it tends to struggle with anything more than 5 confounders, because of the **curse of dimensionality**. This basically means its hard to find close matches when you have more confounders. When you have more confoundners, you should instead use genetic matching (preferred) or propensity score matching.
+
+<br />
+
+## Implementing Distance Matching
+
+To implement distance matching, we will need the **Matching** package. If you never have installed the package, you should install them. Let us load the packages:
+
+::: aside
+To install, do install.packages('package_name')
+:::
+
+```{r, eval = FALSE}
+library(Matching)
+```
+
+Now, we can implement the matching as follows.
+
+```{r, eval = FALSE}
+att <- Match(Y = my_data$Y,
+             Tr = my_data$D,
+             X = my_data[,c("X1","X2", "X3")],
+             M = 1,
+             BiasAdjust = TRUE,
+             Weight = 2)
+summary(att)
+```
+
+::: aside
+Replace **Y** with the outcome variable, **D** with the treatment variable, **X1** **X2** **X3** with the confounders, and **my_data** with your data.
+:::
+
+Our results will look something like this:
+
+```{r, echo = FALSE, warning = FALSE, message = FALSE}
+library(tidyverse)
+# data generation
+set.seed(02139)
+N = 1000
+ATE = 2
+  
+data = tibble(
+  X = rbinom(N, 1, 0.5),
+  Q = rnorm(N),
+  P = rnorm(N),
+  U = rnorm(N), 
+  W = rnorm(N),
+  ) %>%
+  mutate(
+    Y0 = 1 + 0.5*X + 0.5*Q + 0.5*P + 0.5*U,
+    Y1 = Y0 + rnorm(N, mean = ATE*1.5, sd = 1)*X + rnorm(N, mean = ATE/2)*(1-X)
+  )
+
+data = data %>%
+  mutate(
+    U2 = rnorm(N),
+    pscore = 1/(1 + exp(-(-1 - 2*X - 1.5*Q + 1.5*W + 0.5*U2))),
+    D = rbinom(N, 1, pscore),
+    Y = Y1*D + Y0*(1-D)
+  )
+
+# estimate the treatment effect
+m.out = Matching::Match(Y = data$Y, Tr = data$D, X = data[,c("X","Q")], M=1, BiasAdjust = TRUE, Weight = 2)
+summary(m.out)
+```
+
+Our causal effect is given by the **Estimate**, which we can see is **1.6197**. Distance matching estimates the **ATT**, so we interpret the estimate as:
+
+> For those who received treatment D, treatment D on average caused a 1.6197 unit change in outcome Y.
+
+This causal effect is only accurate if we have met the assumptions of **conditional ignorability**, **common support**, and **SUTVA**.
+
+::: aside
+Consult @tbl-matching for the assumptions.
+:::
+
+If we look at the p-value, we can see it is less than 0.05. Thus, we have a statistically significant causal effect.
+
+::: aside
+The p-value in this outcome is written in scientific notation. You can always copy into google to see what it equals.
+:::
+
+The output also tells us the **original number of observations**, and the **matched number of observations**. Since matching discards individuals who were not matched, this is a useful measure to see how much of our data we lost.

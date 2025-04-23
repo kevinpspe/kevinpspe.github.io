@@ -1,0 +1,13 @@
+# Synthetic Controls Method
+
+Synthetic Controls is a modern design, used when we have one or a few treated units, with data for many untreated units from many years before the treatment.
+
+```{=html}
+<div>
+  Validity: <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><span> (3/5)</span>
+</div>
+<div>
+  Interpretability:  <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></i><i class="far fa-star"></i><span> (4/5)</span>
+</div>
+```
+<br />

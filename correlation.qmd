@@ -1,0 +1,162 @@
+# Correlation vs. Causation
+
+In this chapter, we discuss why correlation is not causation:
+
+1.  Discuss the concept of **correlation**.
+2.  Discuss how **confounders** mean correlation is not equal to causation.
+3.  How we can go from correlation to causation (called **identification**)
+
+<br />
+
+## What is Correlation?
+
+**Correlation** is how one variable changes when another variable changes.
+
+To calculate a correlation between treatment and control, we divide all the individuals into our study into two groups - individuals who receive the treatment, and individuals who don't (untreated). Then:
+
+-   Find the average outcome $Y$ of those who receive the treatment: $\mean Y_\text{treated}$.
+-   Find the average outcome $Y$ values those who do not get the treatment: $\mean Y_\text{untreated}$.
+
+::: aside
+Note: the bar/line over the $Y$ is the statistical symbol for mean/average.
+:::
+
+Then, compare the two average values by finding their difference:
+
+$$
+\text{correlation} = \mean Y_{\scriptstyle{\text{treated}}} - \mean Y_\text{untreated}
+$$
+
+Our result will either be positive, negative, or zero:
+
+| Type of Correlation                                      | Interpretation                                                                 |
+|:---------------------------------------------------------|:-------------------------------------------------------------------------------|
+| **Positive Correlation** between treatment and outcome.  | Getting the treatment is related with **higher** outcome values on average.    |
+| **Negative Correlation** between treatment and outcome.  | Getting the treatment is related with **lower** outcome values on average.     |
+| **No (Zero) Correlation** between treatment and outcome. | Getting the treatment **has no relationship** with the average outcome values. |
+
+: Note how I used the world **related** - correlation is not causation. {#tbl-corr tbl-colwidths="\[50,50\]" .bordered}
+
+<br />
+
+## Why Correlation is not Causation: Selection Bias
+
+Let us look at this causal question:
+
+::: center-graph
+```{dot}
+//| fig-width: 4
+//| fig-height: 0.45
+digraph example1 {
+  // Nodes
+  D [shape=box, label="Going to the Hospital (D)"]
+  Y [shape=box, label="Health Outcomes (Y)"]
+
+  // Edges
+  D -> Y [label="Causal Effect"]
+
+  // Graph styling
+  rankdir=LR; // Left to right layout
+}
+```
+:::
+
+If we just collect correlation data, we likely find the following:
+
+-   The average health of individuals who got hospital treatment is [low]{.underline}.
+-   The average health of individuals who did not get hospital treatment is [high]{.underline}.
+-   Thus, we find that hospital treatment is correlated with **worse** health outcomes.
+
+But does that mean hospital treatment **causes** worse health outcomes? **No!** The reason we have a negative correlation is because the people who get treated, and the people who do not get treated, are different **before** the treatment.
+
+-   Less healthy people are more likely to go to the hospital to get treated in the first place. That means before the hospital even begins treatment, there are **pre-existing differences** between people getting treatment and people that are untreated.
+
+Thus, we cannot tell if the difference in health outcomes between treated and untreated is due to the treatment, or due to **their pre-existing differences**.
+
+We can illustrate the same point using potential outcomes from last chapter:
+
+|                       | Treated                                                                                                | Untreated                                                                                                  |
+|:----------------------|:-------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------|
+| Observed $\mean Y$    | $\mean Y_\text{treated} = \textcolor{purple}{\mean Y_{\text{treated}}^{(1)}}$                          | $\mean Y_\text{untreated} = \textcolor{purple}{\mean Y_{\text{untreated}}^{(0)}}$                          |
+| Counterfactual        | $\textcolor{red}{\mean Y_{\text{treated}}^{(0)}}$                                                      | $\textcolor{red}{\mean Y_{\text{untreated}}^{(1)}}$                                                        |
+| Real Treatment Effect | $\textcolor{purple}{\mean Y_{\text{treated}}^{(1)}} - \textcolor{red}{\mean Y_{\text{treated}}^{(0)}}$ | $\textcolor{red}{\mean Y_{\text{untreated}}^{(1)}} - \textcolor{purple}{\mean Y_{\text{untreated}}^{(0)}}$ |
+
+: This table uses what we learned about counterfactuals (@tbl-observed) and treatment effects. {#tbl-selbias tbl-colwidths="\[24,38,38\]" .bordered}
+
+We see the real treatment effects. But how do these treatment effects compare to correlation? Recall our definition of correlation:
+
+$$
+\begin{align}
+\text{correlation} & = \mean Y_\text{treated} - \mean Y_\text{untreated} \\
+& = \textcolor{purple}{\mean Y_{\text{treated}}^{(1)}} - \textcolor{purple}{\mean Y_\text{untreated}^{(0)}}
+\end{align}
+$$
+
+If we compare this correlation equation to our treatment effects, in our table, we see:
+
+$$
+\text{if  } \textcolor{purple}{\mean Y_\text{untreated}^{(0)}} ≠ \textcolor{red}{\mean Y_\text{treated}^{(0)}}, \text{ then correlation} ≠ \text{causation}
+$$
+
+-   What are these two values? They are the average potential outcomes of each group (treatment and control), [in the parallel world of not recieving the treatment]{.underline}.
+-   Or we can think of it as the average outcomes **before** treatment.
+
+Thus, if there is a difference between the average outcomes between treated and untreated **before** treatment is administered, then correlation is not equal to causation.
+
+::: aside
+Note: for details on selection bias, see [appendix B](details.qmd).
+:::
+
+<br />
+
+## Confounders and the Cause of Selection Bias
+
+A **confounder** is a third variable that has the following characteristics:
+
+1.  The confounder is correlated (positive or negative) with the outcome variable.
+2.  The confounder causes who gets and doesn't get the treatment.
+3.  The confounder is **not** itself caused by the treatment.
+
+A confounder will cause some people to get the treatment, and others to not get the treatment. A confounder is also correlated with the outcome.
+
+These two facts mean that before we even start the treatment, people who [will get]{.underline} the treatment **differ** from people who [will not get]{.underline} the treatment.
+
+Thus, [**confounders cause selection bias and pre-existing differences.**]{.underline}
+
+For example, in our hospital-health example, a confounder could be **smoking**.
+
+-   Smoking will worsen health outcomes. Someone who smokes is also more likely to visit the hospital with health complications.
+-   That means people who go to the hospital start out with (on average) worse health outcomes than people who did not go to the hospital.
+
+::: aside
+Note: smoking is not the only possible confounder, we just use it as an example. Drinking, age, etc. are all other potential confounders.
+:::
+
+::: center-graph
+```{dot}
+//| fig-width: 4
+//| fig-height: 1.1
+digraph example2 {
+  // Nodes
+  D [shape=box, pos = "0,0!", label="Going to the Hospital (D)"]
+  X [shape=box, pos = "2,0!", label="Smoking (Confounder)"]
+  Y [shape=box, pos = "1,-1!", label="Health Outcomes (Y)"]
+
+  // Edges
+  {rank=same; D -> Y [label="Causal Effect"]}
+  X -> D
+  X -> Y [dir=both]
+  
+  graph [nodesep=0.5, ranksep=0.5]
+
+}
+```
+:::
+
+This means that the treated group has more smokers and people with bad health than the untreated group. This pre-existing difference between treated and untreated means correlation is not equal to causation.
+
+So we now know that correlation is not equal to causation, because **confounders** cause **selection bias**. Thus, if we have a correlation, and we want to find the causal effect, we have to **eliminate the influence of confounders**, which will eliminate the reason correlation does not equal causation.
+
+Thus, researchers need to employ **research designs** that can eliminate the errors caused by confounders, and **identify** the causal effect. The rest of this book explores these research designs.
+
+<br />

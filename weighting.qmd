@@ -1,0 +1,259 @@
+# Weighting Estimator
+
+Weighting is a niche design used when the other designs aren't possible, and we have a good idea of what the confounders are.
+
+```{=html}
+<div>
+  Validity: <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><span> (2/5)</span>
+</div>
+<div>
+  Interpretability:  <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span> (5/5)</span>
+</div>
+```
+<br />
+
+## What is Inverse Probability Weighting?
+
+Let us look back at an earlier example from chapter 2:
+
+::: center-graph
+```{dot}
+//| fig-width: 4
+//| fig-height: 0.45
+digraph example1 {
+  // Nodes
+  D [shape=box, label="Going to the Hospital"]
+  Y [shape=box, label="Health Outcomes"]
+
+  // Edges
+  D -> Y [label="Causal Effect"]
+
+  // Graph styling
+  rankdir=LR; // Left to right layout
+}
+```
+:::
+
+We know we are concerned about confounders. Smoking is a potential confounder.
+
+::: center-graph
+```{dot}
+//| fig-width: 4
+//| fig-height: 1.1
+digraph example2 {
+  // Nodes
+  D [shape=box, pos = "0,0!", label="Going to the Hospital"]
+  X [shape=box, pos = "2,0!", label="Smoking (Confounder)"]
+  Y [shape=box, pos = "1,-1!", label="Health Outcomes"]
+
+  // Edges
+  {rank=same; D -> Y [label="Causal Effect"]}
+  X -> D
+  X -> Y [dir=both]
+  
+  graph [nodesep=0.5, ranksep=0.5]
+
+}
+```
+:::
+
+::: aside
+Note: smoking is not the only possible confounder, we just use it as an example. Drinking, age, etc. are all other potential confounders. To find the causal effect, you must account for all confounders.
+:::
+
+Let's pretend our smoking confounder has 2 categories: people who do not smoke, and frequent smokers. Let's focus on the frequent smokers. We might have 5 frequent smokers in our study: Ava, Ben, Mia, Max, and Zoe. Because smoking makes you more likely to need to go to the hospital, their treatment statuses look like:
+
+| Treated (Hospital) | Untreated |
+|--------------------|-----------|
+| Ava, Mia, Max, Zoe | Ben       |
+
+: {tbl-colwidths="\[50,50\]" .bordered}
+
+::: aside
+The opposite is true for non-smokers: 4 of the 5 are in the untreated group, and only 1 of 5 are in the treated.
+:::
+
+This is a clear selection bias issue - smoking is affecting who gets treated, and smoking also results in worse health outcomes. **Inverse probability weighting** is a solution to solve selection bias. It essentially emphaises certain individuals to "solve" selection bias.
+
+For example, inverse probability weighting would "pretend" that the frequent smokers table from above actually looks like:
+
+| Treated (Hospital) | Untreated          |
+|--------------------|--------------------|
+| Ava, Mia, Max, Zoe | Ben, Ben, Ben, Ben |
+
+: {tbl-colwidths="\[50,50\]" .bordered}
+
+By emphasising Ben and making him worth 4 individuals (and doing something similar in the non-smoking category), inverse probability weighting has essentially solved the selection bias issue by making it so that confounders do not affect the likelihood of getting treatment.
+
+Since confounders influence the likelihood of an individual getting treatment, we can estimate that likelihood of getting treatment, given an individual's confounder levels. Inverse probability weighting decides the weight/emphasis of every individual based on the inverse of their likelihood to receive treatment.
+
+::: aside
+The inverse of the likelihood of getting treatment means that individuals less likely to receive treatment will be weighted more, as shown with Ben above.
+:::
+
+<br />
+
+## When Should You Use this Method?
+
+When can/should you use weighting?
+
+1.  If none of *random experiments*, *regression discontinuity (including fuzzy)*, *differences-in-differences*, or *instrumental variables* are possible.
+2.  If you have a large sample size (generally over 200 observations for both treated and untreated). If you have a smaller sample size, consider *distance matching*.
+3.  You are interested in the ATE instead of the ATT. If you want the ATT, consider *matching*.
+4.  You know and have data on all the confounders in question.
+
+Then, check you have met these [assumptions]{.underline}:
+
+1.  [**Conditional Ignorability**]{.mark}: we must know all confounders, and have data on all confounders, and include all confounders in our estimation.
+2.  We must have a **sufficiently large sample size**, as weighting is inaccurate in smaller sample sizes. We should have at least 200 observations per treatment group (treated and untreated). The more confounders you have, the larger sample you need.
+
+::: {.panel-tabset .nav-pills}
+## My Ratings
+
+```{=html}
+<div>
+  <b>Validity</b>:  <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><span> (2/5)</span>
+</div>
+```
+*How convincing is this method at accurately estimating the true causal effects?*
+
+-   It is often difficult to justify that you have accounted for all possible confounders. The estimator is also biased in small samples, but big-data is pretty available these days.
+-   This makes the design less convincing than all other methods, except *matching* which is about the same level of convincing.
+-   It is often used when we cannot use other better methods.
+
+```{=html}
+<div>
+  <b>Interpretability</b>:  <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span> (5/5)</span>
+</div>
+```
+*How useful are the results from this method?*
+
+-   The estimand is the ATE, probably the most generalisable effect summary.
+
+## Advantages
+
+If none of *random experiments*, *instrumental variables*, *regression discontinuity*, or *differences-in-differences* are possible, you generally resort to *matching* or *weighting*.
+
+Weighting does have some advantages over *matching* in some situations.
+
+1.  **Weighting uncovers the ATE**, while matching can only uncover the ATT. Often, we are interested in the ATE, since the ATT is only the causal effects for people who received the treatment, when we are interested in what will happen when we expand a treatment to others.
+2.  **Weighting** performs better with larger numbers of covariates, especially compared with distance matching.
+
+## Disadvantages
+
+Weighting has disadvantages when compared to other methods.
+
+1.  Inverse probability weighting **requires you to include every single confounder**. This is often not possible. Sometimes, we just do not know enough about a topic to know all the confounders, or we know a confounder, but it is impossible to measure. Methods like *random experiments*, *instrumental variables*, *regression discontinuity*, or *differences-in-differences* can find causal effects without knowing all confounders.
+2.  Inverse probability weighting can be very inaccurate with small samples. This is because the estimator becomes very sensitive to extreme propensity score values, which occurs more often in small samples. In small samples, **distance matching** is more accurate.
+:::
+
+<br />
+
+## Implementing Inverse Probability Weighting
+
+To implement inverse probability weighting, we need to first estimate our propensity scores (likelihood of an individual being treated based on their confounders). The propensity scores will be needed as part of the calculation of weights/emphasis for each individual.
+
+::: {.callout-important appearance="simple"}
+We must use **all confounders** in our prediction of propensity scores. If we leave out any possible confounder, our predicted likelihood of treatment values will be wrong, and our causal estimates will be wrong.
+:::
+
+Before we start, we will need the **MatchIt** and **estimatr** packages. If you never have installed the packages, you should install them. Let us load the packages:
+
+```{r, warning = F, message = F}
+library(MatchIt)
+library(estimatr)
+```
+
+To estimate the propensity score, we can use the **glm()** command:
+
+```{r, eval = FALSE}
+propensity <- glm(D ~ X1 + X2, data = my_data, family = "binomial")
+my_data$pscore <- predict(propensity, type = "response")
+```
+
+::: aside
+Replace **D** with our treatment variable, and **X1** and **X2** with our confounders. Replace **my_data** with our study data.
+:::
+
+Then, we need to create our weights, which are the inverse of the propensity scores:
+
+```{r, eval = FALSE}
+my_data$ipw <- ifelse(mydata$D == 1, 1/my_data$pscore, 1/(1-my_data$pscore))
+```
+
+::: aside
+Replace **D** with our treatment variable, and **my_data** with our study data.
+:::
+
+Finally, we need to use the **lm_robust()** command to estimate our causal effects:
+
+```{r, eval = FALSE}
+ate <- estimatr::lm_robust(Y ~ D, data = my_data, weights = ipw)
+summary(ate)
+```
+
+::: aside
+Replace **Y** with the outcome variable, **D** with the treatment, and **my_data** with our study data.
+:::
+
+This will output the results, which I will show how we interpret in the next section.
+
+<br />
+
+## Interpreting the Results
+
+Our results will look something like this:
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
+library(tidyverse)
+# data generation
+set.seed(02139)
+N = 1000
+ATE = 2
+  
+data = tibble(
+  X = rbinom(N, 1, 0.5),
+  Q = rnorm(N),
+  P = rnorm(N),
+  U = rnorm(N), 
+  W = rnorm(N),
+  ) %>%
+  mutate(
+    Y0 = 1 + 0.5*X + 0.5*Q + 0.5*P + 0.5*U,
+    Y1 = Y0 + rnorm(N, mean = ATE*1.5, sd = 1)*X + rnorm(N, mean = ATE/2)*(1-X)
+  )
+
+data = data %>%
+  mutate(
+    U2 = rnorm(N),
+    pscore = 1/(1 + exp(-(-1 - 2*X - 1.5*Q + 1.5*W + 0.5*U2))),
+    D = rbinom(N, 1, pscore),
+    Y = Y1*D + Y0*(1-D)
+  )
+
+# estimate pscore:
+pscore_mod = glm(D ~ X + Q, data = data, family = "binomial")
+data$pscore_estimate = predict(pscore_mod, type = "response")
+
+# we can calculate our weights using the formula from class:
+data$ipweight = ifelse(data$D == 1, 1/data$pscore_estimate, 1/(1-data$pscore_estimate))
+
+# estimate
+summary(estimatr::lm_robust(Y ~ D, data, weights = ipweight))
+```
+
+Our causal estimate is given in the **coefficients** table, in the **D** (treatment) row and **Estimate** column. We can see the causal effect is estimated to be **1.78**. Propensity score matching estimates the **ATE** (see table @tbl-estimands), so we interpret the estimate as:
+
+> Treatment D on average caused a 1.4733 unit change in outcome Y.
+
+::: {.callout-important appearance="simple"}
+Our causal estimates are only accurate if we used **all confounders** in our propensity score estimation. If we forgot even just one confounder, our estimates will be wrong.
+:::
+
+If we look at the p-value (labelled **Pr(\>\|t\|)**), we can see it is less than 0.05. Thus, we have a statistically significant causal effect.
+
+::: aside
+The p-value in this outcome is written in scientific notation. You can always copy into google to see what it equals.
+:::
+
+<br />

@@ -1,0 +1,127 @@
+# Propensity Score Matching {.unnumbered}
+
+See the page on [matching](matching.qmd) to understand the intuition of matching, and what estimators are available.
+
+<br />
+
+## What is Propensity Score Matching?
+
+As we covered in the page on [matching](matching.qmd), Mia is in our study and receives the treatment. Mia's individual causal effect is:
+
+$$
+\tau_{\text{Mia}} = \textcolor{purple}{Y^{(1)}_\text{Mia}} - \textcolor{red}{Y^{(0)}_\text{Mia}}
+$$
+
+We don't observe Mia's untreated counterfactual, so we have to find someone in the untreated group, who is similar to Mia, to approximate her counterfactual.
+
+Propensity Score Matching matches an individual that is treated (like Mia) with one that is not treated based on how similar their likelihoods of treatment are.
+
+What is a likelihood of treatment? Well we know confounders cause people to get the treatment or not treatment. Thus, using an individual's confounder values, we can estimate their likelihood of getting treatment, called a propensity score.
+
+$$
+\text{propensity score } \pi =Pr(\text{you get treated}) 
+$$
+
+The conventional way of estimating the propensity score (likelihood of getting treated) is to use a logistic regression model, with your treatment status as the dependent variable, and your confounder values as the independent variables. Do not worry too much about the details of this if that does not make sense to you.
+
+However, this means that propensity score matching is vulnerable to how good our logistic regression model used to estimate propensity scores are. This is one of the reasons that genetic matching is now the preferred method for matching - and propensity score matching is used more as a backup.
+
+::: aside
+There are also some criticisms of propensity score outlined [here](https://gking.harvard.edu/publications/why-propensity-scores-should-not-be-used-formatching).
+:::
+
+<br />
+
+## Implementing Propensity Score Matching
+
+To implement propensity score matching, we will need the **Matching** package. If you never have installed the package, you should install them. Let us load the packages:
+
+::: aside
+To install, do install.packages('package_name')
+:::
+
+```{r, eval = FALSE}
+library(Matching)
+```
+
+First, we need to estimate the propensity scores with a logistic regression:
+
+```{r, eval = FALSE}
+propensity <- glm(D ~ X1 + X2,
+                  data = my_data,
+                  family = "binomial")
+my_data$pscore <- predict(propensity,
+                          type = "response")
+```
+
+::: aside
+Replace **D** with our treatment variable, and **X1** and **X2** with our confounders. Replace **my_data** with our study data.
+:::
+
+Now, we can implement the matching as follows.
+
+```{r, eval = FALSE}
+att <- Match(Y = my_data$Y,
+             Tr = my_data$D,
+             X = my_data[,"pscore"],
+             M = 1,
+             BiasAdjust = TRUE,
+             Weight = 2)
+summary(att)
+```
+
+::: aside
+Replace **Y** with the outcome variable, **D** with the treatment variable.
+:::
+
+Our results will look something like this:
+
+```{r, echo = FALSE, warning = FALSE, message = FALSE}
+library(tidyverse)
+# data generation
+set.seed(02139)
+N = 1000
+ATE = 2
+  
+data = tibble(
+  X = rbinom(N, 1, 0.5),
+  Q = rnorm(N),
+  P = rnorm(N),
+  U = rnorm(N), 
+  W = rnorm(N),
+  ) %>%
+  mutate(
+    Y0 = 1 + 0.5*X + 0.5*Q + 0.5*P + 0.5*U,
+    Y1 = Y0 + rnorm(N, mean = ATE*1.5, sd = 1)*X + rnorm(N, mean = ATE/2)*(1-X)
+  )
+
+data = data %>%
+  mutate(
+    U2 = rnorm(N),
+    pscore = 1/(1 + exp(-(-1 - 2*X - 1.5*Q + 1.5*W + 0.5*U2))),
+    D = rbinom(N, 1, pscore),
+    Y = Y1*D + Y0*(1-D)
+  )
+
+# estimate the treatment effect
+m.out = Matching::Match(Y = data$Y, Tr = data$D, X = data[,c("X","Q")], M=1, BiasAdjust = TRUE, Weight = 2)
+summary(m.out)
+```
+
+Our causal effect is given by the **Estimate**, which we can see is **1.6197**. Distance matching estimates the **ATT**, so we interpret the estimate as:
+
+> For those who received treatment D, treatment D on average caused a 1.6197 unit change in outcome Y.
+
+This causal effect is only accurate if we have met the assumptions of **conditional ignorability**, **common support**, and **SUTVA**.
+
+::: aside
+Consult @tbl-matching for the assumptions.
+:::
+
+If we look at the p-value, we can see it is less than 0.05. Thus, we have a statistically significant causal effect.
+
+::: aside
+The p-value in this outcome is written in scientific notation. You can always copy into google to see what it equals.
+:::
+
+The output also tells us the **original number of observations**, and the **matched number of observations**. Since matching discards individuals who were not matched, this is a useful measure to see how much of our data we lost.

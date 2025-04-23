@@ -1,0 +1,13 @@
+# Regression Discontinuity
+
+(Sharp) Regression Discontinuity is a popular design, used when treatment is assigned based on being above or below a cutoff.
+
+```{=html}
+<div>
+  Validity: <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><span> (4/5)</span>
+</div>
+<div>
+  Interpretability:  <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></i><i class="far fa-star"></i><span> (3/5)</span>
+</div>
+```
+<br />
