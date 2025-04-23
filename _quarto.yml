@@ -26,11 +26,6 @@ book:
       chapters:
         - did.qmd
         - synthetic.qmd
-    - part: "Instrumental Variables"
-      chapters:
-        - iv.qmd
-        - fuzzy.qmd
-        - examiner.qmd
     - part: "Matching Estimators"
       chapters:
         - matching.qmd
@@ -40,12 +35,13 @@ book:
     - part: "Weighting Estimators"
       chapters:
         - weighting.qmd
-    - part: "Regression Estimators"
     - "---"
-    - part: "Basics of Statistics"
+    - part: "Statistical Theory"
+    - part: "Econometric Theory"
+    - "---"
     - part: "Multiple Linear Regression"
     - part: "Generalised Linear Model"
-    - part: "Dimensional Reduction"
+    - part: "Statistical Learning"
     - part: "Latent Variable Models"
     - "---"
     - part: "Game Theory"
