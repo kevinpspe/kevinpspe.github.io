@@ -10,14 +10,19 @@ $$
 \text{propensity score } \pi =Pr(\text{you get treated}) 
 $$
 
-The conventional way of estimating the propensity score (likelihood of getting treated) is to use a logistic regression model, with your treatment status as the dependent variable, and your confounder values as the independent variables.
+Then, we match units based on how close they are in propensity scores.
 
-However, this means that propensity score matching is vulnerable to how good our logistic regression model used to estimate propensity scores are.
+::: {.callout-note appearance="minimal"}
+<div>
 
--   This is one of the reasons that genetic matching is now the preferred method for matching - and propensity score matching is used more as a backup.
+**Kevin's Estimator Score**: <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i> (2/5)
 
-::: aside
-There are also some criticisms of propensity score outlined [here](https://gking.harvard.edu/publications/why-propensity-scores-should-not-be-used-formatching).
+-   Propensity score matching performs worse than genetic matching.
+-   Propensity score matching is much quicker and easier to estimate than genetic matching, so for large datasets, it is useful.
+-   You should not use propensity score matching on small datasets, as it can be badly biased.
+-   There are also some criticisms of propensity score outlined [here](https://gking.harvard.edu/publications/why-propensity-scores-should-not-be-used-formatching).
+
+</div>
 :::
 
 <br />

@@ -28,31 +28,29 @@ If we just collect correlation data, we likely find the following:
 -   The average health of individuals who did not get hospital treatment is [high]{.underline}.
 -   Thus, we find that hospital treatment is correlated with **worse** health outcomes.
 
-But does that mean hospital treatment **causes** worse health outcomes? **No!** The reason we have a negative correlation is because the people who get treated, and the people who do not get treated, are different **before** the treatment.
+But does that mean hospital treatment **causes** worse health outcomes? **No!**
 
+-   The reason we have a negative correlation is because the people who get treated, and the people who do not get treated, are different **before** the treatment.
 -   Less healthy people are more likely to go to the hospital to get treated in the first place. That means before the hospital even begins treatment, there are **pre-existing differences** between people getting treatment and people that are untreated.
 
 Thus, we cannot tell if the difference in health outcomes between treated and untreated is due to the treatment, or due to **their pre-existing differences**.
 
 <br />
 
-We can illustrate the same point using potential outcomes from last chapter:
+We can illustrate the same point using potential outcomes:
 
 |                       | Treated                                                                                                | Untreated                                                                                                  |
-|:-----------------|:--------------------------|:--------------------------|
+|:--------------|:---------------------------|:----------------------------|
 | Observed $\mean Y$    | $\mean Y_\text{treated} = \textcolor{purple}{\mean Y_{\text{treated}}^{(1)}}$                          | $\mean Y_\text{untreated} = \textcolor{purple}{\mean Y_{\text{untreated}}^{(0)}}$                          |
 | Counterfactual        | $\textcolor{red}{\mean Y_{\text{treated}}^{(0)}}$                                                      | $\textcolor{red}{\mean Y_{\text{untreated}}^{(1)}}$                                                        |
 | Real Treatment Effect | $\textcolor{purple}{\mean Y_{\text{treated}}^{(1)}} - \textcolor{red}{\mean Y_{\text{treated}}^{(0)}}$ | $\textcolor{red}{\mean Y_{\text{untreated}}^{(1)}} - \textcolor{purple}{\mean Y_{\text{untreated}}^{(0)}}$ |
 
 : This table uses what we learned about counterfactuals (@tbl-observed) and treatment effects. {#tbl-selbias tbl-colwidths="\[24,38,38\]" .bordered}
 
-We see the real treatment effects. But how do these treatment effects compare to correlation:
+Now compare the treatment effects to correlation:
 
 $$
-\begin{align}
-\text{correlation} & = \mean Y_\text{treated} - \mean Y_\text{untreated} \\
-& = \textcolor{purple}{\mean Y_{\text{treated}}^{(1)}} - \textcolor{purple}{\mean Y_\text{untreated}^{(0)}}
-\end{align}
+\text{corr.} = \mean Y_\text{treated} - \mean Y_\text{untreated} = \textcolor{purple}{\mean Y_{\text{treated}}^{(1)}} - \textcolor{purple}{\mean Y_\text{untreated}^{(0)}}
 $$
 
 ::: aside
@@ -65,9 +63,6 @@ $$
 \text{if  } \textcolor{purple}{\mean Y_\text{untreated}^{(0)}} ≠ \textcolor{red}{\mean Y_\text{treated}^{(0)}}, \text{ then correlation} ≠ \text{causation}
 $$
 
--   What are these two values? They are the average potential outcomes of each group (treatment and control), [in the parallel world of not recieving the treatment]{.underline}.
--   Or we can think of it as the average outcomes **before** treatment.
-
 Thus, if there is a difference between the average outcomes between treated and untreated **before** treatment is administered, then correlation is not equal to causation.
 
 <br />
@@ -77,14 +72,6 @@ A **confounder** is a third variable that has the following characteristics:
 1.  The confounder is correlated (positive or negative) with the outcome variable.
 2.  The confounder causes who gets and doesn't get the treatment.
 3.  The confounder is **not** itself caused by the treatment.
-
-A confounder will cause some people to get the treatment, and others to not get the treatment. A confounder is also correlated with the outcome.
-
-These two facts mean that before we even start the treatment, people who [will get]{.underline} the treatment **differ** from people who [will not get]{.underline} the treatment.
-
-Thus, [**confounders cause selection bias and pre-existing differences.**]{.underline}
-
-<br />
 
 For example, in our hospital-health example, a confounder could be **smoking**.
 
@@ -117,3 +104,5 @@ digraph example2 {
 :::
 
 This means that the treated group has more smokers and people with bad health than the untreated group. This pre-existing difference between treated and untreated means correlation is not equal to causation.
+
+**Confounders cause selection bias**. We must account for confounders to uncover causal effects.

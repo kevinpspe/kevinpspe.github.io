@@ -14,10 +14,17 @@ Where $i$ and $j$ are two units we want to measure the distance between, $\b x$ 
 
 It is basically a way to measure distance across multiple dimensions, adjusting for the scale at which confounders are measured. The treated and untreated units that have the smallest distance between them are matched together.
 
-Distance matching is not the best method of matching - it tends to struggle with anything more than 5 confounders, because of the **curse of dimensionality**.
+::: {.callout-note appearance="minimal"}
+<div>
 
--   This basically means its hard to find close matches when you have more confounders.
--   When you have more confoundners, you should instead use genetic matching (preferred) or propensity score matching.
+**Kevin's Estimator Score**: <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i> (2/5)
+
+-   Distance matching performs worse than genetic matching.
+-   Distance matching is much quicker and easier to estimate than genetic matching, so for large datasets, it is useful.
+-   You should not use distance matching on any dataset with more than 4 confounders, as it is badly biased by the curse of dimensionality.
+
+</div>
+:::
 
 <br />
 

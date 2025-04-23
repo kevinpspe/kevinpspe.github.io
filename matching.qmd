@@ -23,21 +23,10 @@ $$
 Having approximated Mia's counterfactual, we can now estimate Mia's causal effect, as both quantities are observed:
 
 $$
-\begin{align}
-\widehat\tau_{\text{Mia}} & = \textcolor{purple}{Y^{(1)}_\text{Mia}} - \textcolor{purple}{Y^{(0)}_\text{Ava}} \\ 
-& = Y_\text{Mia} - Y_\text{Ava}
-\end{align}
+\widehat\tau_{\text{Mia}} = \textcolor{purple}{Y^{(1)}_\text{Mia}} - \textcolor{purple}{Y^{(0)}_\text{Ava}} = Y_\text{Mia} - Y_\text{Ava}
 $$
 
 We can do the matching for every single person in the treatment group, then average all of these individual causal effects to get an estimate of the **ATT**.
-
-$$
-\widehat\tau_\text{ATT} = \text{Average of all } \widehat\tau \text{ of each pair}
-$$
-
-::: aside
-Matching only estimates the ATT, not ATE.
-:::
 
 By matching individuals with the **same/very similar confounder values**, we eliminate pre-existing differences, since our matched pairs will all be similar to each other. Thus, selection bias will not be a concern.
 
@@ -45,24 +34,44 @@ By matching individuals with the **same/very similar confounder values**, we eli
 
 For matching to work, we must meet the following three assumptions:
 
-| Assumption                                              | Description                                                                                                                                                                                                                               | How to Check                                                                                                                                                                                   |
-|:--------------|:-------------------------------|:------------------------|
-| [Conditional Ignorability]{.mark}                       | This essentially means that when we match, we must account for all possible confounders.                                                                                                                                                  | We can conduct balance checks. This will be shown in the estimator pages.                                                                                                                      |
-| [Common Support]{.mark}                                 | This means that no matter what an individual's confounder values are, they always have at least a chance of being put into both treatment and control. Or in other words, no one can have a 100% chance of being in treatment or control. | We can check if our sample has at least one treated and one untreated per every confounder value. However, this isn't a foolproof check, and its probably better to use theoretical reasoning. |
-| [Stable Unit Treatment Value Assumption (SUTVA)]{.mark} | Each person's treatment status only affects their own outcome, not anyone else. This means that if Ava is treated, that does not affect Mia's outcome.                                                                                    | We have to use our own theoretical reasoning.                                                                                                                                                  |
++---------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------+
+| Assumption                                              | Description                                                                                                                                               | How to Check                                                                                                                          |
++:========================================================+:==========================================================================================================================================================+:======================================================================================================================================+
+| [Conditional Ignorability]{.mark}                       | This means that when we match, we must account for all possible confounders.                                                                              | We can conduct balance checks.                                                                                                        |
++---------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------+
+| [Common Support]{.mark}                                 | This means no one can have a 100% chance of being in treatment or control. They always have a chance to be in either, no matter their confounding values. | Hard to check. One way to sort of check is to see if you have a treated and untreated unit for every confounder value in your sample. |
++---------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------+
+| [Stable Unit Treatment Value Assumption (SUTVA)]{.mark} | This means that if Ava is treated, that does not affect Mia's outcome (and for any other 2 individuals).                                                  | We have to use our own theoretical reasoning.                                                                                         |
++---------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------+
 
-: Ensure all of these assumptions are met if you are using matching {#tbl-matching tbl-colwidths="\[22,39,39\]" .bordered}
+: Ensure all of these assumptions are met if you are using matching {#tbl-matching tbl-colwidths="\[22,43,35\]" .bordered}
 
 <br />
 
 There are three estimators to implement matching. These are essentially different ways to calculate which units are "closest" to each other for matching.
 
-| Estimator                                        | Description                                                                                                                 | When to Use                                                                                    |
-|-----------------|-------------------------------|------------------------|
-| [[Distance Matching](distance.qmd)]{.mark}       | Matches units by finding the units with the closest confounder values.                                                      | When genetic matching is not possible, and we have less than 5 confounders and a small sample. |
-| [[Propensity Score Matching](pscore.qmd)]{.mark} | Matches units based on how close their likelihood of receiving treatment is.                                                | When genetic matching is not possible, and we have a large sample.                             |
-| [[Genetic Matching](genetic.qmd)]{.mark}         | Distance matching, but with an additional weights/emphasis parameter putting more emphasis on some confounders than others. | Whenever possible. Can require a good computer and take long for large data sets.              |
++--------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------+
+| Estimator                                        | Kevin's Rating                                                                                                                          | When to Use                                                                                    |
++==================================================+=========================================================================================================================================+================================================================================================+
+| [[Distance Matching](distance.qmd)]{.mark}       | <div>                                                                                                                                   | When genetic matching is not possible, and we have less than 5 confounders and a small sample. |
+|                                                  |                                                                                                                                         |                                                                                                |
+|                                                  | <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i> |                                                                                                |
+|                                                  |                                                                                                                                         |                                                                                                |
+|                                                  | </div>                                                                                                                                  |                                                                                                |
++--------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------+
+| [[Propensity Score Matching](pscore.qmd)]{.mark} | <div>                                                                                                                                   | When genetic matching is not possible, and we have a large sample.                             |
+|                                                  |                                                                                                                                         |                                                                                                |
+|                                                  | <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i> |                                                                                                |
+|                                                  |                                                                                                                                         |                                                                                                |
+|                                                  | </div>                                                                                                                                  |                                                                                                |
++--------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------+
+| [[Genetic Matching](genetic.qmd)]{.mark}         | <div>                                                                                                                                   | Whenever possible. Can require a good computer and take long for large data sets.              |
+|                                                  |                                                                                                                                         |                                                                                                |
+|                                                  | <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i> |                                                                                                |
+|                                                  |                                                                                                                                         |                                                                                                |
+|                                                  | </div>                                                                                                                                  |                                                                                                |
++--------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------+
 
-: {tbl-colwidths="\[22,39,39\]" .bordered}
+: {tbl-colwidths="\[27,33,40\]" .bordered}
 
 Use the sidebar or links in the table to access each estimator's page.

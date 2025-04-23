@@ -171,18 +171,14 @@ window.Quarto = {
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
-      <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Instrumental Variables</span></span>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
  <span class="menu-text">Regression Discontinuity</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./rdd.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Regression Discontinuity</span></a>
@@ -197,13 +193,13 @@ window.Quarto = {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
  <span class="menu-text">Differences-in-Differences</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./did.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Differences-in-Differences</span></a>
@@ -218,13 +214,13 @@ window.Quarto = {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
  <span class="menu-text">Matching Estimators</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./matching.html" class="sidebar-item-text sidebar-link active">
@@ -253,13 +249,13 @@ window.Quarto = {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false">
  <span class="menu-text">Weighting Estimators</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./weighting.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Weighting Estimator</span></a>
@@ -334,29 +330,20 @@ window.Quarto = {
 \]</span></p>
 <p>Having approximated Mia’s counterfactual, we can now estimate Mia’s causal effect, as both quantities are observed:</p>
 <p><span class="math display">\[
-\begin{align}
-\widehat\tau_{\text{Mia}} &amp; = \textcolor{purple}{Y^{(1)}_\text{Mia}} - \textcolor{purple}{Y^{(0)}_\text{Ava}} \\
-&amp; = Y_\text{Mia} - Y_\text{Ava}
-\end{align}
+\widehat\tau_{\text{Mia}} = \textcolor{purple}{Y^{(1)}_\text{Mia}} - \textcolor{purple}{Y^{(0)}_\text{Ava}} = Y_\text{Mia} - Y_\text{Ava}
 \]</span></p>
 <p>We can do the matching for every single person in the treatment group, then average all of these individual causal effects to get an estimate of the <strong>ATT</strong>.</p>
-<p><span class="math display">\[
-\widehat\tau_\text{ATT} = \text{Average of all } \widehat\tau \text{ of each pair}
-\]</span></p>
-
-<div class="no-row-height column-margin column-container"><div class="margin-aside">
-<p>Matching only estimates the ATT, not ATE.</p>
-</div></div><p>By matching individuals with the <strong>same/very similar confounder values</strong>, we eliminate pre-existing differences, since our matched pairs will all be similar to each other. Thus, selection bias will not be a concern.</p>
+<p>By matching individuals with the <strong>same/very similar confounder values</strong>, we eliminate pre-existing differences, since our matched pairs will all be similar to each other. Thus, selection bias will not be a concern.</p>
 <p><br></p>
 <p>For matching to work, we must meet the following three assumptions:</p>
-<div id="tbl-matching" class="bordered quarto-float quarto-figure quarto-figure-center anchored" data-tbl-colwidths="[22,39,39]">
+<div id="tbl-matching" class="bordered quarto-float quarto-figure quarto-figure-center anchored" data-tbl-colwidths="[22,43,35]">
 <figure class="quarto-float quarto-float-tbl figure">
 <div aria-describedby="tbl-matching-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="table-bordered table">
 <colgroup>
 <col style="width: 22%">
-<col style="width: 39%">
-<col style="width: 39%">
+<col style="width: 43%">
+<col style="width: 35%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -368,17 +355,17 @@ window.Quarto = {
 <tbody>
 <tr class="odd">
 <td style="text-align: left;"><mark>Conditional Ignorability</mark></td>
-<td style="text-align: left;">This essentially means that when we match, we must account for all possible confounders.</td>
-<td style="text-align: left;">We can conduct balance checks. This will be shown in the estimator pages.</td>
+<td style="text-align: left;">This means that when we match, we must account for all possible confounders.</td>
+<td style="text-align: left;">We can conduct balance checks.</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><mark>Common Support</mark></td>
-<td style="text-align: left;">This means that no matter what an individual’s confounder values are, they always have at least a chance of being put into both treatment and control. Or in other words, no one can have a 100% chance of being in treatment or control.</td>
-<td style="text-align: left;">We can check if our sample has at least one treated and one untreated per every confounder value. However, this isn’t a foolproof check, and its probably better to use theoretical reasoning.</td>
+<td style="text-align: left;">This means no one can have a 100% chance of being in treatment or control. They always have a chance to be in either, no matter their confounding values.</td>
+<td style="text-align: left;">Hard to check. One way to sort of check is to see if you have a treated and untreated unit for every confounder value in your sample.</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><mark>Stable Unit Treatment Value Assumption (SUTVA)</mark></td>
-<td style="text-align: left;">Each person’s treatment status only affects their own outcome, not anyone else. This means that if Ava is treated, that does not affect Mia’s outcome.</td>
+<td style="text-align: left;">This means that if Ava is treated, that does not affect Mia’s outcome (and for any other 2 individuals).</td>
 <td style="text-align: left;">We have to use our own theoretical reasoning.</td>
 </tr>
 </tbody>
@@ -393,31 +380,37 @@ Table&nbsp;1: Ensure all of these assumptions are met if you are using matching
 <p>There are three estimators to implement matching. These are essentially different ways to calculate which units are “closest” to each other for matching.</p>
 <table class="table-bordered table">
 <colgroup>
-<col style="width: 22%">
-<col style="width: 39%">
-<col style="width: 39%">
+<col style="width: 27%">
+<col style="width: 33%">
+<col style="width: 40%">
 </colgroup>
 <thead>
 <tr class="header">
 <th>Estimator</th>
-<th>Description</th>
+<th>Kevin’s Rating</th>
 <th>When to Use</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td><mark><a href="./distance.html">Distance Matching</a></mark></td>
-<td>Matches units by finding the units with the closest confounder values.</td>
+<td><div>
+<p><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></p>
+</div></td>
 <td>When genetic matching is not possible, and we have less than 5 confounders and a small sample.</td>
 </tr>
 <tr class="even">
 <td><mark><a href="./pscore.html">Propensity Score Matching</a></mark></td>
-<td>Matches units based on how close their likelihood of receiving treatment is.</td>
+<td><div>
+<p><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></p>
+</div></td>
 <td>When genetic matching is not possible, and we have a large sample.</td>
 </tr>
 <tr class="odd">
 <td><mark><a href="./genetic.html">Genetic Matching</a></mark></td>
-<td>Distance matching, but with an additional weights/emphasis parameter putting more emphasis on some confounders than others.</td>
+<td><div>
+<p><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></p>
+</div></td>
 <td>Whenever possible. Can require a good computer and take long for large data sets.</td>
 </tr>
 </tbody>

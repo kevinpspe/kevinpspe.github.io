@@ -2,9 +2,9 @@
 
 <br />
 
-Genetic matching is an extension of [distance matching](distance.qmd). Like distance matching, genetic matching matches an individual that is treated (like Mia) with one that is not treated based on how **close** their confounding values are.
+Like [distance matching](distance.qmd), genetic matching matches an individual that is treated (like Mia) with one that is not treated based on how **close** their confounding values are.
 
-However, unlike distance matching, which uses a standard mahalanobis distance, genetic matching uses a mahalanobis distance that puts different weights/emphasis on different confounders:
+However, instead of using a standard mahalanobis distance, genetic matching uses a mahalanobis distance that puts different weights/emphasis on different confounders:
 
 $$
 \delta_{i, j}(\b W) = \sqrt{(\b x_i - \b x_j)^\top (\b\Sigma_x^{-1/2})^\top \b W \b\Sigma_x^{-1/2}  (\b x_i - \b x_j)}
@@ -14,13 +14,20 @@ $$
 Where $i$ and $j$ are two units we want to measure the distance between, $\b x$ are their confounder values, and $\b\Sigma_x$ is the covariance matrix of confounders. $\b W$ is a weights matrix.
 :::
 
-It is basically a way to measure distance across multiple different confounders, adjusting for the scale at which confounders are measured, and weighting some confounders more than others.
+It is basically a way to measure distance across multiple dimensions, adjusting for the scale at which confounders are measured, and weighting some confounders more.
 
-The weights $\b W$ are estimated to make the treated and untreated groups as similar as possible. Then, the treated and untreated units that have the smallest distance between them are matched together.
+The weights $\b W$ are estimated to make the treated and untreated groups as similar as possible. Then, matching is done with the units that have the smallest distance.
 
-Genetic matching has been shown by studies to perform better in causal estimation than distance or propensity score matching.
+::: {.callout-note appearance="minimal"}
+<div>
 
+**Kevin's Estimator Score**: <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i> (4/5)
+
+-   Genetic matching has been shown by studies to be the best performing matching estimator.
 -   However, genetic matching is also more computationally intensive, so for large data sets, propensity score matching might be quicker.
+
+</div>
+:::
 
 <br />
 

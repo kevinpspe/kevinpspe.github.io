@@ -171,18 +171,14 @@ window.Quarto = {
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
-      <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Instrumental Variables</span></span>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
  <span class="menu-text">Regression Discontinuity</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./rdd.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Regression Discontinuity</span></a>
@@ -197,13 +193,13 @@ window.Quarto = {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
  <span class="menu-text">Differences-in-Differences</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./did.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Differences-in-Differences</span></a>
@@ -215,6 +211,10 @@ window.Quarto = {
   </div>
 </li>
       </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">Instrumental Variables</span></span>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
@@ -364,13 +364,14 @@ window.Quarto = {
 <li>The average health of individuals who did not get hospital treatment is <u>high</u>.</li>
 <li>Thus, we find that hospital treatment is correlated with <strong>worse</strong> health outcomes.</li>
 </ul>
-<p>But does that mean hospital treatment <strong>causes</strong> worse health outcomes? <strong>No!</strong> The reason we have a negative correlation is because the people who get treated, and the people who do not get treated, are different <strong>before</strong> the treatment.</p>
+<p>But does that mean hospital treatment <strong>causes</strong> worse health outcomes? <strong>No!</strong></p>
 <ul>
+<li>The reason we have a negative correlation is because the people who get treated, and the people who do not get treated, are different <strong>before</strong> the treatment.</li>
 <li>Less healthy people are more likely to go to the hospital to get treated in the first place. That means before the hospital even begins treatment, there are <strong>pre-existing differences</strong> between people getting treatment and people that are untreated.</li>
 </ul>
 <p>Thus, we cannot tell if the difference in health outcomes between treated and untreated is due to the treatment, or due to <strong>their pre-existing differences</strong>.</p>
 <p><br></p>
-<p>We can illustrate the same point using potential outcomes from last chapter:</p>
+<p>We can illustrate the same point using potential outcomes:</p>
 <div id="tbl-selbias" class="bordered quarto-float quarto-figure quarto-figure-center anchored" data-tbl-colwidths="[24,38,38]">
 <figure class="quarto-float quarto-float-tbl figure">
 <div aria-describedby="tbl-selbias-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -411,12 +412,9 @@ Table&nbsp;2.1: This table uses what we learned about counterfactuals (<a href="
 </figcaption>
 </figure>
 </div>
-<p>We see the real treatment effects. But how do these treatment effects compare to correlation:</p>
+<p>Now compare the treatment effects to correlation:</p>
 <p><span class="math display">\[
-\begin{align}
-\text{correlation} &amp; = \mean Y_\text{treated} - \mean Y_\text{untreated} \\
-&amp; = \textcolor{purple}{\mean Y_{\text{treated}}^{(1)}} - \textcolor{purple}{\mean Y_\text{untreated}^{(0)}}
-\end{align}
+\text{corr.} = \mean Y_\text{treated} - \mean Y_\text{untreated} = \textcolor{purple}{\mean Y_{\text{treated}}^{(1)}} - \textcolor{purple}{\mean Y_\text{untreated}^{(0)}}
 \]</span></p>
 
 <div class="no-row-height column-margin column-container"><div class="margin-aside">
@@ -425,10 +423,6 @@ Table&nbsp;2.1: This table uses what we learned about counterfactuals (<a href="
 <p><span class="math display">\[
 \text{if  } \textcolor{purple}{\mean Y_\text{untreated}^{(0)}} ≠ \textcolor{red}{\mean Y_\text{treated}^{(0)}}, \text{ then correlation} ≠ \text{causation}
 \]</span></p>
-<ul>
-<li>What are these two values? They are the average potential outcomes of each group (treatment and control), <u>in the parallel world of not recieving the treatment</u>.</li>
-<li>Or we can think of it as the average outcomes <strong>before</strong> treatment.</li>
-</ul>
 <p>Thus, if there is a difference between the average outcomes between treated and untreated <strong>before</strong> treatment is administered, then correlation is not equal to causation.</p>
 <p><br></p>
 <p>A <strong>confounder</strong> is a third variable that has the following characteristics:</p>
@@ -437,10 +431,6 @@ Table&nbsp;2.1: This table uses what we learned about counterfactuals (<a href="
 <li>The confounder causes who gets and doesn’t get the treatment.</li>
 <li>The confounder is <strong>not</strong> itself caused by the treatment.</li>
 </ol>
-<p>A confounder will cause some people to get the treatment, and others to not get the treatment. A confounder is also correlated with the outcome.</p>
-<p>These two facts mean that before we even start the treatment, people who <u>will get</u> the treatment <strong>differ</strong> from people who <u>will not get</u> the treatment.</p>
-<p>Thus, <u><strong>confounders cause selection bias and pre-existing differences.</strong></u></p>
-<p><br></p>
 <p>For example, in our hospital-health example, a confounder could be <strong>smoking</strong>.</p>
 <ul>
 <li>Smoking will worsen health outcomes. Someone who smokes is also more likely to visit the hospital with health complications.</li>
@@ -506,6 +496,7 @@ Table&nbsp;2.1: This table uses what we learned about counterfactuals (<a href="
 </div>
 </div>
 <p>This means that the treated group has more smokers and people with bad health than the untreated group. This pre-existing difference between treated and untreated means correlation is not equal to causation.</p>
+<p><strong>Confounders cause selection bias</strong>. We must account for confounders to uncover causal effects.</p>
 
 
 

@@ -17,7 +17,6 @@ book:
         - frameworks.qmd
         - correlation.qmd
         - randomisation.qmd
-    - part: "Instrumental Variables"
     - part: "Regression Discontinuity"
       chapters:
         - rdd.qmd

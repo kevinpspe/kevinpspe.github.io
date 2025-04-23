@@ -170,18 +170,14 @@ window.Quarto = {
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
-      <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Instrumental Variables</span></span>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
  <span class="menu-text">Regression Discontinuity</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./rdd.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Regression Discontinuity</span></a>
@@ -196,13 +192,13 @@ window.Quarto = {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
  <span class="menu-text">Differences-in-Differences</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./did.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Differences-in-Differences</span></a>
@@ -214,6 +210,10 @@ window.Quarto = {
   </div>
 </li>
       </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">Instrumental Variables</span></span>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
@@ -319,8 +319,45 @@ window.Quarto = {
 
 
 <p><br></p>
-<p>In causal inference, we are concerned with how a <strong>treatment</strong> (notated <span class="math inline">\(D\)</span>) causes some change in the <strong>outcome</strong> variable (notated <span class="math inline">\(Y\)</span>).</p>
-<p>Imagine we have two hypothetical parallel worlds that are copies of each other. Both of these worlds are identical except for one aspect: the treatment. In one world, you get the treatment, and in the other parallel world, you do not get the treatment:</p>
+<p>In causal inference, we are interested in causal questions:</p>
+<div class="center-graph">
+<div class="cell" data-fig-width="4" data-fig-height="0.5" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<svg width="384" height="48" viewbox="0.00 0.00 306.51 44.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 40)">
+<title>example1</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-40 302.51,-40 302.51,4 -4,4"></polygon>
+<!-- D -->
+<g id="node1" class="node">
+<title>D</title>
+<polygon fill="none" stroke="black" points="96.69,-36 -0.23,-36 -0.23,0 96.69,0 96.69,-36"></polygon>
+<text text-anchor="middle" x="48.23" y="-13.8" font-family="Times,serif" font-size="14.00">Treatment (D)</text>
+</g>
+<!-- Y -->
+<g id="node2" class="node">
+<title>Y</title>
+<polygon fill="none" stroke="black" points="298.63,-36 208.13,-36 208.13,0 298.63,0 298.63,-36"></polygon>
+<text text-anchor="middle" x="253.38" y="-13.8" font-family="Times,serif" font-size="14.00">Outcome (Y)</text>
+</g>
+<!-- D&#45;&gt;Y -->
+<g id="edge1" class="edge">
+<title>D-&gt;Y</title>
+<path fill="none" stroke="black" d="M96.6,-18C126.84,-18 166.13,-18 197.68,-18"></path>
+<polygon fill="black" stroke="black" points="198.07,-21.5 208.07,-18 198.07,-14.5 198.07,-21.5"></polygon>
+<text text-anchor="middle" x="152.36" y="-22.2" font-family="Times,serif" font-size="14.00">Causal Effect</text>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div>
+<p>Imagine we have two hypothetical parallel worlds that are copies of each other. Both of these worlds are identical except for one aspect: the treatment. In one world, kevin gets the treatment, and in the other parallel world, kevin doesn’t get the treatment:</p>
 <div id="tbl-potout" class="bordered quarto-float quarto-figure quarto-figure-center anchored" data-tbl-colwidths="[70,30]">
 <figure class="quarto-float quarto-float-tbl figure">
 <div aria-describedby="tbl-potout-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -337,12 +374,12 @@ window.Quarto = {
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">Individual <span class="math inline">\(i\)</span> Does not Receive Treatment: <span class="math inline">\(D_i = 0\)</span></td>
-<td style="text-align: left;"><span class="math inline">\(\C\)</span></td>
+<td style="text-align: left;">Kevin does not Receive Treatment: <span class="math inline">\(D_\text{Kevin} = 0\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\purple{Y_\text{Kevin}^{(0)}}\)</span></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Individual <span class="math inline">\(i\)</span> Receives Treatment: <span class="math inline">\(D_i = 1\)</span></td>
-<td style="text-align: left;"><span class="math inline">\(\T\)</span></td>
+<td style="text-align: left;">Kevin Receives Treatment: <span class="math inline">\(D_\text{Kevin} = 1\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\purple{Y_\text{Kevin}^{(1)}}\)</span></td>
 </tr>
 </tbody>
 </table>
@@ -354,7 +391,7 @@ Table&nbsp;1.1: The (0) and (1) are not exponents - they label the outcome <span
 </div>
 <p>The two hypothetical parallel worlds are <u>identical</u> to each other, with the only difference being in one world, you get the treatment. Thus, any difference in outcomes between the two worlds must be the <strong>causal effect</strong> of the treatment:</p>
 <p><span class="math display">\[
-\tau_i = \T - \C
+\tau_\text{Kevin} = \purple{Y_\text{Kevin}^{(1)}} - \purple{Y_\text{Kevin}^{(0)}}
 \]</span></p>
 
 <div class="no-row-height column-margin column-container"><div class="margin-aside">
@@ -379,14 +416,14 @@ Table&nbsp;1.1: The (0) and (1) are not exponents - they label the outcome <span
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">Scenario 1: <span class="math inline">\(i\)</span> receives treatment</td>
-<td style="text-align: left;"><span class="math inline">\(Y_i = \T\)</span></td>
-<td style="text-align: left;"><span class="math inline">\(\Cred\)</span></td>
+<td style="text-align: left;">Scenario 1: Kevin receives treatment</td>
+<td style="text-align: left;"><span class="math inline">\(Y_\text{Kevin}= \purple{Y_\text{Kevin}^{(1)}}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\red{Y_\text{Kevin}^{(0)}}\)</span></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Scenario 2: <span class="math inline">\(i\)</span> did not receive treatment</td>
-<td style="text-align: left;"><span class="math inline">\(Y_i = \C\)</span></td>
-<td style="text-align: left;"><span class="math inline">\(\Tred\)</span></td>
+<td style="text-align: left;">Scenario 2: Kevin did not receive treatment</td>
+<td style="text-align: left;"><span class="math inline">\(Y_\text{Kevin} = \purple{Y_\text{Kevin}^{(0)}}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\red{Y_\text{Kevin}^{(1)}}\)</span></td>
 </tr>
 </tbody>
 </table>
