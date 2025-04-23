@@ -41,7 +41,7 @@ book:
     - part: "Statistical Learning"
     - part: "Latent Variable Models"
     - "---"
-    - part: "Other Resources"
+    - part: "Game Theory"
     
 bibliography: references.bib
 

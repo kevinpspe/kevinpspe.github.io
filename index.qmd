@@ -8,6 +8,8 @@ Most of these resources relate around causal inference, statistics, and game the
 
 I am continuously adding more to this collection as a learn more. Some parts may be incomplete, and you may see some changes in existing parts.
 
+This isn't meant to teach you stuff - more of a supplement + review + implementation guide so don't use it to self-learn that might not work as well.
+
 ::: aside
 :::
 

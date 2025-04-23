@@ -1,13 +1,12 @@
 [
   {
-    "objectID": "distance.html",
-    "href": "distance.html",
-    "title": "Distance Matching",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Kevin’s PSPE Resources",
     "section": "",
-    "text": "Distance matching matches an individual that is treated (like Mia) with one that is not treated based on how close their confounding values are. We define closeness by Mahalanobis distance:\n\\[\n\\delta_{i, j} = \\sqrt{(\\b x_i - \\b x_j)^\\top \\b\\Sigma_x^{-1} (\\b x_i - \\b x_j)}\n\\]\n\n\nWhere \\(i\\) and \\(j\\) are two units we want to measure the distance between, \\(\\b x\\) are their confounder values, and \\(\\b\\Sigma_x\\) is the covariance matrix of confounders.\nIt is basically a way to measure distance across multiple dimensions, adjusting for the scale at which confounders are measured. The treated and untreated units that have the smallest distance between them are matched together.\nDistance matching is not the best method of matching - it tends to struggle with anything more than 5 confounders, because of the curse of dimensionality.\n\nThis basically means its hard to find close matches when you have more confounders.\nWhen you have more confoundners, you should instead use genetic matching (preferred) or propensity score matching.\n\n\nTo implement distance matching, we will need the Matching package.\n\nlibrary(Matching)\n\nNow, we can implement the matching as follows.\n\natt &lt;- Match(Y = my_data$Y,\n             Tr = my_data$D,\n             X = my_data[,c(\"X1\",\"X2\", \"X3\")],\n             M = 1,\n             BiasAdjust = TRUE,\n             Weight = 2)\nsummary(att)\n\n\n\nBiasAdjust is a complex method that reduces the bias in matching due to imperfect matches. You can change M (number of matches per treated unit) for better matches.\nOur output estimate will be the ATT.",
+    "text": "Welcome\n\n\n\n\n\nThis is a collection of resources and notes for political science and political economy that I have collected throughout my postgraduate degree at the London School of Economics\nMost of these resources relate around causal inference, statistics, and game theory.\nI am continuously adding more to this collection as a learn more. Some parts may be incomplete, and you may see some changes in existing parts.\nThis isn’t meant to teach you stuff - more of a supplement + review + implementation guide so don’t use it to self-learn that might not work as well.",
     "crumbs": [
-      "Matching Estimators",
-      "Distance Matching"
+      "Welcome"
     ]
   },
   {
@@ -96,6 +95,17 @@
     "crumbs": [
       "Matching Estimators",
       "How Matching Works"
+    ]
+  },
+  {
+    "objectID": "distance.html",
+    "href": "distance.html",
+    "title": "Distance Matching",
+    "section": "",
+    "text": "Distance matching matches an individual that is treated (like Mia) with one that is not treated based on how close their confounding values are. We define closeness by Mahalanobis distance:\n\\[\n\\delta_{i, j} = \\sqrt{(\\b x_i - \\b x_j)^\\top \\b\\Sigma_x^{-1} (\\b x_i - \\b x_j)}\n\\]\n\n\nWhere \\(i\\) and \\(j\\) are two units we want to measure the distance between, \\(\\b x\\) are their confounder values, and \\(\\b\\Sigma_x\\) is the covariance matrix of confounders.\nIt is basically a way to measure distance across multiple dimensions, adjusting for the scale at which confounders are measured. The treated and untreated units that have the smallest distance between them are matched together.\nDistance matching is not the best method of matching - it tends to struggle with anything more than 5 confounders, because of the curse of dimensionality.\n\nThis basically means its hard to find close matches when you have more confounders.\nWhen you have more confoundners, you should instead use genetic matching (preferred) or propensity score matching.\n\n\nTo implement distance matching, we will need the Matching package.\n\nlibrary(Matching)\n\nNow, we can implement the matching as follows.\n\natt &lt;- Match(Y = my_data$Y,\n             Tr = my_data$D,\n             X = my_data[,c(\"X1\",\"X2\", \"X3\")],\n             M = 1,\n             BiasAdjust = TRUE,\n             Weight = 2)\nsummary(att)\n\n\n\nBiasAdjust is a complex method that reduces the bias in matching due to imperfect matches. You can change M (number of matches per treated unit) for better matches.\nOur output estimate will be the ATT.",
+    "crumbs": [
+      "Matching Estimators",
+      "Distance Matching"
     ]
   },
   {
