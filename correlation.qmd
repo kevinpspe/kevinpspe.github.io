@@ -1,7 +1,5 @@
 # Issue of Selection Bias
 
-<br />
-
 Let us look at this causal question:
 
 ::: center-graph
@@ -22,65 +20,40 @@ digraph example1 {
 ```
 :::
 
-If we just collect correlation data, we likely find the following:
+We have a treated group (went to hospital), and an untreated group. Using our potential outcomes framework, we can define the treatment effect of each group:
 
--   The average health of individuals who got hospital treatment is [low]{.underline}.
--   The average health of individuals who did not get hospital treatment is [high]{.underline}.
--   Thus, we find that hospital treatment is correlated with **worse** health outcomes.
+|                                                                                                                             |                                                                                                                                    |
+|:--------------------------|:---------------------------|
+| [Treated (Hospital)]{.smallcaps}                                                                                            | [Untreated (No Hospital)]{.smallcaps}                                                                                              |
+| $\tau_\text{treated} =\textcolor{purple}{\mean Y_{\text{treated}}^{(1)}} - \textcolor{red}{\mean Y_{\text{treated}}^{(0)}}$ | $\tau_\text{untreated} = \textcolor{red}{\mean Y_{\text{untreated}}^{(1)}} - \textcolor{purple}{\mean Y_{\text{untreated}}^{(0)}}$ |
 
-But does that mean hospital treatment **causes** worse health outcomes? **No!**
-
--   The reason we have a negative correlation is because the people who get treated, and the people who do not get treated, are different **before** the treatment.
--   Less healthy people are more likely to go to the hospital to get treated in the first place. That means before the hospital even begins treatment, there are **pre-existing differences** between people getting treatment and people that are untreated.
-
-Thus, we cannot tell if the difference in health outcomes between treated and untreated is due to the treatment, or due to **their pre-existing differences**.
+: {tbl-colwidths="\[45,45\]" .bordered}
 
 <br />
 
-We can illustrate the same point using potential outcomes:
+Now compare the treatment effects above to correlation ($\rho$).[^correlation-1]
 
-|                       | Treated                                                                                                | Untreated                                                                                                  |
-|:--------------|:---------------------------|:----------------------------|
-| Observed $\mean Y$    | $\mean Y_\text{treated} = \textcolor{purple}{\mean Y_{\text{treated}}^{(1)}}$                          | $\mean Y_\text{untreated} = \textcolor{purple}{\mean Y_{\text{untreated}}^{(0)}}$                          |
-| Counterfactual        | $\textcolor{red}{\mean Y_{\text{treated}}^{(0)}}$                                                      | $\textcolor{red}{\mean Y_{\text{untreated}}^{(1)}}$                                                        |
-| Real Treatment Effect | $\textcolor{purple}{\mean Y_{\text{treated}}^{(1)}} - \textcolor{red}{\mean Y_{\text{treated}}^{(0)}}$ | $\textcolor{red}{\mean Y_{\text{untreated}}^{(1)}} - \textcolor{purple}{\mean Y_{\text{untreated}}^{(0)}}$ |
-
-: This table uses what we learned about counterfactuals (@tbl-observed) and treatment effects. {#tbl-selbias tbl-colwidths="\[24,38,38\]" .bordered}
-
-Now compare the treatment effects to correlation:
+[^correlation-1]: Correlation is the difference in observed outcomes: $\mean Y_\text{treated} - \mean Y_\text{untreated}$
 
 $$
-\text{corr.} = \mean Y_\text{treated} - \mean Y_\text{untreated} = \textcolor{purple}{\mean Y_{\text{treated}}^{(1)}} - \textcolor{purple}{\mean Y_\text{untreated}^{(0)}}
+\rho = \mean Y_\text{treated} - \mean Y_\text{untreated} = \textcolor{purple}{\mean Y_{\text{treated}}^{(1)}} - \textcolor{purple}{\mean Y_\text{untreated}^{(0)}}
 $$
 
-::: aside
-Correlation is the difference in observed outcomes.
-:::
-
-If we compare this correlation equation to our treatment effects, in our table, we see:
+If we compare this correlation to our $\tau_\text{treated}$, we see:
 
 $$
-\text{if  } \textcolor{purple}{\mean Y_\text{untreated}^{(0)}} ≠ \textcolor{red}{\mean Y_\text{treated}^{(0)}}, \text{ then correlation} ≠ \text{causation}
+\text{if  } \textcolor{purple}{\mean Y_\text{untreated}^{(0)}} ≠ \textcolor{red}{\mean Y_\text{treated}^{(0)}}, \text{ then } \rho ≠ \tau_\text{treated}
 $$
 
-Thus, if there is a difference between the average outcomes between treated and untreated **before** treatment is administered, then correlation is not equal to causation.
+Thus, if there is a difference between the average outcomes between treated and untreated before treatment is administered, then correlation is not equal to causation. This is because we cannot tell if the difference between the groups is due to treatment, or [due to their pre-existing differences]{.mark}.
 
 <br />
 
-A **confounder** is a third variable that has the following characteristics:
+What causes pre-existing differences? Confounders. For example, in our hospital-health example, a confounder could be smoking.[^correlation-2]
 
-1.  The confounder is correlated (positive or negative) with the outcome variable.
-2.  The confounder causes who gets and doesn't get the treatment.
-3.  The confounder is **not** itself caused by the treatment.
+[^correlation-2]: Smoking is not the only possible confounder, we just use it as an example. Drinking, age, etc. are all other potential confounders.
 
-For example, in our hospital-health example, a confounder could be **smoking**.
-
--   Smoking will worsen health outcomes. Someone who smokes is also more likely to visit the hospital with health complications.
--   That means people who go to the hospital start out with (on average) worse health outcomes than people who did not go to the hospital.
-
-::: aside
-Note: smoking is not the only possible confounder, we just use it as an example. Drinking, age, etc. are all other potential confounders.
-:::
+Smoking will worsen health outcomes. Someone who smokes is also more likely to visit the hospital with health complications. That means people who go to the hospital start out with (on average) worse health outcomes than people who did not go to the hospital.
 
 ::: center-graph
 ```{dot}
@@ -103,6 +76,14 @@ digraph example2 {
 ```
 :::
 
-This means that the treated group has more smokers and people with bad health than the untreated group. This pre-existing difference between treated and untreated means correlation is not equal to causation.
+::: {.callout-note appearance="simple"}
+A confounder is a third variable that has the following characteristics:
 
-**Confounders cause selection bias**. We must account for confounders to uncover causal effects.
+1.  The confounder is correlated (positive or negative) with the outcome variable.
+2.  The confounder causes who gets and doesn't get the treatment.
+3.  The confounder is **not** itself caused by the treatment
+:::
+
+[Confounders cause pre-existing differences]{.mark}, which cause correlation to not equal causation. We must account for confounders to uncover causal effects.
+
+<br />

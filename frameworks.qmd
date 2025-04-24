@@ -1,7 +1,5 @@
 # Potential Outcomes
 
-<br />
-
 In causal inference, we are interested in causal questions:
 
 ::: center-graph
@@ -22,48 +20,47 @@ digraph example1 {
 ```
 :::
 
-Imagine we have two hypothetical parallel worlds that are copies of each other. Both of these worlds are identical except for one aspect: the treatment. In one world, kevin gets the treatment, and in the other parallel world, kevin doesn't get the treatment:
+Imagine we have two hypothetical parallel worlds that are copies of each other. Both of these worlds are identical except for one aspect: the treatment:
 
-| Parallel World                                         | Potential Outcome               |
-|:---------------------------------------------------|:------------------|
-| Kevin does not Receive Treatment: $D_\text{Kevin} = 0$ | $\purple{Y_\text{Kevin}^{(0)}}$ |
-| Kevin Receives Treatment: $D_\text{Kevin} = 1$         | $\purple{Y_\text{Kevin}^{(1)}}$ |
+|                                  |                         |                                 |
+|:-------------------------|:-------------------|:-------------------------|
+| [Parallel World]{.smallcaps}     | [Treatment]{.smallcaps} | [Potential Outcome]{.smallcaps} |
+| Kevin does not Receive Treatment | $D_\text{Kevin} = 0$    | $\purple{Y_\text{Kevin}^{(0)}}$ |
+| Kevin Receives Treatment         | $D_\text{Kevin} = 1$    | $\purple{Y_\text{Kevin}^{(1)}}$ |
 
-: The (0) and (1) are not exponents - they label the outcome $Y$ for treatment status. {#tbl-potout tbl-colwidths="\[70,30\]" .bordered}
+: {tbl-colwidths="\[45,30,25\]" .bordered}
 
-The two hypothetical parallel worlds are [identical]{.underline} to each other, with the only difference being in one world, you get the treatment. Thus, any difference in outcomes between the two worlds must be the **causal effect** of the treatment:
+<br />
+
+The only difference between the two worlds is the treatment. Thus, any difference in outcomes between the two worlds must be the [causal effect]{.mark} of the treatment.[^frameworks-1]
+
+[^frameworks-1]: Technically, the stable unit treatment value assumption (SUTVA) is required for this to be true.
 
 $$
 \tau_\text{Kevin} = \purple{Y_\text{Kevin}^{(1)}} - \purple{Y_\text{Kevin}^{(0)}}
 $$
 
-::: aside
-Technically, this is only true if SUTVA is met.
-:::
+However, in reality, we do not have two parallel worlds. Thus, by definition, one of the potential outcomes is not observed in our real world - the [counterfactual]{.mark}.
+
+|                                             |                                                  |                              |
+|:-------------------------|:---------------------------|:-----------------|
+| [In the Real World]{.smallcaps}             | [Observed Outcome]{.smallcaps}                   | [Counterfactual]{.smallcaps} |
+| Kevin receives treatment (treated)          | $Y_\text{Kevin}= \purple{Y_\text{Kevin}^{(1)}}$  | $\red{Y_\text{Kevin}^{(0)}}$ |
+| Kevin did not receive treatment (untreated) | $Y_\text{Kevin} = \purple{Y_\text{Kevin}^{(0)}}$ | $\red{Y_\text{Kevin}^{(1)}}$ |
+
+: {tbl-colwidths="\[40,35,25\]" .bordered}
 
 <br />
 
-However, in reality, we do not have two parallel worlds. You either get the treatment, or don't get the treatment. Thus, by definition, one of the potential outcomes is not observed in our real world - the one not observed is called the **counterfactual**.
+The [fundamental problem of causal inference]{.mark} is that in order to calculate our individual treatment effect $\tau$, we need both potential outcomes. Our goal is to estimate causal effects without observing counterfactuals. This is difficult at the individual level, so instead, we focus on average treatment effects for groups:
 
-| In the Real World                           | Observed Outcome $Y$                             | Counterfactual               |
-|:---------------------------------|:------------------|:------------------|
-| Scenario 1: Kevin receives treatment        | $Y_\text{Kevin}= \purple{Y_\text{Kevin}^{(1)}}$  | $\red{Y_\text{Kevin}^{(0)}}$ |
-| Scenario 2: Kevin did not receive treatment | $Y_\text{Kevin} = \purple{Y_\text{Kevin}^{(0)}}$ | $\red{Y_\text{Kevin}^{(1)}}$ |
+|                                               |                        |                                                                                               |
+|:-----------------|:---------------|:-------------------------------------|
+| [Group Effects]{.smallcaps}                   | [Notation]{.smallcaps} | [Definition]{.smallcaps}                                                                      |
+| Average Treatment Effect (ATE)                | $\tau_\text{ATE}$      | The average treatment effects for all individuals in our study (treated and untreated).       |
+| Average Treatment Effect on the Treated (ATT) | $\tau_\text{ATT}$      | The average treatment effect but only for individuals who receive the treatment in our study. |
+| Local Average Treatment Effect (LATE)         | $\tau_\text{LATE}$     | The average treatment effect but only for a specific (local) group of individuals in a study. |
 
-: From now on, I will always label counterfactuals in red. {#tbl-observed tbl-colwidths="\[40,35,25\]" .bordered}
-
-The **fundamental problem of causal inference** is that in order to calculate our individual treatment effect $\tau$, we need both potential outcomes. However, we can never observe both.
-
-<br />
-
-To find the causal effect, we need to estimate the counterfactuals with an **estimator**. This is difficult at the individual level, so instead, we focus on average treatment effects for groups. There are three main group causal effects:
-
-| Group Effects                                 | Notation           | Definition                                                                                                                                                                                               |
-|:-----------------|:-----------------|:-----------------------------------|
-| Average Treatment Effect (ATE)                | $\tau_\text{ATE}$  | The average of individual treatment effects $\tau$, for all individuals in our study, including people who did and didn't get the treatment.                                                             |
-| Average Treatment Effect on the Treated (ATT) | $\tau_\text{ATT}$  | The average of individual treatment effects $\tau$, but only for individuals who receive the treatment in our study. We ignore those who never receive treatment in our study.                           |
-| Local Average Treatment Effect (LATE)         | $\tau_\text{LATE}$ | The average of individual treatment effects $\tau$, but only for a specific (local) group of individuals in a study. This group is usually defined by some characteristic the individuals hold together. |
-
-: These are called estimands. {#tbl-estimands tbl-colwidths="\[30, 15, 55\]" .bordered}
+: {tbl-colwidths="\[30, 15, 55\]" .bordered}
 
 <br />

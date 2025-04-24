@@ -4,43 +4,43 @@ project:
 
 book:
   title: "Kevin's PSPE Resources"
-  subtitle: "Collection of Resources on Causal Inference, Game Theory, and Statistics"
-  author: "Kevin Li"
+  subtitle: "Collection of Practical Resources on Causal Inference and Statistics for Political Science and Political Economy"
   search: true
   sidebar:
     collapse-level: 1
+    pinned: true
+    style: floating
+    border: true
+    background: "#f8f9fa"
+    foreground: "#36026b"
   chapters:
     - index.qmd
-    - "---"
-    - part: "Basics of Causal Inference"
+    - part: "Causal Inference Basics"
       chapters:
         - frameworks.qmd
         - correlation.qmd
         - randomisation.qmd
+    - "---"
+    - part: "Classical DiD"
+      chapters:
+        - did.qmd
+    - part: "Staggered DiD"
     - part: "Regression Discontinuity"
       chapters:
         - rdd.qmd
         - fuzzy.qmd
-    - part: "Differences-in-Differences"
-      chapters:
-        - did.qmd
-        - synthetic.qmd
-    - part: "Matching Estimators"
+    - part: "Selection on Observables"
       chapters:
         - matching.qmd
         - distance.qmd
         - pscore.qmd
         - genetic.qmd
-    - part: "Weighting Estimators"
-      chapters:
         - weighting.qmd
     - "---"
-    - part: "Multiple Linear Regression"
-    - part: "Generalised Linear Model"
-    - part: "Statistical Learning"
+    - part: "Regression Models"
     - part: "Latent Variable Models"
     - "---"
-    - part: "Game Theory"
+    - part: "Further Statistical Models"
     
 bibliography: references.bib
 
@@ -48,16 +48,20 @@ format:
   html:
     theme: cosmo
     number-sections: false
+    fontsize: 12.5pt
+    mainfont: helvetica
+    fontcolor: "#3b4b57"
+    linkcolor: "#0969da"
     css: styles.css
     toc: true
     toc-depth: 0
     tbl-cap-location: bottom
-    reference-location: margin
+    reference-location: section
     grid:
-      sidebar-width: 285px
-      body-width: 730px
-      margin-width: 190px
-      gutter-width: 1.5em
+      sidebar-width: 270px
+      body-width: 720px
+      margin-width: 50px
+      gutter-width: 2em
     html-math-method: mathjax
     crossref:
       eq-prefix: eq.

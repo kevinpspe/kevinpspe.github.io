@@ -24,13 +24,11 @@ ul.task-list li input[type="checkbox"] {
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./rdd.html" rel="next">
 <link href="./correlation.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -103,7 +101,7 @@ window.Quarto = {
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-sidebar floating slimcontent">
+<body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -112,7 +110,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./frameworks.html">Basics of Causal Inference</a></li><li class="breadcrumb-item"><a href="./randomisation.html"><span class="chapter-title">The Magic of Randomisation</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./frameworks.html">Causal Inference Basics</a></li><li class="breadcrumb-item"><a href="./randomisation.html"><span class="chapter-title">The Magic of Randomisation</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -143,11 +141,10 @@ window.Quarto = {
  <span class="menu-text">Welcome</span></a>
   </div>
 </li>
-        <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">Basics of Causal Inference</span></a>
+ <span class="menu-text">Causal Inference Basics</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -170,15 +167,36 @@ window.Quarto = {
 </li>
       </ul>
   </li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
- <span class="menu-text">Regression Discontinuity</span></a>
+ <span class="menu-text">Classical DiD</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./did.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Differences-in-Differences</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">Staggered DiD</span></span>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
+ <span class="menu-text">Regression Discontinuity</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./rdd.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Regression Discontinuity</span></a>
@@ -193,33 +211,8 @@ window.Quarto = {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
- <span class="menu-text">Differences-in-Differences</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./did.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Differences-in-Differences</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./synthetic.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Synthetic Controls Method</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Instrumental Variables</span></span>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false">
- <span class="menu-text">Matching Estimators</span></a>
+ <span class="menu-text">Selection on Observables</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -249,17 +242,6 @@ window.Quarto = {
  <span class="menu-text">Genetic Matching</span></a>
   </div>
 </li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false">
- <span class="menu-text">Weighting Estimators</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./weighting.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Weighting Estimator</span></a>
@@ -270,15 +252,7 @@ window.Quarto = {
         <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Multiple Linear Regression</span></span>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Generalised Linear Model</span></span>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Statistical Learning</span></span>
+ <span class="menu-text">Regression Models</span></span>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
@@ -287,7 +261,7 @@ window.Quarto = {
         <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Game Theory</span></span>
+ <span class="menu-text">Further Statistical Models</span></span>
   </li>
     </ul>
     </div>
@@ -298,9 +272,9 @@ window.Quarto = {
         
     </div>
 <!-- main -->
-<main class="content page-columns page-full" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./frameworks.html">Basics of Causal Inference</a></li><li class="breadcrumb-item"><a href="./randomisation.html"><span class="chapter-title">The Magic of Randomisation</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./frameworks.html">Causal Inference Basics</a></li><li class="breadcrumb-item"><a href="./randomisation.html"><span class="chapter-title">The Magic of Randomisation</span></a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title"><span class="chapter-title">The Magic of Randomisation</span></h1>
 </div>
@@ -319,15 +293,14 @@ window.Quarto = {
 </header>
 
 
-<p><br></p>
 <p>Let us say we are interested in this question:</p>
 <div class="center-graph">
-<div class="cell" data-fig-width="4" data-fig-height="0.45" data-layout-align="default">
+<div class="cell" data-fig-width="4" data-fig-height="0.42" data-layout-align="default">
 <div class="cell-output-display">
 <div>
 <p></p><figure class="figure"><p></p>
 <div>
-<svg width="384" height="43" viewbox="0.00 0.00 397.89 44.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<svg width="384" height="40" viewbox="0.00 0.00 397.89 44.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 40)">
 <title>example1</title>
 <polygon fill="white" stroke="transparent" points="-4,4 -4,-40 393.89,-40 393.89,4 -4,4"></polygon>
@@ -358,11 +331,8 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<p>Our concern is a confounder. For example, <strong>smartness</strong> of an individual could mean they are more likely to get a scholarship. Since smart people tend to perform well at university, that means the people who get treated are, on average, different from those who don’t get treated.</p>
-
-<div class="no-row-height column-margin column-container"><div class="margin-aside">
-<p>Note: smartness is not the only confounder. Other confounders could be family income, athletic ability, etc.</p>
-</div></div><div class="center-graph">
+<p>Our concern is a confounder. For example, smartness of an individual could mean they are more likely to get a scholarship. Since smart people tend to perform well at university, that means the people who get treated are different from those who don’t get treated.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<div class="center-graph">
 <div class="cell" data-fig-width="4" data-fig-height="1.1" data-layout-align="default">
 <div class="cell-output-display">
 <div>
@@ -418,20 +388,17 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<p>The key here is that the confounder is <strong>influencing</strong> who gets and doesn’t get the treatment.</p>
-<p><br></p>
-<p>But what if <strong>randomness</strong> (like flipping a coin) controls who gets the treatment or not. A coin will be flipped to decide if every person in our study will get the scholarship.</p>
-<p>This means that the randomness (the coin), and <strong>not the confounder</strong>, are causing selection into treatment. So now, we have this diagram:</p>
+<p>But what if randomness (like flipping a coin) controls who gets the treatment or not. A coin will be flipped to decide if every person in our study will get the scholarship. This means that the randomness (the coin), and not the confounder, are causing selection into treatment:</p>
 <div class="center-graph">
 <div class="cell" data-fig-width="4" data-fig-height="1.1" data-layout-align="default">
 <div class="cell-output-display">
 <div>
 <p></p><figure class="figure"><p></p>
 <div>
-<svg width="384" height="106" viewbox="0.00 0.00 398.05 117.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
-<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 113)">
+<svg width="384" height="106" viewbox="0.00 0.00 398.05 140.64" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 136.64)">
 <title>example2</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-113 394.05,-113 394.05,4 -4,4"></polygon>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-136.64 394.05,-136.64 394.05,4 -4,4"></polygon>
 <!-- D -->
 <g id="node1" class="node">
 <title>D</title>
@@ -454,15 +421,27 @@ window.Quarto = {
 <!-- X -->
 <g id="node2" class="node">
 <title>X</title>
-<polygon fill="none" stroke="black" points="380.27,-109 226.77,-109 226.77,-73 380.27,-73 380.27,-109"></polygon>
-<text text-anchor="middle" x="303.52" y="-86.8" font-family="Times,serif" font-size="14.00">Smartness (Confounder)</text>
+<polygon fill="none" stroke="black" points="380.27,-120.82 226.77,-120.82 226.77,-84.82 380.27,-84.82 380.27,-120.82"></polygon>
+<text text-anchor="middle" x="303.52" y="-98.62" font-family="Times,serif" font-size="14.00">Smartness (Confounder)</text>
 </g>
 <!-- X&#45;&gt;Y -->
 <g id="edge2" class="edge">
 <title>X-&gt;Y</title>
-<path fill="none" stroke="black" d="M303.52,-62.75C303.52,-57.28 303.52,-51.52 303.52,-46.05"></path>
-<polygon fill="black" stroke="black" points="300.02,-62.81 303.52,-72.81 307.02,-62.81 300.02,-62.81"></polygon>
-<polygon fill="black" stroke="black" points="307.02,-46.03 303.52,-36.03 300.02,-46.03 307.02,-46.03"></polygon>
+<path fill="none" stroke="black" d="M303.52,-74.61C303.52,-65.5 303.52,-55.34 303.52,-46.23"></path>
+<polygon fill="black" stroke="black" points="300.02,-74.66 303.52,-84.66 307.02,-74.66 300.02,-74.66"></polygon>
+<polygon fill="black" stroke="black" points="307.02,-46.14 303.52,-36.14 300.02,-46.14 307.02,-46.14"></polygon>
+</g>
+<!-- O -->
+<g id="node4" class="node">
+<title>O</title>
+<ellipse fill="none" stroke="black" cx="52.52" cy="-102.82" rx="29.64" ry="29.64"></ellipse>
+<text text-anchor="middle" x="52.52" y="-98.62" font-family="Times,serif" font-size="14.00">Coin</text>
+</g>
+<!-- O&#45;&gt;D -->
+<g id="edge3" class="edge">
+<title>O-&gt;D</title>
+<path fill="none" stroke="black" d="M52.52,-72.85C52.52,-64.32 52.52,-55.02 52.52,-46.58"></path>
+<polygon fill="black" stroke="black" points="56.02,-46.48 52.52,-36.48 49.02,-46.48 56.02,-46.48"></polygon>
 </g>
 </g>
 </svg>
@@ -472,34 +451,29 @@ window.Quarto = {
 </div>
 </div>
 </div>
-
-<div class="no-row-height column-margin column-container"><div class="margin-aside">
-<p>Note how the confounder now no longer has an arrow to the treatment. It is no longer causing who gets the treatment or not.</p>
-</div></div><p>Since the confounder is no longer causing who gets the treatment and who doesn’t, that means there is no more concern of selection bias.</p>
+<p>Since the confounder is no longer causing who gets the treatment and who doesn’t, that means there is no more concern of selection bias.</p>
 <p><br></p>
-<p>Randomisation also means that since every individual has the same chance of entering treatment or control, that these two groups will be, on average, the same as each other. That means:</p>
+<p>Randomisation also means that every individual has the same chance of being treated or untreated, so the two groups will, on average, the same as each other. That means:</p>
 <p><span class="math display">\[
 \textcolor{purple}{\mean Y_\text{untreated}^{(0)}} = \textcolor{red}{\mean Y_\text{treated}^{(0)}}, \text{ so correlation} = \text{causation}
 \]</span></p>
-
-<div class="no-row-height column-margin column-container"><div class="margin-aside">
-<p>This equation is taken from the <a href="./correlation.html">last chapter</a>.</p>
-</div></div><p>So if our treatment is randomly assigned (individuals randomly assigned to treatment or control), correlation does equal causation.</p>
+<p>So if our treatment is randomly assigned (individuals randomly assigned to treatment or control), correlation does equal causation.</p>
 <p><br></p>
-<p>When should you use randomisation? The answer is <strong>whenever possible</strong>. Randomisation is the <mark><strong>gold standard</strong></mark> of causal inference. There is no better method.</p>
+<p>Randomisation is the <mark><strong>gold standard</strong></mark> of causal inference. There is no better method.</p>
 <ul>
 <li>Randomisation is possible if you are running your own experiment: you can use a random number generator to assign treatment.</li>
 <li>Randomisation is also possible if there is something that is being randomly assigned in the real world. For example, the US green card lottery randomly chooses who gets accepted.</li>
 </ul>
+<p>However, randomisation is not always possible to due to cost of running experiments, non-compliance of individuals within experiments, and impracticality.</p>
 <p><br></p>
-<p>However, randomisation is not always possible to do for a variety of reasons.</p>
-<ol type="1">
-<li><p>Cost: Randomisation often involves running your own experiment.</p></li>
-<li><p>Impracticality: Sometimes it just is impossible to randomly assign certain treatments. For example, you cannot assign countries to be dictatorships in order to test the causal effect.</p></li>
-<li><p>Non-Compliance: Maybe you assign people randomly to treatment or control. But what if they don’t comply with their assignment? Perhaps there is some confounder that means someone is more likely to not comply? To solve this, you will need to use <strong>instrumental variables</strong>.</p></li>
+
+
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>Smartness is not the only confounder. Other confounders could be family income, athletic ability, etc.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
-
-
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -929,9 +903,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./rdd.html" class="pagination-link" aria-label="Regression Discontinuity">
-        <span class="nav-page-text"><span class="chapter-title">Regression Discontinuity</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->

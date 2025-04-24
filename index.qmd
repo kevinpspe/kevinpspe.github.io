@@ -1,16 +1,15 @@
 # Welcome {.unnumbered}
 
-![](lse.png){fig-align="center" width="35%"}
+This is a collection of resources and notes for political science and political economy that I have collected throughout my postgraduate degree at the London School of Economics.
 
-This is a collection of resources and notes for political science and political economy that I have collected throughout my postgraduate degree at the London School of Economics
+The resources in this collection include:
 
-Most of these resources relate around causal inference, statistics, and game theory.
+-   Causal inference, including details (and modern advancements) on differences-in-differences, regression discontinuity, and selection on observables.
+-   Some general content covering regression models.
+-   Some content on latent variable (multivariate) models, like factor analysis.
 
 I am continuously adding more to this collection as a learn more. Some parts may be incomplete, and you may see some changes in existing parts.
 
 This isn't meant to teach you stuff - more of a supplement + review + implementation guide so don't use it to self-learn that might not work as well.
-
-::: aside
-:::
 
 <br />

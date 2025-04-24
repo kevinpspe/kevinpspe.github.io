@@ -6,3 +6,60 @@ pre, code, .sourceCode {
   display: flex;
   justify-content: center;
 }
+
+/* Target sidebar navigation links */
+.sidebar .nav-link, .sidebar-item a {
+  /* Optional: Style the default state */
+  padding: 0.1rem 0rem;
+}
+
+/* Ensure the body has a white background as fallback */
+body {
+  background-color: #ffffff; /* White background for the entire page */
+}
+
+/* Style the container to allow a colored left margin */
+.container, .container-fluid {
+  position: relative; /* Allow pseudo-element positioning */
+}
+
+/* Create a pseudo-element for the left margin + sidebar area */
+.container::before {
+  content: "";
+  position: fixed; /* Fixed to stay in place */
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 2px; /* Match sidebar width + any left margin; adjust as needed */
+  background-color: #f8f9fa; /* Custom background color for left margin + sidebar area */
+  z-index: 0; /* Behind sidebar and content */
+}
+
+/* Ensure the sidebar blends with the left margin color */
+.sidebar, .nav {
+  background-color: #f8f9fa; /* Match the pseudo-element; overrides #f8f9fa */
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 270px; /* Adjust to your sidebar width */
+  z-index: 1; /* Above pseudo-element */
+}
+
+/* Media query to remove left margin color on smaller screens */
+@media (max-width:991px) {
+  .container::before {
+    background-color: transparent; /* Remove left margin color */
+    /* Or use display: none; to completely hide the pseudo-element */
+  }
+
+  .sidebar, .nav {
+    background-color: #ffffff; /* Reset to white or Just the Docs mobile default */
+    position: static; /* Remove fixed positioning for mobile menu */
+    width: 100%; /* Full width for mobile menu */
+  }
+
+  .content, .bd-content, main {
+    margin-left: 0; /* Remove offset since sidebar collapses */
+    background-color: #ffffff !important; /* Ensure content stays white */
+  }
+}

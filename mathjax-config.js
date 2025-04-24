@@ -20,7 +20,7 @@ MathJax = {
       }
     },
     chtml: {
-        scale: 1.08,
+        scale: 1.05,
         mtextInheritFont: true,
         mtextFont: 'STIX-Web',
     },

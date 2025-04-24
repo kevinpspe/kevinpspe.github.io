@@ -24,13 +24,13 @@ ul.task-list li input[type="checkbox"] {
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./correlation.html" rel="next">
+<link href="./index.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -102,7 +102,7 @@ window.Quarto = {
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-sidebar floating slimcontent">
+<body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -111,7 +111,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./frameworks.html">Basics of Causal Inference</a></li><li class="breadcrumb-item"><a href="./frameworks.html"><span class="chapter-title">Potential Outcomes</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./frameworks.html">Causal Inference Basics</a></li><li class="breadcrumb-item"><a href="./frameworks.html"><span class="chapter-title">Potential Outcomes</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -142,11 +142,10 @@ window.Quarto = {
  <span class="menu-text">Welcome</span></a>
   </div>
 </li>
-        <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">Basics of Causal Inference</span></a>
+ <span class="menu-text">Causal Inference Basics</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -169,15 +168,36 @@ window.Quarto = {
 </li>
       </ul>
   </li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
- <span class="menu-text">Regression Discontinuity</span></a>
+ <span class="menu-text">Classical DiD</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./did.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Differences-in-Differences</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">Staggered DiD</span></span>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
+ <span class="menu-text">Regression Discontinuity</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./rdd.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Regression Discontinuity</span></a>
@@ -192,33 +212,8 @@ window.Quarto = {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
- <span class="menu-text">Differences-in-Differences</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./did.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Differences-in-Differences</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./synthetic.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Synthetic Controls Method</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Instrumental Variables</span></span>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false">
- <span class="menu-text">Matching Estimators</span></a>
+ <span class="menu-text">Selection on Observables</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -248,17 +243,6 @@ window.Quarto = {
  <span class="menu-text">Genetic Matching</span></a>
   </div>
 </li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false">
- <span class="menu-text">Weighting Estimators</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./weighting.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Weighting Estimator</span></a>
@@ -269,15 +253,7 @@ window.Quarto = {
         <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Multiple Linear Regression</span></span>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Generalised Linear Model</span></span>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Statistical Learning</span></span>
+ <span class="menu-text">Regression Models</span></span>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
@@ -286,7 +262,7 @@ window.Quarto = {
         <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Game Theory</span></span>
+ <span class="menu-text">Further Statistical Models</span></span>
   </li>
     </ul>
     </div>
@@ -297,9 +273,9 @@ window.Quarto = {
         
     </div>
 <!-- main -->
-<main class="content page-columns page-full" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./frameworks.html">Basics of Causal Inference</a></li><li class="breadcrumb-item"><a href="./frameworks.html"><span class="chapter-title">Potential Outcomes</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./frameworks.html">Causal Inference Basics</a></li><li class="breadcrumb-item"><a href="./frameworks.html"><span class="chapter-title">Potential Outcomes</span></a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title"><span class="chapter-title">Potential Outcomes</span></h1>
 </div>
@@ -318,7 +294,6 @@ window.Quarto = {
 </header>
 
 
-<p><br></p>
 <p>In causal inference, we are interested in causal questions:</p>
 <div class="center-graph">
 <div class="cell" data-fig-width="4" data-fig-height="0.5" data-layout-align="default">
@@ -357,128 +332,101 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<p>Imagine we have two hypothetical parallel worlds that are copies of each other. Both of these worlds are identical except for one aspect: the treatment. In one world, kevin gets the treatment, and in the other parallel world, kevin doesn’t get the treatment:</p>
-<div id="tbl-potout" class="bordered quarto-float quarto-figure quarto-figure-center anchored" data-tbl-colwidths="[70,30]">
-<figure class="quarto-float quarto-float-tbl figure">
-<div aria-describedby="tbl-potout-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<p>Imagine we have two hypothetical parallel worlds that are copies of each other. Both of these worlds are identical except for one aspect: the treatment:</p>
 <table class="table-bordered table">
 <colgroup>
-<col style="width: 70%">
+<col style="width: 45%">
 <col style="width: 30%">
+<col style="width: 25%">
 </colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Parallel World</th>
-<th style="text-align: left;">Potential Outcome</th>
-</tr>
-</thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">Kevin does not Receive Treatment: <span class="math inline">\(D_\text{Kevin} = 0\)</span></td>
-<td style="text-align: left;"><span class="math inline">\(\purple{Y_\text{Kevin}^{(0)}}\)</span></td>
+<td style="text-align: left;"><span class="smallcaps">Parallel World</span></td>
+<td style="text-align: left;"><span class="smallcaps">Treatment</span></td>
+<td style="text-align: left;"><span class="smallcaps">Potential Outcome</span></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Kevin Receives Treatment: <span class="math inline">\(D_\text{Kevin} = 1\)</span></td>
+<td style="text-align: left;">Kevin does not Receive Treatment</td>
+<td style="text-align: left;"><span class="math inline">\(D_\text{Kevin} = 0\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\purple{Y_\text{Kevin}^{(0)}}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Kevin Receives Treatment</td>
+<td style="text-align: left;"><span class="math inline">\(D_\text{Kevin} = 1\)</span></td>
 <td style="text-align: left;"><span class="math inline">\(\purple{Y_\text{Kevin}^{(1)}}\)</span></td>
 </tr>
 </tbody>
 </table>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-tbl" id="tbl-potout-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;1.1: The (0) and (1) are not exponents - they label the outcome <span class="math inline">\(Y\)</span> for treatment status.
-</figcaption>
-</figure>
-</div>
-<p>The two hypothetical parallel worlds are <u>identical</u> to each other, with the only difference being in one world, you get the treatment. Thus, any difference in outcomes between the two worlds must be the <strong>causal effect</strong> of the treatment:</p>
+<p><br></p>
+<p>The only difference between the two worlds is the treatment. Thus, any difference in outcomes between the two worlds must be the <mark>causal effect</mark> of the treatment.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
 <p><span class="math display">\[
 \tau_\text{Kevin} = \purple{Y_\text{Kevin}^{(1)}} - \purple{Y_\text{Kevin}^{(0)}}
 \]</span></p>
-
-<div class="no-row-height column-margin column-container"><div class="margin-aside">
-<p>Technically, this is only true if SUTVA is met.</p>
-</div></div><p><br></p>
-<p>However, in reality, we do not have two parallel worlds. You either get the treatment, or don’t get the treatment. Thus, by definition, one of the potential outcomes is not observed in our real world - the one not observed is called the <strong>counterfactual</strong>.</p>
-<div id="tbl-observed" class="bordered quarto-float quarto-figure quarto-figure-center anchored" data-tbl-colwidths="[40,35,25]">
-<figure class="quarto-float quarto-float-tbl figure">
-<div aria-describedby="tbl-observed-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<p>However, in reality, we do not have two parallel worlds. Thus, by definition, one of the potential outcomes is not observed in our real world - the <mark>counterfactual</mark>.</p>
 <table class="table-bordered table">
 <colgroup>
 <col style="width: 40%">
 <col style="width: 35%">
 <col style="width: 25%">
 </colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">In the Real World</th>
-<th style="text-align: left;">Observed Outcome <span class="math inline">\(Y\)</span></th>
-<th style="text-align: left;">Counterfactual</th>
-</tr>
-</thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">Scenario 1: Kevin receives treatment</td>
+<td style="text-align: left;"><span class="smallcaps">In the Real World</span></td>
+<td style="text-align: left;"><span class="smallcaps">Observed Outcome</span></td>
+<td style="text-align: left;"><span class="smallcaps">Counterfactual</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Kevin receives treatment (treated)</td>
 <td style="text-align: left;"><span class="math inline">\(Y_\text{Kevin}= \purple{Y_\text{Kevin}^{(1)}}\)</span></td>
 <td style="text-align: left;"><span class="math inline">\(\red{Y_\text{Kevin}^{(0)}}\)</span></td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">Scenario 2: Kevin did not receive treatment</td>
+<tr class="odd">
+<td style="text-align: left;">Kevin did not receive treatment (untreated)</td>
 <td style="text-align: left;"><span class="math inline">\(Y_\text{Kevin} = \purple{Y_\text{Kevin}^{(0)}}\)</span></td>
 <td style="text-align: left;"><span class="math inline">\(\red{Y_\text{Kevin}^{(1)}}\)</span></td>
 </tr>
 </tbody>
 </table>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-tbl" id="tbl-observed-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;1.2: From now on, I will always label counterfactuals in red.
-</figcaption>
-</figure>
-</div>
-<p>The <strong>fundamental problem of causal inference</strong> is that in order to calculate our individual treatment effect <span class="math inline">\(\tau\)</span>, we need both potential outcomes. However, we can never observe both.</p>
 <p><br></p>
-<p>To find the causal effect, we need to estimate the counterfactuals with an <strong>estimator</strong>. This is difficult at the individual level, so instead, we focus on average treatment effects for groups. There are three main group causal effects:</p>
-<div id="tbl-estimands" class="bordered quarto-float quarto-figure quarto-figure-center anchored" data-tbl-colwidths="[30, 15, 55]">
-<figure class="quarto-float quarto-float-tbl figure">
-<div aria-describedby="tbl-estimands-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<p>The <mark>fundamental problem of causal inference</mark> is that in order to calculate our individual treatment effect <span class="math inline">\(\tau\)</span>, we need both potential outcomes. Our goal is to estimate causal effects without observing counterfactuals. This is difficult at the individual level, so instead, we focus on average treatment effects for groups:</p>
 <table class="table-bordered table">
 <colgroup>
 <col style="width: 30%">
 <col style="width: 15%">
 <col style="width: 55%">
 </colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Group Effects</th>
-<th style="text-align: left;">Notation</th>
-<th style="text-align: left;">Definition</th>
-</tr>
-</thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">Average Treatment Effect (ATE)</td>
-<td style="text-align: left;"><span class="math inline">\(\tau_\text{ATE}\)</span></td>
-<td style="text-align: left;">The average of individual treatment effects <span class="math inline">\(\tau\)</span>, for all individuals in our study, including people who did and didn’t get the treatment.</td>
+<td style="text-align: left;"><span class="smallcaps">Group Effects</span></td>
+<td style="text-align: left;"><span class="smallcaps">Notation</span></td>
+<td style="text-align: left;"><span class="smallcaps">Definition</span></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Average Treatment Effect on the Treated (ATT)</td>
-<td style="text-align: left;"><span class="math inline">\(\tau_\text{ATT}\)</span></td>
-<td style="text-align: left;">The average of individual treatment effects <span class="math inline">\(\tau\)</span>, but only for individuals who receive the treatment in our study. We ignore those who never receive treatment in our study.</td>
+<td style="text-align: left;">Average Treatment Effect (ATE)</td>
+<td style="text-align: left;"><span class="math inline">\(\tau_\text{ATE}\)</span></td>
+<td style="text-align: left;">The average treatment effects for all individuals in our study (treated and untreated).</td>
 </tr>
 <tr class="odd">
+<td style="text-align: left;">Average Treatment Effect on the Treated (ATT)</td>
+<td style="text-align: left;"><span class="math inline">\(\tau_\text{ATT}\)</span></td>
+<td style="text-align: left;">The average treatment effect but only for individuals who receive the treatment in our study.</td>
+</tr>
+<tr class="even">
 <td style="text-align: left;">Local Average Treatment Effect (LATE)</td>
 <td style="text-align: left;"><span class="math inline">\(\tau_\text{LATE}\)</span></td>
-<td style="text-align: left;">The average of individual treatment effects <span class="math inline">\(\tau\)</span>, but only for a specific (local) group of individuals in a study. This group is usually defined by some characteristic the individuals hold together.</td>
+<td style="text-align: left;">The average treatment effect but only for a specific (local) group of individuals in a study.</td>
 </tr>
 </tbody>
 </table>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-tbl" id="tbl-estimands-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;1.3: These are called estimands.
-</figcaption>
-</figure>
-</div>
 <p><br></p>
 
 
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>Technically, the stable unit treatment value assumption (SUTVA) is required for this to be true.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -903,6 +851,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./index.html" class="pagination-link" aria-label="Welcome">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Welcome</span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./correlation.html" class="pagination-link" aria-label="Issue of Selection Bias">
