@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>The Magic of Randomisation – Kevin's PSPE Resources</title>
+<title>The Magic of Randomisation</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -124,9 +124,9 @@ window.Quarto = {
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
-    <div class="sidebar-title mb-0 py-0">
-      <a href="./">Kevin’s PSPE Resources</a> 
-    </div>
+      <a href="./index.html" class="sidebar-logo-link">
+      <img src="./lse.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
@@ -171,7 +171,7 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
- <span class="menu-text">Classical DiD</span></a>
+ <span class="menu-text">Classical Differences-in-Differences</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -185,8 +185,20 @@ window.Quarto = {
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
-      <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Staggered DiD</span></span>
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
+ <span class="menu-text">Staggered Differences-in-Differences</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./did.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Differences-in-Differences</span></a>
+  </div>
+</li>
+      </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
@@ -220,8 +232,8 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./matching.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">How Matching Works</span></a>
+  <a href="./soo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview of Selection on Observables</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -331,7 +343,7 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<p>Our concern is a confounder. For example, smartness of an individual could mean they are more likely to get a scholarship. Since smart people tend to perform well at university, that means the people who get treated are different from those who don’t get treated.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<p>Our concern is a confounder. For example, smartness of an individual could mean they are more likely to get a scholarship. Since smart people tend to perform well at university, that means the people who get treated are different from those who don’t get treated.</p>
 <div class="center-graph">
 <div class="cell" data-fig-width="4" data-fig-height="1.1" data-layout-align="default">
 <div class="cell-output-display">
@@ -388,14 +400,17 @@ window.Quarto = {
 </div>
 </div>
 </div>
+<div class="small">
+<p>Smartness is not the only confounder. Other confounders could be family income, athletic ability, etc.</p>
+</div>
 <p>But what if randomness (like flipping a coin) controls who gets the treatment or not. A coin will be flipped to decide if every person in our study will get the scholarship. This means that the randomness (the coin), and not the confounder, are causing selection into treatment:</p>
 <div class="center-graph">
-<div class="cell" data-fig-width="4" data-fig-height="1.1" data-layout-align="default">
+<div class="cell" data-fig-width="4.2" data-fig-height="1.1" data-layout-align="default">
 <div class="cell-output-display">
 <div>
 <p></p><figure class="figure"><p></p>
 <div>
-<svg width="384" height="106" viewbox="0.00 0.00 398.05 140.64" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<svg width="403" height="106" viewbox="0.00 0.00 398.05 140.64" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 136.64)">
 <title>example2</title>
 <polygon fill="white" stroke="transparent" points="-4,4 -4,-136.64 394.05,-136.64 394.05,4 -4,4"></polygon>
@@ -457,6 +472,9 @@ window.Quarto = {
 <p><span class="math display">\[
 \textcolor{purple}{\mean Y_\text{untreated}^{(0)}} = \textcolor{red}{\mean Y_\text{treated}^{(0)}}, \text{ so correlation} = \text{causation}
 \]</span></p>
+<div class="small">
+<p>This is established by the law of large numbers, but it is a little technical for here.</p>
+</div>
 <p>So if our treatment is randomly assigned (individuals randomly assigned to treatment or control), correlation does equal causation.</p>
 <p><br></p>
 <p>Randomisation is the <mark><strong>gold standard</strong></mark> of causal inference. There is no better method.</p>
@@ -465,15 +483,12 @@ window.Quarto = {
 <li>Randomisation is also possible if there is something that is being randomly assigned in the real world. For example, the US green card lottery randomly chooses who gets accepted.</li>
 </ul>
 <p>However, randomisation is not always possible to due to cost of running experiments, non-compliance of individuals within experiments, and impracticality.</p>
+<div class="small">
+<p>Non-compliance is an issue that can be solved pretty easily with an instrumental variable, given a few assumptions about the non-compliance.</p>
+</div>
 <p><br></p>
 
 
-<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
-<hr>
-<ol>
-<li id="fn1"><p>Smartness is not the only confounder. Other confounders could be family income, athletic ability, etc.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

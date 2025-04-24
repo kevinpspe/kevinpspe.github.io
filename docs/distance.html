@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Distance Matching – Kevin’s PSPE Resources</title>
+<title>Distance Matching</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,7 +64,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./pscore.html" rel="next">
-<link href="./matching.html" rel="prev">
+<link href="./soo.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -136,7 +136,7 @@ window.Quarto = {
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-sidebar floating slimcontent">
+<body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -145,7 +145,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./matching.html">Selection on Observables</a></li><li class="breadcrumb-item"><a href="./distance.html">Distance Matching</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./soo.html">Selection on Observables</a></li><li class="breadcrumb-item"><a href="./distance.html">Distance Matching</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -159,9 +159,9 @@ window.Quarto = {
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
-    <div class="sidebar-title mb-0 py-0">
-      <a href="./">Kevin’s PSPE Resources</a> 
-    </div>
+      <a href="./index.html" class="sidebar-logo-link">
+      <img src="./lse.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
@@ -206,7 +206,7 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
- <span class="menu-text">Classical DiD</span></a>
+ <span class="menu-text">Classical Differences-in-Differences</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -220,8 +220,20 @@ window.Quarto = {
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
-      <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Staggered DiD</span></span>
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
+ <span class="menu-text">Staggered Differences-in-Differences</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./did.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Differences-in-Differences</span></a>
+  </div>
+</li>
+      </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
@@ -255,8 +267,8 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./matching.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">How Matching Works</span></a>
+  <a href="./soo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview of Selection on Observables</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -307,9 +319,9 @@ window.Quarto = {
         
     </div>
 <!-- main -->
-<main class="content page-columns page-full" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./matching.html">Selection on Observables</a></li><li class="breadcrumb-item"><a href="./distance.html">Distance Matching</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./soo.html">Selection on Observables</a></li><li class="breadcrumb-item"><a href="./distance.html">Distance Matching</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Distance Matching</h1>
 </div>
@@ -328,15 +340,24 @@ window.Quarto = {
 </header>
 
 
-<p><br></p>
+<p>Mia is in our study and receives the treatment. Mia’s causal effect is:</p>
+<p><span class="math display">\[
+\tau_{\text{Mia}} = \textcolor{purple}{Y^{(1)}_\text{Mia}} - \textcolor{red}{Y^{(0)}_\text{Mia}}
+\]</span></p>
+<div class="small">
+<p>The counterfactual outcome (not observed) is in red.</p>
+</div>
+<p>We cannot observe Mia’s counterfactual. However, what we can do is to find an untreated individual similar to Mia to approximate Mia’s counterfactual:</p>
+<p><span class="math display">\[
+\tau_{\text{Mia}} \approx \textcolor{purple}{Y^{(1)}_\text{Mia}} - \textcolor{purple}{Y^{(0)}_\text{Matched individual}}
+\]</span></p>
 <p>Distance matching matches an individual that is treated (like Mia) with one that is not treated based on how <strong>close</strong> their confounding values are. We define closeness by Mahalanobis distance:</p>
 <p><span class="math display">\[
 \delta_{i, j} = \sqrt{(\b x_i - \b x_j)^\top \b\Sigma_x^{-1} (\b x_i - \b x_j)}
 \]</span></p>
-
-<div class="no-row-height column-margin column-container"><div class="margin-aside">
-<p>Where <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span> are two units we want to measure the distance between, <span class="math inline">\(\b x\)</span> are their confounder values, and <span class="math inline">\(\b\Sigma_x\)</span> is the covariance matrix of confounders.</p>
-</div></div><p>It is basically a way to measure distance across multiple dimensions, adjusting for the scale at which confounders are measured. The treated and untreated units that have the smallest distance between them are matched together.</p>
+<div class="small">
+<p>Where <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span> are two units we want to measure the distance between, <span class="math inline">\(\b x\)</span> is a vector of confounder values, and <span class="math inline">\(\b\Sigma_x\)</span> is the covariance matrix of confounders.</p>
+</div>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -346,16 +367,22 @@ window.Quarto = {
 <div>
 <p><strong>Kevin’s Estimator Score</strong>: <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i> (2/5)</p>
 <ul>
-<li>Distance matching performs worse than genetic matching.</li>
-<li>Distance matching is much quicker and easier to estimate than genetic matching, so for large datasets, it is useful.</li>
-<li>You should not use distance matching on any dataset with more than 4 confounders, as it is badly biased by the curse of dimensionality.</li>
+<li>Distance matching performs worse than <a href="./genetic.html">genetic matching</a>. However it is much quicker to estimate, so in larger datasets, you might consider to use distance matching.</li>
+<li><strong>You should not use distance matching on any dataset with more than 4 confounders</strong>, as it is badly biased by the <a href="https://en.wikipedia.org/wiki/Curse_of_dimensionality">curse of dimensionality</a>.</li>
+<li>All matching methods are data inefficient - they will throw out unmatched data, and this can greatly reduce our sample sizes.</li>
+<li>Matching is non-parametric, so it does not assume a linear relationship like regression.</li>
 </ul>
 </div>
 </div>
 </div>
 </div>
-<p><br></p>
-<p>To implement distance matching, we will need the <strong>Matching</strong> package.</p>
+<p>Before you implement distance matching, make sure you have reasons to believe you meet the neccessary assumptions for selection on observables:</p>
+<ol type="1">
+<li>Conditional Ignorability</li>
+<li>Common Support</li>
+<li>Stable Unit Treatment Value Assumption (SUTVA)</li>
+</ol>
+<p>We will need the <strong>Matching</strong> package.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(Matching)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -369,10 +396,7 @@ window.Quarto = {
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">Weight =</span> <span class="dv">2</span>)</span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(att)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-
-<div class="no-row-height column-margin column-container"><div class="margin-aside">
-<p>BiasAdjust is a complex method that reduces the bias in matching due to imperfect matches. You can change M (number of matches per treated unit) for better matches.</p>
-</div></div><p>Our output estimate will be the ATT.</p>
+<p>Our output estimate will be the ATT.</p>
 
 
 
@@ -799,8 +823,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./matching.html" class="pagination-link" aria-label="How Matching Works">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">How Matching Works</span>
+      <a href="./soo.html" class="pagination-link" aria-label="Overview of Selection on Observables">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Overview of Selection on Observables</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

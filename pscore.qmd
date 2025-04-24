@@ -1,6 +1,20 @@
 # Propensity Score Matching {.unnumbered}
 
-<br />
+Mia is in our study and receives the treatment. Mia's causal effect is:
+
+$$
+\tau_{\text{Mia}} = \textcolor{purple}{Y^{(1)}_\text{Mia}} - \textcolor{red}{Y^{(0)}_\text{Mia}}
+$$
+
+::: small
+The counterfactual outcome (not observed) is in red.
+:::
+
+We cannot observe Mia's counterfactual. However, what we can do is to find an untreated individual similar to Mia to approximate Mia's counterfactual:
+
+$$
+\tau_{\text{Mia}} \approx \textcolor{purple}{Y^{(1)}_\text{Mia}} - \textcolor{purple}{Y^{(0)}_\text{Matched individual}} 
+$$
 
 Propensity Score Matching matches an individual that is treated (like Mia) with one that is not treated based on how similar their likelihoods of treatment are.
 
@@ -10,24 +24,34 @@ $$
 \text{propensity score } \pi =Pr(\text{you get treated}) 
 $$
 
-Then, we match units based on how close they are in propensity scores.
+::: small
+Propensity scores are typically estimated with a logistic regression, although in recent years, more researchers have started to use machine learning methods.
+:::
 
 ::: {.callout-note appearance="minimal"}
 <div>
 
 **Kevin's Estimator Score**: <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i> (2/5)
 
--   Propensity score matching performs worse than genetic matching.
--   Propensity score matching is much quicker and easier to estimate than genetic matching, so for large datasets, it is useful.
--   You should not use propensity score matching on small datasets, as it can be badly biased.
--   There are also some criticisms of propensity score outlined [here](https://gking.harvard.edu/publications/why-propensity-scores-should-not-be-used-formatching).
+-   Propensity score matching performs worse than [genetic matching](genetic.qmd). However it is much quicker to estimate, so in larger datasets, you might consider to use distance matching.
+-   **You should not use propensity score matching on small datasets**, as it can be badly biased, as the logistic regression used to estimate propensity scores relies on asymptotic consistency.
+-   All matching methods are data inefficient - they will throw out unmatched data, and this can greatly reduce our sample sizes.
+-   Matching is non-parametric, so it does not assume a linear relationship like regression.
+
+::: small
+There are also some (advanced) criticisms of propensity score matching outlined [here](https://gking.harvard.edu/publications/why-propensity-scores-should-not-be-used-formatching).
+:::
 
 </div>
 :::
 
-<br />
+Before you implement propensity score matching, make sure you have reasons to believe you meet the neccessary assumptions for selection on observables:
 
-To implement propensity score matching, we will need the **Matching** package.
+1.  Conditional Ignorability
+2.  Common Support
+3.  Stable Unit Treatment Value Assumption (SUTVA)
+
+We will need the **Matching** package.
 
 ```{r, eval = FALSE}
 library(Matching)
@@ -43,7 +67,7 @@ my_data$pscore <- predict(propensity,
                           type = "response")
 ```
 
-::: aside
+::: small
 A random forest model is also possible, but less common.
 :::
 
@@ -58,9 +82,5 @@ att <- Match(Y = my_data$Y,
              Weight = 2)
 summary(att)
 ```
-
-::: aside
-Replace **Y** with the outcome variable, **D** with the treatment variable.
-:::
 
 Our output estimate will be the ATT.

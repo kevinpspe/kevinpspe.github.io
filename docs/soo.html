@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>How Matching Works – Kevin’s PSPE Resources</title>
+<title>Overview of Selection on Observables</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -102,7 +102,7 @@ window.Quarto = {
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-sidebar floating slimcontent">
+<body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -111,7 +111,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./matching.html">Selection on Observables</a></li><li class="breadcrumb-item"><a href="./matching.html">How Matching Works</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./soo.html">Selection on Observables</a></li><li class="breadcrumb-item"><a href="./soo.html">Overview of Selection on Observables</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -125,9 +125,9 @@ window.Quarto = {
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
-    <div class="sidebar-title mb-0 py-0">
-      <a href="./">Kevin’s PSPE Resources</a> 
-    </div>
+      <a href="./index.html" class="sidebar-logo-link">
+      <img src="./lse.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
@@ -172,7 +172,7 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
- <span class="menu-text">Classical DiD</span></a>
+ <span class="menu-text">Classical Differences-in-Differences</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -186,8 +186,20 @@ window.Quarto = {
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
-      <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Staggered DiD</span></span>
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
+ <span class="menu-text">Staggered Differences-in-Differences</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./did.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Differences-in-Differences</span></a>
+  </div>
+</li>
+      </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
@@ -221,8 +233,8 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./matching.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">How Matching Works</span></a>
+  <a href="./soo.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Overview of Selection on Observables</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -273,11 +285,11 @@ window.Quarto = {
         
     </div>
 <!-- main -->
-<main class="content page-columns page-full" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./matching.html">Selection on Observables</a></li><li class="breadcrumb-item"><a href="./matching.html">How Matching Works</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./soo.html">Selection on Observables</a></li><li class="breadcrumb-item"><a href="./soo.html">Overview of Selection on Observables</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">How Matching Works</h1>
+<h1 class="title">Overview of Selection on Observables</h1>
 </div>
 
 
@@ -294,35 +306,87 @@ window.Quarto = {
 </header>
 
 
+<p>Our issue in causal inference is that a confounder is causing pre-existing differences:</p>
+<div class="center-graph">
+<div class="cell" data-fig-width="4" data-fig-height="1.1" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<svg width="384" height="106" viewbox="0.00 0.00 380.31 117.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 113)">
+<title>example2</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-113 376.31,-113 376.31,4 -4,4"></polygon>
+<!-- D -->
+<g id="node1" class="node">
+<title>D</title>
+<polygon fill="none" stroke="black" points="142.54,-36 -0.18,-36 -0.18,0 142.54,0 142.54,-36"></polygon>
+<text text-anchor="middle" x="71.18" y="-13.8" font-family="Times,serif" font-size="14.00">Receiving Scholarship</text>
+</g>
+<!-- Y -->
+<g id="node3" class="node">
+<title>Y</title>
+<polygon fill="none" stroke="black" points="372.43,-36 253.93,-36 253.93,0 372.43,0 372.43,-36"></polygon>
+<text text-anchor="middle" x="313.18" y="-13.8" font-family="Times,serif" font-size="14.00">University Grades</text>
+</g>
+<!-- D&#45;&gt;Y -->
+<g id="edge1" class="edge">
+<title>D-&gt;Y</title>
+<path fill="none" stroke="black" d="M142.48,-18C174.44,-18 211.99,-18 243.72,-18"></path>
+<polygon fill="black" stroke="black" points="243.81,-21.5 253.81,-18 243.81,-14.5 243.81,-21.5"></polygon>
+<text text-anchor="middle" x="198.21" y="-25.2" font-family="Times,serif" font-size="14.00">Causal Effect</text>
+</g>
+<!-- X -->
+<g id="node2" class="node">
+<title>X</title>
+<polygon fill="none" stroke="black" points="267.93,-109 114.43,-109 114.43,-73 267.93,-73 267.93,-109"></polygon>
+<text text-anchor="middle" x="191.18" y="-86.8" font-family="Times,serif" font-size="14.00">Smartness (Confounder)</text>
+</g>
+<!-- X&#45;&gt;D -->
+<g id="edge2" class="edge">
+<title>X-&gt;D</title>
+<path fill="none" stroke="black" d="M162.44,-72.99C146.38,-63.49 126.17,-51.54 108.86,-41.29"></path>
+<polygon fill="black" stroke="black" points="110.49,-38.19 100.11,-36.11 106.93,-44.22 110.49,-38.19"></polygon>
+</g>
+<!-- X&#45;&gt;Y -->
+<g id="edge3" class="edge">
+<title>X-&gt;Y</title>
+<path fill="none" stroke="black" d="M229.29,-67.82C243.85,-59.35 260.44,-49.69 275,-41.22"></path>
+<polygon fill="black" stroke="black" points="227.29,-64.94 220.4,-72.99 230.81,-70.99 227.29,-64.94"></polygon>
+<polygon fill="black" stroke="black" points="276.89,-44.17 283.77,-36.11 273.37,-38.12 276.89,-44.17"></polygon>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div>
+<p>By definition, as the confounder <strong>changes</strong>, your likelihood of getting treatment changes.As the confounder <strong>changes</strong>, the outcome value will also change.</p>
+<p>These issues occur when the confounder <strong>changes</strong> in value. So what if we hold the confounders constant? Let us assume that the confounder, smartness, has two categories: smart and dumb. We divide our study individuals into these two categories (smart and dumb). Within each category, we calculate the causal effect:</p>
+<p><span class="math display">\[
+\begin{align}
+\tau_\text{smart} &amp; = \purple{\mean Y_\text{smart}^{(1)}} - \purple{\mean Y_\text{smart}^{(0)}} \\
+\tau_\text{dumb} &amp; = \purple{\mean Y_\text{dumb}^{(1)}} - \purple{\mean Y_\text{dumb}^{(0)}}
+\end{align}
+\]</span></p>
+<div class="small">
+<p>Obviously, most confounders will not have only 2 values. But the same intuition applies - for each value of confounders, we split all individuals into groups, and calculate the average treatment effect within each group.</p>
+</div>
+<p>Within both of these categories, the confounder is not changing - it is constant. Thus, within each category, correlation is equal to causation, as there is no selection bias. That means we can calculate the effects within each category. Then, we can average them to get a final causal effect:</p>
+<p><span class="math display">\[
+\mean\tau = \text{average of } \tau_\text{smart} \text{ and } \tau_\text{dumb}
+\]</span></p>
+<p>And wow! we have calculated the overall treatment effect. But we are not done - we need assumptions to ensure this works, and estimators to actually implement them (both right below this).</p>
 <p><br></p>
-<p>Mia is in our study and receives the treatment. Mia’s individual causal effect is:</p>
-<p><span class="math display">\[
-\tau_{\text{Mia}} = \textcolor{purple}{Y^{(1)}_\text{Mia}} - \textcolor{red}{Y^{(0)}_\text{Mia}}
-\]</span></p>
-
-<div class="no-row-height column-margin column-container"><div class="margin-aside">
-<p>The counterfactual in red is unobserved.</p>
-</div></div><p>Since Mia receives the treatment in real life, we cannot observe the counterfactual where Mia does not get the treatment. However, we can <strong>estimate</strong> Mia’s counterfactual by finding someone else in our study, who did not receive the treatment, but is also really <strong>similar</strong> to Mia in all other ways.</p>
-<p>Let’s say Ava is really similar to Mia. Ava also happens to have not received the treatment. We can approximate Mia’s counterfactual using Ava’s observed outcome:</p>
-<p><span class="math display">\[
-\textcolor{red}{Y^{(0)}_\text{Mia}} \approx \textcolor{purple}{Y^{(0)}_\text{Ava}}
-\]</span></p>
-<p>Having approximated Mia’s counterfactual, we can now estimate Mia’s causal effect, as both quantities are observed:</p>
-<p><span class="math display">\[
-\widehat\tau_{\text{Mia}} = \textcolor{purple}{Y^{(1)}_\text{Mia}} - \textcolor{purple}{Y^{(0)}_\text{Ava}} = Y_\text{Mia} - Y_\text{Ava}
-\]</span></p>
-<p>We can do the matching for every single person in the treatment group, then average all of these individual causal effects to get an estimate of the <strong>ATT</strong>.</p>
-<p>By matching individuals with the <strong>same/very similar confounder values</strong>, we eliminate pre-existing differences, since our matched pairs will all be similar to each other. Thus, selection bias will not be a concern.</p>
-<p><br></p>
-<p>For matching to work, we must meet the following three assumptions:</p>
-<div id="tbl-matching" class="bordered quarto-float quarto-figure quarto-figure-center anchored" data-tbl-colwidths="[22,43,35]">
-<figure class="quarto-float quarto-float-tbl figure">
-<div aria-describedby="tbl-matching-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<section id="important-assumptions" class="level3">
+<h3 class="anchored" data-anchor-id="important-assumptions">Important Assumptions</h3>
 <table class="table-bordered table">
 <colgroup>
-<col style="width: 22%">
-<col style="width: 43%">
-<col style="width: 35%">
+<col style="width: 27%">
+<col style="width: 45%">
+<col style="width: 28%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -334,13 +398,13 @@ window.Quarto = {
 <tbody>
 <tr class="odd">
 <td style="text-align: left;"><mark>Conditional Ignorability</mark></td>
-<td style="text-align: left;">This means that when we match, we must account for all possible confounders.</td>
+<td style="text-align: left;">This means that we must account for <strong>all</strong> possible confounders (cannot miss a single one).</td>
 <td style="text-align: left;">We can conduct balance checks.</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><mark>Common Support</mark></td>
 <td style="text-align: left;">This means no one can have a 100% chance of being in treatment or control. They always have a chance to be in either, no matter their confounding values.</td>
-<td style="text-align: left;">Hard to check. One way to sort of check is to see if you have a treated and untreated unit for every confounder value in your sample.</td>
+<td style="text-align: left;">Hard to check. Use theoretical reasoning.</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><mark>Stable Unit Treatment Value Assumption (SUTVA)</mark></td>
@@ -349,54 +413,75 @@ window.Quarto = {
 </tr>
 </tbody>
 </table>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-tbl" id="tbl-matching-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;1: Ensure all of these assumptions are met if you are using matching
-</figcaption>
-</figure>
-</div>
 <p><br></p>
-<p>There are three estimators to implement matching. These are essentially different ways to calculate which units are “closest” to each other for matching.</p>
+</section>
+<section id="possible-estimators-to-use" class="level3">
+<h3 class="anchored" data-anchor-id="possible-estimators-to-use">Possible Estimators to Use</h3>
 <table class="table-bordered table">
 <colgroup>
-<col style="width: 27%">
-<col style="width: 33%">
-<col style="width: 40%">
+<col style="width: 42%">
+<col style="width: 35%">
+<col style="width: 23%">
 </colgroup>
 <thead>
 <tr class="header">
 <th>Estimator</th>
 <th>Kevin’s Rating</th>
-<th>When to Use</th>
+<th>Estimand</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><mark><a href="./distance.html">Distance Matching</a></mark></td>
+<td>OLS Estimator (Regression)</td>
 <td><div>
-<p><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></p>
+<p><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></p>
 </div></td>
-<td>When genetic matching is not possible, and we have less than 5 confounders and a small sample.</td>
+<td>ATE</td>
 </tr>
 <tr class="even">
-<td><mark><a href="./pscore.html">Propensity Score Matching</a></mark></td>
+<td>Fully Interacted Estimator (Regression)</td>
+<td><div>
+<p><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></p>
+</div></td>
+<td>ATE</td>
+</tr>
+<tr class="odd">
+<td><a href="./distance.html">Distance Matching</a></td>
 <td><div>
 <p><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></p>
 </div></td>
-<td>When genetic matching is not possible, and we have a large sample.</td>
+<td>ATT</td>
+</tr>
+<tr class="even">
+<td><a href="./pscore.html">Propensity Score Matching</a></td>
+<td><div>
+<p><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></p>
+</div></td>
+<td>ATT</td>
 </tr>
 <tr class="odd">
-<td><mark><a href="./genetic.html">Genetic Matching</a></mark></td>
+<td><a href="./genetic.html">Genetic Matching</a></td>
 <td><div>
 <p><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></p>
 </div></td>
-<td>Whenever possible. Can require a good computer and take long for large data sets.</td>
+<td>ATT</td>
+</tr>
+<tr class="even">
+<td><a href="./weighting.html">Inverse Probability Weighting</a></td>
+<td><div>
+<p><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></p>
+</div></td>
+<td>ATE</td>
 </tr>
 </tbody>
 </table>
+<div class="small">
+<p>Important: You should not always go for the higher rated estimator. Each estimator has its strengths/weaknesses, which the links for each page explain in more detail.</p>
+</div>
 <p>Use the sidebar or links in the table to access each estimator’s page.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

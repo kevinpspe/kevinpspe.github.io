@@ -1,20 +1,30 @@
 # Genetic Matching {.unnumbered}
 
-<br />
+Mia is in our study and receives the treatment. Mia's causal effect is:
 
-Like [distance matching](distance.qmd), genetic matching matches an individual that is treated (like Mia) with one that is not treated based on how **close** their confounding values are.
+$$
+\tau_{\text{Mia}} = \textcolor{purple}{Y^{(1)}_\text{Mia}} - \textcolor{red}{Y^{(0)}_\text{Mia}}
+$$
 
-However, instead of using a standard mahalanobis distance, genetic matching uses a mahalanobis distance that puts different weights/emphasis on different confounders:
+::: small
+The counterfactual outcome (not observed) is in red.
+:::
+
+We cannot observe Mia's counterfactual. However, what we can do is to find an untreated individual similar to Mia to approximate Mia's counterfactual:
+
+$$
+\tau_{\text{Mia}} \approx \textcolor{purple}{Y^{(1)}_\text{Mia}} - \textcolor{purple}{Y^{(0)}_\text{Matched individual}} 
+$$
+
+Like [distance matching](distance.qmd), genetic matching matches an individual that is treated (like Mia) with one that is not treated based on how **close** their confounding values are. However, genetic matching uses a slightly different variation of mahalanobis distance:
 
 $$
 \delta_{i, j}(\b W) = \sqrt{(\b x_i - \b x_j)^\top (\b\Sigma_x^{-1/2})^\top \b W \b\Sigma_x^{-1/2}  (\b x_i - \b x_j)}
 $$
 
-::: aside
+::: small
 Where $i$ and $j$ are two units we want to measure the distance between, $\b x$ are their confounder values, and $\b\Sigma_x$ is the covariance matrix of confounders. $\b W$ is a weights matrix.
 :::
-
-It is basically a way to measure distance across multiple dimensions, adjusting for the scale at which confounders are measured, and weighting some confounders more.
 
 The weights $\b W$ are estimated to make the treated and untreated groups as similar as possible. Then, matching is done with the units that have the smallest distance.
 
@@ -23,21 +33,30 @@ The weights $\b W$ are estimated to make the treated and untreated groups as sim
 
 **Kevin's Estimator Score**: <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i> (4/5)
 
--   Genetic matching has been shown by studies to be the best performing matching estimator.
--   However, genetic matching is also more computationally intensive, so for large data sets, propensity score matching might be quicker.
+-   Genetic matching is the best performing matching estimator. However, genetic matching is also more computationally intensive, so for large data sets, propensity score matching might be quicker.
+-   All matching methods are data inefficient - they will throw out unmatched data, and this can greatly reduce our sample sizes.
+-   Matching is non-parametric, so it does not assume a linear relationship like regression.
 
 </div>
 :::
 
-<br />
+Before you genetic matching, make sure you have reasons to believe you meet the neccessary assumptions for selection on observables:
 
-To implement propensity score matching, we will need the **Matching** and **MatchIt** package.
+1.  Conditional Ignorability
+2.  Common Support
+3.  Stable Unit Treatment Value Assumption (SUTVA)
+
+We will need the **Matching** and **MatchIt** package.
 
 ```{r, eval = FALSE}
 library(Matching)
 ```
 
-First, we need to estimate the propensity scores with a logistic regression. It is recommended to use the propensity score as one of the controls on which to genetic match on.
+First, we need to estimate the propensity scores with a logistic regression.
+
+::: small
+It is recommended to use the propensity score as one of the controls on which to genetic match on.
+:::
 
 ```{r, eval = FALSE}
 propensity <- glm(D ~ X1 + X2,
@@ -63,7 +82,7 @@ gen <- GenMatch(Tr = my_data$D,
                     pop.size = 200)
 ```
 
-::: aside
+::: small
 You can increase pop.size to increase the accuracy - but it will increase the time and computational power needed.
 :::
 

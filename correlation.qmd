@@ -20,38 +20,44 @@ digraph example1 {
 ```
 :::
 
-We have a treated group (went to hospital), and an untreated group. Using our potential outcomes framework, we can define the treatment effect of each group:
-
-|                                                                                                                             |                                                                                                                                    |
-|:--------------------------|:---------------------------|
-| [Treated (Hospital)]{.smallcaps}                                                                                            | [Untreated (No Hospital)]{.smallcaps}                                                                                              |
-| $\tau_\text{treated} =\textcolor{purple}{\mean Y_{\text{treated}}^{(1)}} - \textcolor{red}{\mean Y_{\text{treated}}^{(0)}}$ | $\tau_\text{untreated} = \textcolor{red}{\mean Y_{\text{untreated}}^{(1)}} - \textcolor{purple}{\mean Y_{\text{untreated}}^{(0)}}$ |
-
-: {tbl-colwidths="\[45,45\]" .bordered}
-
-<br />
-
-Now compare the treatment effects above to correlation ($\rho$).[^correlation-1]
-
-[^correlation-1]: Correlation is the difference in observed outcomes: $\mean Y_\text{treated} - \mean Y_\text{untreated}$
+We have a treated group (went to hospital), and an untreated group. Using our potential outcomes framework, we can define the treatment effect of the treated group:
 
 $$
-\rho = \mean Y_\text{treated} - \mean Y_\text{untreated} = \textcolor{purple}{\mean Y_{\text{treated}}^{(1)}} - \textcolor{purple}{\mean Y_\text{untreated}^{(0)}}
+\tau_\text{treated} = \textcolor{purple}{\mean Y_{\text{treated}}^{(1)}} - \textcolor{red}{\mean Y_{\text{treated}}^{(0)}}
+$$
+
+::: small
+In red is the counterfactual we do not observe.
+:::
+
+Now compare the treatment effects above to correlation, which is defined as the difference in observed outcomes:
+
+$$
+\begin{align}
+\text{correlation} & = \mean Y_\text{treated} - \mean Y_\text{untreated} \\
+& = \textcolor{purple}{\mean Y_{\text{treated}}^{(1)}} - \textcolor{purple}{\mean Y_\text{untreated}^{(0)}}
+\end{align}
 $$
 
 If we compare this correlation to our $\tau_\text{treated}$, we see:
 
 $$
-\text{if  } \textcolor{purple}{\mean Y_\text{untreated}^{(0)}} ≠ \textcolor{red}{\mean Y_\text{treated}^{(0)}}, \text{ then } \rho ≠ \tau_\text{treated}
+\text{if  } \textcolor{purple}{\mean Y_\text{untreated}^{(0)}} ≠ \textcolor{red}{\mean Y_\text{treated}^{(0)}}, \text{ then }  \tau_\text{treated} ≠ \text{correlation}
 $$
+
+::: small
+$\textcolor{purple}{\mean Y_\text{untreated}^{(0)}}$ and $\textcolor{red}{\mean Y_\text{treated}^{(0)}}$ are pre-treatment potential outcomes.
+:::
 
 Thus, if there is a difference between the average outcomes between treated and untreated before treatment is administered, then correlation is not equal to causation. This is because we cannot tell if the difference between the groups is due to treatment, or [due to their pre-existing differences]{.mark}.
 
 <br />
 
-What causes pre-existing differences? Confounders. For example, in our hospital-health example, a confounder could be smoking.[^correlation-2]
+What causes pre-existing differences? Confounders. For example, in our hospital-health example, a confounder could be smoking.
 
-[^correlation-2]: Smoking is not the only possible confounder, we just use it as an example. Drinking, age, etc. are all other potential confounders.
+::: small
+Smoking is not the only possible confounder, we just use it as an example. Drinking, age, etc. are all other potential confounders.
+:::
 
 Smoking will worsen health outcomes. Someone who smokes is also more likely to visit the hospital with health complications. That means people who go to the hospital start out with (on average) worse health outcomes than people who did not go to the hospital.
 
@@ -82,6 +88,10 @@ A confounder is a third variable that has the following characteristics:
 1.  The confounder is correlated (positive or negative) with the outcome variable.
 2.  The confounder causes who gets and doesn't get the treatment.
 3.  The confounder is **not** itself caused by the treatment
+:::
+
+::: small
+Note requirement 3 - it is a common mistake. Any result of the treatment $D$ cannot be a confounder.
 :::
 
 [Confounders cause pre-existing differences]{.mark}, which cause correlation to not equal causation. We must account for confounders to uncover causal effects.

@@ -1,6 +1,6 @@
 # Welcome {.unnumbered}
 
-This is a collection of resources and notes for political science and political economy that I have collected throughout my postgraduate degree at the London School of Economics.
+This is a collection of resources and notes for political science and political economy methodology that I have collected throughout my postgraduate degree at the London School of Economics. I hope this resource can be useful to both myself and others!
 
 The resources in this collection include:
 
@@ -10,6 +10,6 @@ The resources in this collection include:
 
 I am continuously adding more to this collection as a learn more. Some parts may be incomplete, and you may see some changes in existing parts.
 
-This isn't meant to teach you stuff - more of a supplement + review + implementation guide so don't use it to self-learn that might not work as well.
+This isn't meant to teach you stuff - more of a supplement + review + implementation guide so don't use it to self-learn that might not work as well. I'm not a teacher.
 
 <br />

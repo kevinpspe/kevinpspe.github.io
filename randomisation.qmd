@@ -20,9 +20,7 @@ digraph example1 {
 ```
 :::
 
-Our concern is a confounder. For example, smartness of an individual could mean they are more likely to get a scholarship. Since smart people tend to perform well at university, that means the people who get treated are different from those who don't get treated.[^randomisation-1]
-
-[^randomisation-1]: Smartness is not the only confounder. Other confounders could be family income, athletic ability, etc.
+Our concern is a confounder. For example, smartness of an individual could mean they are more likely to get a scholarship. Since smart people tend to perform well at university, that means the people who get treated are different from those who don't get treated.
 
 ::: center-graph
 ```{dot}
@@ -45,11 +43,15 @@ digraph example2 {
 ```
 :::
 
+::: small
+Smartness is not the only confounder. Other confounders could be family income, athletic ability, etc.
+:::
+
 But what if randomness (like flipping a coin) controls who gets the treatment or not. A coin will be flipped to decide if every person in our study will get the scholarship. This means that the randomness (the coin), and not the confounder, are causing selection into treatment:
 
 ::: center-graph
 ```{dot}
-//| fig-width: 4
+//| fig-width: 4.2
 //| fig-height: 1.1
 digraph example2 {
   // Nodes
@@ -79,6 +81,10 @@ $$
 \textcolor{purple}{\mean Y_\text{untreated}^{(0)}} = \textcolor{red}{\mean Y_\text{treated}^{(0)}}, \text{ so correlation} = \text{causation}
 $$
 
+::: small
+This is established by the law of large numbers, but it is a little technical for here.
+:::
+
 So if our treatment is randomly assigned (individuals randomly assigned to treatment or control), correlation does equal causation.
 
 <br />
@@ -89,5 +95,9 @@ Randomisation is the [**gold standard**]{.mark} of causal inference. There is no
 -   Randomisation is also possible if there is something that is being randomly assigned in the real world. For example, the US green card lottery randomly chooses who gets accepted.
 
 However, randomisation is not always possible to due to cost of running experiments, non-compliance of individuals within experiments, and impracticality.
+
+::: small
+Non-compliance is an issue that can be solved pretty easily with an instrumental variable, given a few assumptions about the non-compliance.
+:::
 
 <br />

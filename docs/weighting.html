@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Weighting Estimator – Kevin's PSPE Resources</title>
+<title>Weighting Estimator</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -106,7 +106,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-sidebar floating slimcontent">
+<body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -115,7 +115,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./matching.html">Selection on Observables</a></li><li class="breadcrumb-item"><a href="./weighting.html"><span class="chapter-title">Weighting Estimator</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./soo.html">Selection on Observables</a></li><li class="breadcrumb-item"><a href="./weighting.html"><span class="chapter-title">Weighting Estimator</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -129,9 +129,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
-    <div class="sidebar-title mb-0 py-0">
-      <a href="./">Kevin’s PSPE Resources</a> 
-    </div>
+      <a href="./index.html" class="sidebar-logo-link">
+      <img src="./lse.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
@@ -176,7 +176,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
- <span class="menu-text">Classical DiD</span></a>
+ <span class="menu-text">Classical Differences-in-Differences</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -190,8 +190,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
-      <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Staggered DiD</span></span>
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
+ <span class="menu-text">Staggered Differences-in-Differences</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./did.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Differences-in-Differences</span></a>
+  </div>
+</li>
+      </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
@@ -225,8 +237,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./matching.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">How Matching Works</span></a>
+  <a href="./soo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview of Selection on Observables</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -277,9 +289,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         
     </div>
 <!-- main -->
-<main class="content page-columns page-full" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./matching.html">Selection on Observables</a></li><li class="breadcrumb-item"><a href="./weighting.html"><span class="chapter-title">Weighting Estimator</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./soo.html">Selection on Observables</a></li><li class="breadcrumb-item"><a href="./weighting.html"><span class="chapter-title">Weighting Estimator</span></a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title"><span class="chapter-title">Weighting Estimator</span></h1>
 </div>
@@ -298,102 +310,54 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>Weighting is a niche design used when the other designs aren’t possible, and we have a good idea of what the confounders are.</p>
-<div>
-  Validity: <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><span> (2/5)</span>
-</div>
-<div>
-  Interpretability:  <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span> (5/5)</span>
-</div>
-<p><br></p>
-<section id="what-is-inverse-probability-weighting" class="level2 page-columns page-full">
-<h2 class="anchored" data-anchor-id="what-is-inverse-probability-weighting">What is Inverse Probability Weighting?</h2>
-<p>Let us look back at an earlier example from chapter 2:</p>
-<div class="center-graph">
-<div class="cell" data-fig-width="4" data-fig-height="0.45" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class="figure"><p></p>
-<div>
-<svg width="384" height="43" viewbox="0.00 0.00 370.31 44.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
-<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 40)">
-<title>example1</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-40 366.31,-40 366.31,4 -4,4"></polygon>
-<!-- D -->
-<g id="node1" class="node">
-<title>D</title>
-<polygon fill="none" stroke="black" points="136.9,-36 0.03,-36 0.03,0 136.9,0 136.9,-36"></polygon>
-<text text-anchor="middle" x="68.47" y="-13.8" font-family="Times,serif" font-size="14.00">Going to the Hospital</text>
-</g>
-<!-- Y -->
-<g id="node2" class="node">
-<title>Y</title>
-<polygon fill="none" stroke="black" points="362.11,-36 248.94,-36 248.94,0 362.11,0 362.11,-36"></polygon>
-<text text-anchor="middle" x="305.52" y="-13.8" font-family="Times,serif" font-size="14.00">Health Outcomes</text>
-</g>
-<!-- D&#45;&gt;Y -->
-<g id="edge1" class="edge">
-<title>D-&gt;Y</title>
-<path fill="none" stroke="black" d="M137.14,-18C169.08,-18 207.05,-18 238.75,-18"></path>
-<polygon fill="black" stroke="black" points="238.8,-21.5 248.8,-18 238.8,-14.5 238.8,-21.5"></polygon>
-<text text-anchor="middle" x="192.83" y="-22.2" font-family="Times,serif" font-size="14.00">Causal Effect</text>
-</g>
-</g>
-</svg>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
-</div>
-<p>We know we are concerned about confounders. Smoking is a potential confounder.</p>
+<p>Let us look at this example, with a confounder.</p>
 <div class="center-graph">
 <div class="cell" data-fig-width="4" data-fig-height="1.1" data-layout-align="default">
 <div class="cell-output-display">
 <div>
 <p></p><figure class="figure"><p></p>
 <div>
-<svg width="384" height="106" viewbox="0.00 0.00 370.26 117.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<svg width="384" height="106" viewbox="0.00 0.00 380.31 117.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 113)">
 <title>example2</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-113 366.26,-113 366.26,4 -4,4"></polygon>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-113 376.31,-113 376.31,4 -4,4"></polygon>
 <!-- D -->
 <g id="node1" class="node">
 <title>D</title>
-<polygon fill="none" stroke="black" points="136.9,-36 0.03,-36 0.03,0 136.9,0 136.9,-36"></polygon>
-<text text-anchor="middle" x="68.47" y="-13.8" font-family="Times,serif" font-size="14.00">Going to the Hospital</text>
+<polygon fill="none" stroke="black" points="142.54,-36 -0.18,-36 -0.18,0 142.54,0 142.54,-36"></polygon>
+<text text-anchor="middle" x="71.18" y="-13.8" font-family="Times,serif" font-size="14.00">Receiving Scholarship</text>
 </g>
 <!-- Y -->
 <g id="node3" class="node">
 <title>Y</title>
-<polygon fill="none" stroke="black" points="362.05,-36 248.88,-36 248.88,0 362.05,0 362.05,-36"></polygon>
-<text text-anchor="middle" x="305.47" y="-13.8" font-family="Times,serif" font-size="14.00">Health Outcomes</text>
+<polygon fill="none" stroke="black" points="372.43,-36 253.93,-36 253.93,0 372.43,0 372.43,-36"></polygon>
+<text text-anchor="middle" x="313.18" y="-13.8" font-family="Times,serif" font-size="14.00">University Grades</text>
 </g>
 <!-- D&#45;&gt;Y -->
 <g id="edge1" class="edge">
 <title>D-&gt;Y</title>
-<path fill="none" stroke="black" d="M137.02,-18C168.97,-18 206.85,-18 238.59,-18"></path>
-<polygon fill="black" stroke="black" points="238.66,-21.5 248.66,-18 238.66,-14.5 238.66,-21.5"></polygon>
-<text text-anchor="middle" x="192.81" y="-25.2" font-family="Times,serif" font-size="14.00">Causal Effect</text>
+<path fill="none" stroke="black" d="M142.48,-18C174.44,-18 211.99,-18 243.72,-18"></path>
+<polygon fill="black" stroke="black" points="243.81,-21.5 253.81,-18 243.81,-14.5 243.81,-21.5"></polygon>
+<text text-anchor="middle" x="198.21" y="-25.2" font-family="Times,serif" font-size="14.00">Causal Effect</text>
 </g>
 <!-- X -->
 <g id="node2" class="node">
 <title>X</title>
-<polygon fill="none" stroke="black" points="259.73,-109 113.2,-109 113.2,-73 259.73,-73 259.73,-109"></polygon>
-<text text-anchor="middle" x="186.47" y="-86.8" font-family="Times,serif" font-size="14.00">Smoking (Confounder)</text>
+<polygon fill="none" stroke="black" points="267.93,-109 114.43,-109 114.43,-73 267.93,-73 267.93,-109"></polygon>
+<text text-anchor="middle" x="191.18" y="-86.8" font-family="Times,serif" font-size="14.00">Smartness (Confounder)</text>
 </g>
 <!-- X&#45;&gt;D -->
 <g id="edge2" class="edge">
 <title>X-&gt;D</title>
-<path fill="none" stroke="black" d="M158.2,-72.99C142.41,-63.49 122.54,-51.54 105.52,-41.29"></path>
-<polygon fill="black" stroke="black" points="107.28,-38.27 96.91,-36.11 103.67,-44.27 107.28,-38.27"></polygon>
+<path fill="none" stroke="black" d="M162.44,-72.99C146.38,-63.49 126.17,-51.54 108.86,-41.29"></path>
+<polygon fill="black" stroke="black" points="110.49,-38.19 100.11,-36.11 106.93,-44.22 110.49,-38.19"></polygon>
 </g>
 <!-- X&#45;&gt;Y -->
 <g id="edge3" class="edge">
 <title>X-&gt;Y</title>
-<path fill="none" stroke="black" d="M223.64,-67.82C237.7,-59.43 253.72,-49.88 267.83,-41.46"></path>
-<polygon fill="black" stroke="black" points="221.77,-64.86 214.97,-72.99 225.35,-70.88 221.77,-64.86"></polygon>
-<polygon fill="black" stroke="black" points="269.99,-44.24 276.78,-36.11 266.4,-38.23 269.99,-44.24"></polygon>
+<path fill="none" stroke="black" d="M229.29,-67.82C243.85,-59.35 260.44,-49.69 275,-41.22"></path>
+<polygon fill="black" stroke="black" points="227.29,-64.94 220.4,-72.99 230.81,-70.99 227.29,-64.94"></polygon>
+<polygon fill="black" stroke="black" points="276.89,-44.17 283.77,-36.11 273.37,-38.12 276.89,-44.17"></polygon>
 </g>
 </g>
 </svg>
@@ -403,198 +367,101 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-
-<div class="no-row-height column-margin column-container"><div class="margin-aside">
-<p>Note: smoking is not the only possible confounder, we just use it as an example. Drinking, age, etc. are all other potential confounders. To find the causal effect, you must account for all confounders.</p>
-</div></div><p>Let’s pretend our smoking confounder has 2 categories: people who do not smoke, and frequent smokers. Let’s focus on the frequent smokers. We might have 5 frequent smokers in our study: Ava, Ben, Mia, Max, and Zoe. Because smoking makes you more likely to need to go to the hospital, their treatment statuses look like:</p>
+<div class="small">
+<p>Note: smartness is not the only confounder. This is for demonstration purposes.</p>
+</div>
+<p>Let’s pretend there are only dumb and smart people (for simplicity). Our treated and control groups might be:</p>
 <table class="table-bordered table">
 <colgroup>
 <col style="width: 50%">
 <col style="width: 50%">
 </colgroup>
-<thead>
-<tr class="header">
-<th>Treated (Hospital)</th>
-<th>Untreated</th>
-</tr>
-</thead>
 <tbody>
 <tr class="odd">
-<td>Ava, Mia, Max, Zoe</td>
-<td>Ben</td>
+<td><span class="smallcaps">Treated (Got Scholarship)</span></td>
+<td><span class="smallcaps">Untreated (Did not get scholarship)</span></td>
+</tr>
+<tr class="even">
+<td>Smart Students (x4)</td>
+<td>Smart Students (x1)</td>
+</tr>
+<tr class="odd">
+<td>Dumb Students (x1)</td>
+<td>Dumb Students (x4)</td>
 </tr>
 </tbody>
 </table>
-
-<div class="no-row-height column-margin column-container"><div class="margin-aside">
-<p>The opposite is true for non-smokers: 4 of the 5 are in the untreated group, and only 1 of 5 are in the treated.</p>
-</div></div><p>This is a clear selection bias issue - smoking is affecting who gets treated, and smoking also results in worse health outcomes. <strong>Inverse probability weighting</strong> is a solution to solve selection bias. It essentially emphaises certain individuals to “solve” selection bias.</p>
-<p>For example, inverse probability weighting would “pretend” that the frequent smokers table from above actually looks like:</p>
+<div class="small">
+<p>We are assuming being smarter makes you more likely to get the scholarship, since it is a confounder and should affect who gets the treatment.</p>
+</div>
+<p>Our two groups have pre-existing differences. However, by emphasising certain individuals, we can make it seem like there are no more imbalances. For example, weighting might make our above table become:</p>
 <table class="table-bordered table">
 <colgroup>
 <col style="width: 50%">
 <col style="width: 50%">
 </colgroup>
-<thead>
-<tr class="header">
-<th>Treated (Hospital)</th>
-<th>Untreated</th>
-</tr>
-</thead>
 <tbody>
 <tr class="odd">
-<td>Ava, Mia, Max, Zoe</td>
-<td>Ben, Ben, Ben, Ben</td>
+<td><span class="smallcaps">Treated (Got Scholarship)</span></td>
+<td><span class="smallcaps">Untreated (Did not get scholarship)</span></td>
+</tr>
+<tr class="even">
+<td>Smart Students (x4)</td>
+<td>Smart Students (emphasise to x4)</td>
+</tr>
+<tr class="odd">
+<td>Dumb Students (emphasise to x4)</td>
+<td>Dumb Students (x4)</td>
 </tr>
 </tbody>
 </table>
-<p>By emphasising Ben and making him worth 4 individuals (and doing something similar in the non-smoking category), inverse probability weighting has essentially solved the selection bias issue by making it so that confounders do not affect the likelihood of getting treatment.</p>
-<p>Since confounders influence the likelihood of an individual getting treatment, we can estimate that likelihood of getting treatment, given an individual’s confounder levels. Inverse probability weighting decides the weight/emphasis of every individual based on the inverse of their likelihood to receive treatment.</p>
-
-<div class="no-row-height column-margin column-container"><div class="margin-aside">
-<p>The inverse of the likelihood of getting treatment means that individuals less likely to receive treatment will be weighted more, as shown with Ben above.</p>
-</div></div><p><br></p>
-</section>
-<section id="when-should-you-use-this-method" class="level2">
-<h2 class="anchored" data-anchor-id="when-should-you-use-this-method">When Should You Use this Method?</h2>
-<p>When can/should you use weighting?</p>
-<ol type="1">
-<li>If none of <em>random experiments</em>, <em>regression discontinuity (including fuzzy)</em>, <em>differences-in-differences</em>, or <em>instrumental variables</em> are possible.</li>
-<li>If you have a large sample size (generally over 200 observations for both treated and untreated). If you have a smaller sample size, consider <em>distance matching</em>.</li>
-<li>You are interested in the ATE instead of the ATT. If you want the ATT, consider <em>matching</em>.</li>
-<li>You know and have data on all the confounders in question.</li>
-</ol>
-<p>Then, check you have met these <u>assumptions</u>:</p>
-<ol type="1">
-<li><mark><strong>Conditional Ignorability</strong></mark>: we must know all confounders, and have data on all confounders, and include all confounders in our estimation.</li>
-<li>We must have a <strong>sufficiently large sample size</strong>, as weighting is inaccurate in smaller sample sizes. We should have at least 200 observations per treatment group (treated and untreated). The more confounders you have, the larger sample you need.</li>
-</ol>
-<div class="tabset-margin-container"></div><div class="panel-tabset nav-pills">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" aria-current="page">My Ratings</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Advantages</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">Disadvantages</a></li></ul>
-<div class="tab-content nav-pills">
-<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
-<div>
-  <b>Validity</b>:  <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><span> (2/5)</span>
+<div class="small">
+<p>See how the underrepresented individuals in each group (treated/untreated) were weighted upwards. More technically, inverse probability weighting emphasises/weights an individual by the inverse of their likelihood to receive treatment.</p>
 </div>
-<p><em>How convincing is this method at accurately estimating the true causal effects?</em></p>
-<ul>
-<li>It is often difficult to justify that you have accounted for all possible confounders. The estimator is also biased in small samples, but big-data is pretty available these days.</li>
-<li>This makes the design less convincing than all other methods, except <em>matching</em> which is about the same level of convincing.</li>
-<li>It is often used when we cannot use other better methods.</li>
-</ul>
-<div>
-  <b>Interpretability</b>:  <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span> (5/5)</span>
-</div>
-<p><em>How useful are the results from this method?</em></p>
-<ul>
-<li>The estimand is the ATE, probably the most generalisable effect summary.</li>
-</ul>
-</div>
-<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
-<p>If none of <em>random experiments</em>, <em>instrumental variables</em>, <em>regression discontinuity</em>, or <em>differences-in-differences</em> are possible, you generally resort to <em>matching</em> or <em>weighting</em>.</p>
-<p>Weighting does have some advantages over <em>matching</em> in some situations.</p>
-<ol type="1">
-<li><strong>Weighting uncovers the ATE</strong>, while matching can only uncover the ATT. Often, we are interested in the ATE, since the ATT is only the causal effects for people who received the treatment, when we are interested in what will happen when we expand a treatment to others.</li>
-<li><strong>Weighting</strong> performs better with larger numbers of covariates, especially compared with distance matching.</li>
-</ol>
-</div>
-<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
-<p>Weighting has disadvantages when compared to other methods.</p>
-<ol type="1">
-<li>Inverse probability weighting <strong>requires you to include every single confounder</strong>. This is often not possible. Sometimes, we just do not know enough about a topic to know all the confounders, or we know a confounder, but it is impossible to measure. Methods like <em>random experiments</em>, <em>instrumental variables</em>, <em>regression discontinuity</em>, or <em>differences-in-differences</em> can find causal effects without knowing all confounders.</li>
-<li>Inverse probability weighting can be very inaccurate with small samples. This is because the estimator becomes very sensitive to extreme propensity score values, which occurs more often in small samples. In small samples, <strong>distance matching</strong> is more accurate.</li>
-</ol>
-</div>
-</div>
-</div>
-<p><br></p>
-</section>
-<section id="implementing-inverse-probability-weighting" class="level2 page-columns page-full">
-<h2 class="anchored" data-anchor-id="implementing-inverse-probability-weighting">Implementing Inverse Probability Weighting</h2>
-<p>To implement inverse probability weighting, we need to first estimate our propensity scores (likelihood of an individual being treated based on their confounders). The propensity scores will be needed as part of the calculation of weights/emphasis for each individual.</p>
-<div class="callout callout-style-simple callout-important">
+<p>We can see there is no more pre-existing differences after weighting.</p>
+<div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>We must use <strong>all confounders</strong> in our prediction of propensity scores. If we leave out any possible confounder, our predicted likelihood of treatment values will be wrong, and our causal estimates will be wrong.</p>
+<div>
+<p><strong>Kevin’s Estimator Score</strong>: <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i> (3/5)</p>
+<ul>
+<li>Weighting is relatively good in large sample sizes.</li>
+<li><strong>You should not use weighting when with small samples</strong>, since their can be noticable bias, as the method is very sensitive to outlier propensity scores.</li>
+<li>Weighting is more efficient with data than matching as it does not throw out unmatched observations like matching estimators do.</li>
+<li>Weighting is non-parametric, so it does not assume a linear relationship like regression.</li>
+</ul>
 </div>
 </div>
 </div>
-<p>Before we start, we will need the <strong>MatchIt</strong> and <strong>estimatr</strong> packages. If you never have installed the packages, you should install them. Let us load the packages:</p>
+</div>
+<p>Before you inverse probability weighting, make sure you have reasons to believe you meet the neccessary assumptions for selection on observables:</p>
+<ol type="1">
+<li>Conditional Ignorability</li>
+<li>Common Support</li>
+<li>Stable Unit Treatment Value Assumption (SUTVA)</li>
+</ol>
+<p>We will need the <strong>MatchIt</strong> and <strong>estimatr</strong> packages:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MatchIt)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(estimatr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>To estimate the propensity score, we can use the <strong>glm()</strong> command:</p>
+<p>To estimate the propensity scores and weights, we can use the <strong>glm()</strong> command:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>propensity <span class="ot">&lt;-</span> <span class="fu">glm</span>(D <span class="sc">~</span> X1 <span class="sc">+</span> X2, <span class="at">data =</span> my_data, <span class="at">family =</span> <span class="st">"binomial"</span>)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>my_data<span class="sc">$</span>pscore <span class="ot">&lt;-</span> <span class="fu">predict</span>(propensity, <span class="at">type =</span> <span class="st">"response"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>my_data<span class="sc">$</span>pscore <span class="ot">&lt;-</span> <span class="fu">predict</span>(propensity, <span class="at">type =</span> <span class="st">"response"</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>my_data<span class="sc">$</span>ipw <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(mydata<span class="sc">$</span>D <span class="sc">==</span> <span class="dv">1</span>, <span class="dv">1</span><span class="sc">/</span>my_data<span class="sc">$</span>pscore, <span class="dv">1</span><span class="sc">/</span>(<span class="dv">1</span><span class="sc">-</span>my_data<span class="sc">$</span>pscore))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-
-<div class="no-row-height column-margin column-container"><div class="margin-aside">
-<p>Replace <strong>D</strong> with our treatment variable, and <strong>X1</strong> and <strong>X2</strong> with our confounders. Replace <strong>my_data</strong> with our study data.</p>
-</div></div><p>Then, we need to create our weights, which are the inverse of the propensity scores:</p>
+<p>Finally, we need to use the <strong>lm_robust()</strong> command to estimate our causal effects:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>my_data<span class="sc">$</span>ipw <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(mydata<span class="sc">$</span>D <span class="sc">==</span> <span class="dv">1</span>, <span class="dv">1</span><span class="sc">/</span>my_data<span class="sc">$</span>pscore, <span class="dv">1</span><span class="sc">/</span>(<span class="dv">1</span><span class="sc">-</span>my_data<span class="sc">$</span>pscore))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>ate <span class="ot">&lt;-</span> estimatr<span class="sc">::</span><span class="fu">lm_robust</span>(Y <span class="sc">~</span> D, <span class="at">data =</span> my_data, <span class="at">weights =</span> ipw)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(ate)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-
-<div class="no-row-height column-margin column-container"><div class="margin-aside">
-<p>Replace <strong>D</strong> with our treatment variable, and <strong>my_data</strong> with our study data.</p>
-</div></div><p>Finally, we need to use the <strong>lm_robust()</strong> command to estimate our causal effects:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>ate <span class="ot">&lt;-</span> estimatr<span class="sc">::</span><span class="fu">lm_robust</span>(Y <span class="sc">~</span> D, <span class="at">data =</span> my_data, <span class="at">weights =</span> ipw)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(ate)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-
-<div class="no-row-height column-margin column-container"><div class="margin-aside">
-<p>Replace <strong>Y</strong> with the outcome variable, <strong>D</strong> with the treatment, and <strong>my_data</strong> with our study data.</p>
-</div></div><p>This will output the results, which I will show how we interpret in the next section.</p>
-<p><br></p>
-</section>
-<section id="interpreting-the-results" class="level2 page-columns page-full">
-<h2 class="anchored" data-anchor-id="interpreting-the-results">Interpreting the Results</h2>
-<p>Our results will look something like this:</p>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>
-Call:
-estimatr::lm_robust(formula = Y ~ D, data = data, weights = ipweight)
-
-Weighted, Standard error type:  HC2 
-
-Coefficients:
-            Estimate Std. Error t value   Pr(&gt;|t|) CI Lower CI Upper  DF
-(Intercept)     1.29    0.03688   34.97 1.458e-175    1.218    1.362 998
-D               1.78    0.15237   11.68  1.219e-29    1.481    2.079 998
-
-Multiple R-squared:  0.3066 ,   Adjusted R-squared:  0.3059 
-F-statistic: 136.5 on 1 and 998 DF,  p-value: &lt; 2.2e-16</code></pre>
-</div>
-</div>
-<p>Our causal estimate is given in the <strong>coefficients</strong> table, in the <strong>D</strong> (treatment) row and <strong>Estimate</strong> column. We can see the causal effect is estimated to be <strong>1.78</strong>. Propensity score matching estimates the <strong>ATE</strong> (see table <span class="quarto-unresolved-ref">?tbl-estimands</span>), so we interpret the estimate as:</p>
-<blockquote class="blockquote">
-<p>Treatment D on average caused a 1.4733 unit change in outcome Y.</p>
-</blockquote>
-<div class="callout callout-style-simple callout-important">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-body-container">
-<p>Our causal estimates are only accurate if we used <strong>all confounders</strong> in our propensity score estimation. If we forgot even just one confounder, our estimates will be wrong.</p>
-</div>
-</div>
-</div>
-<p>If we look at the p-value (labelled <strong>Pr(&gt;|t|)</strong>), we can see it is less than 0.05. Thus, we have a statistically significant causal effect.</p>
-
-<div class="no-row-height column-margin column-container"><div class="margin-aside">
-<p>The p-value in this outcome is written in scientific notation. You can always copy into google to see what it equals.</p>
-</div></div><p><br></p>
+<p>This will output the ATT.</p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

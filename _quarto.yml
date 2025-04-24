@@ -3,16 +3,18 @@ project:
   output-dir: docs
 
 book:
-  title: "Kevin's PSPE Resources"
-  subtitle: "Collection of Practical Resources on Causal Inference and Statistics for Political Science and Political Economy"
+  title: ""
+  subtitle: "Kevin's Collection of PSPE Methodology Resources"
   search: true
   sidebar:
     collapse-level: 1
     pinned: true
+    title: ""
     style: floating
     border: true
     background: "#f8f9fa"
     foreground: "#36026b"
+    logo: lse.png
   chapters:
     - index.qmd
     - part: "Causal Inference Basics"
@@ -21,17 +23,19 @@ book:
         - correlation.qmd
         - randomisation.qmd
     - "---"
-    - part: "Classical DiD"
+    - part: "Classical Differences-in-Differences"
       chapters:
         - did.qmd
-    - part: "Staggered DiD"
+    - part: "Staggered Differences-in-Differences"
+      chapters:
+        - did.qmd
     - part: "Regression Discontinuity"
       chapters:
         - rdd.qmd
         - fuzzy.qmd
     - part: "Selection on Observables"
       chapters:
-        - matching.qmd
+        - soo.qmd
         - distance.qmd
         - pscore.qmd
         - genetic.qmd

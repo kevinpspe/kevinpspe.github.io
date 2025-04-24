@@ -1,6 +1,20 @@
 # Distance Matching {.unnumbered}
 
-<br />
+Mia is in our study and receives the treatment. Mia's causal effect is:
+
+$$
+\tau_{\text{Mia}} = \textcolor{purple}{Y^{(1)}_\text{Mia}} - \textcolor{red}{Y^{(0)}_\text{Mia}}
+$$
+
+::: small
+The counterfactual outcome (not observed) is in red.
+:::
+
+We cannot observe Mia's counterfactual. However, what we can do is to find an untreated individual similar to Mia to approximate Mia's counterfactual:
+
+$$
+\tau_{\text{Mia}} \approx \textcolor{purple}{Y^{(1)}_\text{Mia}} - \textcolor{purple}{Y^{(0)}_\text{Matched individual}} 
+$$
 
 Distance matching matches an individual that is treated (like Mia) with one that is not treated based on how **close** their confounding values are. We define closeness by Mahalanobis distance:
 
@@ -8,27 +22,30 @@ $$
 \delta_{i, j} = \sqrt{(\b x_i - \b x_j)^\top \b\Sigma_x^{-1} (\b x_i - \b x_j)}
 $$
 
-::: aside
-Where $i$ and $j$ are two units we want to measure the distance between, $\b x$ are their confounder values, and $\b\Sigma_x$ is the covariance matrix of confounders.
+::: small
+Where $i$ and $j$ are two units we want to measure the distance between, $\b x$ is a vector of confounder values, and $\b\Sigma_x$ is the covariance matrix of confounders.
 :::
-
-It is basically a way to measure distance across multiple dimensions, adjusting for the scale at which confounders are measured. The treated and untreated units that have the smallest distance between them are matched together.
 
 ::: {.callout-note appearance="minimal"}
 <div>
 
 **Kevin's Estimator Score**: <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i> (2/5)
 
--   Distance matching performs worse than genetic matching.
--   Distance matching is much quicker and easier to estimate than genetic matching, so for large datasets, it is useful.
--   You should not use distance matching on any dataset with more than 4 confounders, as it is badly biased by the curse of dimensionality.
+-   Distance matching performs worse than [genetic matching](genetic.qmd). However it is much quicker to estimate, so in larger datasets, you might consider to use distance matching.
+-   **You should not use distance matching on any dataset with more than 4 confounders**, as it is badly biased by the [curse of dimensionality](https://en.wikipedia.org/wiki/Curse_of_dimensionality).
+-   All matching methods are data inefficient - they will throw out unmatched data, and this can greatly reduce our sample sizes.
+-   Matching is non-parametric, so it does not assume a linear relationship like regression.
 
 </div>
 :::
 
-<br />
+Before you implement distance matching, make sure you have reasons to believe you meet the neccessary assumptions for selection on observables:
 
-To implement distance matching, we will need the **Matching** package.
+1.  Conditional Ignorability
+2.  Common Support
+3.  Stable Unit Treatment Value Assumption (SUTVA)
+
+We will need the **Matching** package.
 
 ```{r, eval = FALSE}
 library(Matching)
@@ -45,9 +62,5 @@ att <- Match(Y = my_data$Y,
              Weight = 2)
 summary(att)
 ```
-
-::: aside
-BiasAdjust is a complex method that reduces the bias in matching due to imperfect matches. You can change M (number of matches per treated unit) for better matches.
-:::
 
 Our output estimate will be the ATT.
