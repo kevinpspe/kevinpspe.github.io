@@ -325,10 +325,7 @@ window.Quarto = {
 <p><span class="math display">\[
 \tau_{\text{Mia}} = \textcolor{purple}{Y^{(1)}_\text{Mia}} - \textcolor{red}{Y^{(0)}_\text{Mia}}
 \]</span></p>
-<div class="small">
-<p>The counterfactual outcome (not observed) is in red.</p>
-</div>
-<p>We cannot observe Mia’s counterfactual. However, what we can do is to find an untreated individual similar to Mia to approximate Mia’s counterfactual:</p>
+<p>We cannot observe Mia’s counterfactual (in red). However, what we can do is to find an untreated individual similar to Mia to approximate Mia’s counterfactual:</p>
 <p><span class="math display">\[
 \tau_{\text{Mia}} \approx \textcolor{purple}{Y^{(1)}_\text{Mia}} - \textcolor{purple}{Y^{(0)}_\text{Matched individual}}
 \]</span></p>
@@ -357,12 +354,7 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<p>Before you implement distance matching, make sure you have reasons to believe you meet the neccessary assumptions for <a href="./soo.html">selection on observables</a>:</p>
-<ol type="1">
-<li>Conditional Ignorability</li>
-<li>Common Support</li>
-<li>Stable Unit Treatment Value Assumption (SUTVA)</li>
-</ol>
+<p>Before you implement distance matching, make sure you have reasons to believe you meet the neccessary assumptions for <a href="./soo.html">selection on observables</a>.</p>
 <p>We will need the <strong>Matching</strong> package.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(Matching)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>

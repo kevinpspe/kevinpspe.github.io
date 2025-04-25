@@ -10,11 +10,7 @@ $$
 \tau_{\text{Mia}} = \textcolor{purple}{Y^{(1)}_\text{Mia}} - \textcolor{red}{Y^{(0)}_\text{Mia}}
 $$
 
-::: small
-The counterfactual outcome (not observed) is in red.
-:::
-
-We cannot observe Mia's counterfactual. However, what we can do is to find an untreated individual similar to Mia to approximate Mia's counterfactual:
+We cannot observe Mia's counterfactual (in red). However, what we can do is to find an untreated individual similar to Mia to approximate Mia's counterfactual:
 
 $$
 \tau_{\text{Mia}} \approx \textcolor{purple}{Y^{(1)}_\text{Mia}} - \textcolor{purple}{Y^{(0)}_\text{Matched individual}} 
@@ -45,10 +41,6 @@ The weights $\b W$ are estimated to make the treated and untreated groups as sim
 :::
 
 Before you start genetic matching, make sure you have reasons to believe you meet the neccessary assumptions for [selection on observables](soo.qmd):
-
-1.  Conditional Ignorability
-2.  Common Support
-3.  Stable Unit Treatment Value Assumption (SUTVA)
 
 We will need the **Matching** and **MatchIt** package.
 

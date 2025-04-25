@@ -4,15 +4,11 @@
 See [here](soo.qmd) on how selection on observables works, and the other estimators available.
 :::
 
-Regression seems like a natural way to control for confounders in selection on observables:
+Regression seems like a natural way to control for confounders $\b x$ in selection on observables:
 
 $$
 y_i = \alpha + d_i\tau + \b x_i^\top \b\beta + \eps_i
 $$
-
-::: small
-Where $y_i$ is the outcome $y$ value of observation $i$, $d_i$ is the treatment status of observation $i$, and vector $\b x_i$ is a vector of confounder values for observation $i$.
-:::
 
 The ordinary least squares (OLS) estimate $\hat\tau$ will be an unbiased estimator of the ATE if:
 
@@ -37,14 +33,10 @@ y_i = \alpha + d_i \tau + (\b x_i - \mean{\b x})^\top\b\beta + d_i(\b x_i - \mea
 $$
 
 ::: small
-Where the notation remains the same as above, and $\mean{\b x}$ is a vector of the means of each confounder.
+$\mean{\b x}$ is a vector of the means of each confounder.
 :::
 
-The new OLS estimate of $\widehat\tau$ will be a rougly unbiased estimator of the ATE in large samples. Thus, we generally want to use the fully interacted estimator unless we are confident that we have homogenous treatment effects.
-
-::: small
-Roughly unbiased because there is a bias, but it is arbitrarily small (Freedman 2008, Sloczynski 2022).
-:::
+The new OLS estimate of $\widehat\tau$ will be a rougly unbiased estimator of the ATE in large enough samples.
 
 ::: {.callout-note appearance="minimal"}
 <div>
@@ -57,11 +49,7 @@ Roughly unbiased because there is a bias, but it is arbitrarily small (Freedman 
 </div>
 :::
 
-Before you implement the estimator, make sure you have reasons to believe you meet the neccessary assumptions for [selection on observables](soo.qmd):
-
-1.  Conditional Ignorability
-2.  Common Support
-3.  Stable Unit Treatment Value Assumption (SUTVA)
+Before you implement the estimator, make sure you have reasons to believe you meet the neccessary assumptions for [selection on observables](soo.qmd).
 
 We will need the **estimatr** package:
 

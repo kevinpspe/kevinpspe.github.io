@@ -321,13 +321,10 @@ window.Quarto = {
 <div class="small">
 <p>See <a href="./soo.html">here</a> on how selection on observables works, and the other estimators available.</p>
 </div>
-<p>Regression seems like a natural way to control for confounders in selection on observables:</p>
+<p>Regression seems like a natural way to control for confounders <span class="math inline">\(\b x\)</span> in selection on observables:</p>
 <p><span class="math display">\[
 y_i = \alpha + d_i\tau + \b x_i^\top \b\beta + \eps_i
 \]</span></p>
-<div class="small">
-<p>Where <span class="math inline">\(y_i\)</span> is the outcome <span class="math inline">\(y\)</span> value of observation <span class="math inline">\(i\)</span>, <span class="math inline">\(d_i\)</span> is the treatment status of observation <span class="math inline">\(i\)</span>, and vector <span class="math inline">\(\b x_i\)</span> is a vector of confounder values for observation <span class="math inline">\(i\)</span>.</p>
-</div>
 <p>The ordinary least squares (OLS) estimate <span class="math inline">\(\hat\tau\)</span> will be an unbiased estimator of the ATE if:</p>
 <ol type="1">
 <li>We account for all confounders (conditional ignorability) in vector <span class="math inline">\(\b x_i\)</span>.</li>
@@ -346,12 +343,9 @@ y_i = \alpha + d_i\tau + \b x_i^\top \b\beta + \eps_i
 y_i = \alpha + d_i \tau + (\b x_i - \mean{\b x})^\top\b\beta + d_i(\b x_i - \mean{\b x})^\top \b\gamma + \eps_i
 \]</span></p>
 <div class="small">
-<p>Where the notation remains the same as above, and <span class="math inline">\(\mean{\b x}\)</span> is a vector of the means of each confounder.</p>
+<p><span class="math inline">\(\mean{\b x}\)</span> is a vector of the means of each confounder.</p>
 </div>
-<p>The new OLS estimate of <span class="math inline">\(\widehat\tau\)</span> will be a rougly unbiased estimator of the ATE in large samples. Thus, we generally want to use the fully interacted estimator unless we are confident that we have homogenous treatment effects.</p>
-<div class="small">
-<p>Roughly unbiased because there is a bias, but it is arbitrarily small (Freedman 2008, Sloczynski 2022).</p>
-</div>
+<p>The new OLS estimate of <span class="math inline">\(\widehat\tau\)</span> will be a rougly unbiased estimator of the ATE in large enough samples.</p>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -368,12 +362,7 @@ y_i = \alpha + d_i \tau + (\b x_i - \mean{\b x})^\top\b\beta + d_i(\b x_i - \mea
 </div>
 </div>
 </div>
-<p>Before you implement the estimator, make sure you have reasons to believe you meet the neccessary assumptions for <a href="./soo.html">selection on observables</a>:</p>
-<ol type="1">
-<li>Conditional Ignorability</li>
-<li>Common Support</li>
-<li>Stable Unit Treatment Value Assumption (SUTVA)</li>
-</ol>
+<p>Before you implement the estimator, make sure you have reasons to believe you meet the neccessary assumptions for <a href="./soo.html">selection on observables</a>.</p>
 <p>We will need the <strong>estimatr</strong> package:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(estimatr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>

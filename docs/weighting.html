@@ -348,9 +348,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div class="small">
-<p>Note: smartness is not the only confounder. This is for demonstration purposes.</p>
-</div>
 <p>Let’s pretend there are only dumb and smart people (for simplicity). Our treated and control groups might be:</p>
 <table class="table-bordered table">
 <colgroup>
@@ -372,9 +369,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 </tbody>
 </table>
-<div class="small">
-<p>We are assuming being smarter makes you more likely to get the scholarship, since it is a confounder and should affect who gets the treatment.</p>
-</div>
 <p>Our two groups have pre-existing differences. However, by emphasising certain individuals, we can make it seem like there are no more imbalances. For example, weighting might make our above table become:</p>
 <table class="table-bordered table">
 <colgroup>
@@ -419,15 +413,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>Before you inverse probability weighting, make sure you have reasons to believe you meet the neccessary assumptions for <a href="./soo.html">selection on observables</a>:</p>
-<ol type="1">
-<li>Conditional Ignorability</li>
-<li>Common Support</li>
-<li>Stable Unit Treatment Value Assumption (SUTVA)</li>
-</ol>
-<p>We will need the <strong>MatchIt</strong> and <strong>estimatr</strong> packages:</p>
+<p>We will need the <strong>estimatr</strong> package:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MatchIt)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(estimatr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(estimatr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>To estimate the propensity scores and weights, we can use the <strong>glm()</strong> command:</p>
 <div class="cell">
@@ -435,7 +423,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>                  <span class="at">data =</span> my_data,</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">family =</span> <span class="st">"binomial"</span>)</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>my_data<span class="sc">$</span>pscore <span class="ot">&lt;-</span> <span class="fu">predict</span>(propensity, <span class="at">type =</span> <span class="st">"response"</span>)</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>my_data<span class="sc">$</span>ipw <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(mydata<span class="sc">$</span>D <span class="sc">==</span> <span class="dv">1</span>, <span class="dv">1</span><span class="sc">/</span>my_data<span class="sc">$</span>pscore, <span class="dv">1</span><span class="sc">/</span>(<span class="dv">1</span><span class="sc">-</span>my_data<span class="sc">$</span>pscore))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>my_data<span class="sc">$</span>ipw <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(mydata<span class="sc">$</span>D <span class="sc">==</span> <span class="dv">1</span>,</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>                      <span class="dv">1</span><span class="sc">/</span>my_data<span class="sc">$</span>pscore,</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>                      <span class="dv">1</span><span class="sc">/</span>(<span class="dv">1</span><span class="sc">-</span>my_data<span class="sc">$</span>pscore))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Finally, we need to use the <strong>lm_robust()</strong> command to estimate our causal effects:</p>
 <div class="cell">
