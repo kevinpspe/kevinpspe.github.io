@@ -1,5 +1,9 @@
 # Propensity Score Matching {.unnumbered}
 
+::: small
+See [here](soo.qmd) on how selection on observables works, and the other estimators available.
+:::
+
 Mia is in our study and receives the treatment. Mia's causal effect is:
 
 $$
@@ -45,7 +49,7 @@ There are also some (advanced) criticisms of propensity score matching outlined 
 </div>
 :::
 
-Before you implement propensity score matching, make sure you have reasons to believe you meet the neccessary assumptions for selection on observables:
+Before you implement propensity score matching, make sure you have reasons to believe you meet the neccessary assumptions for [selection on observables](soo.qmd):
 
 1.  Conditional Ignorability
 2.  Common Support
@@ -83,4 +87,4 @@ att <- Match(Y = my_data$Y,
 summary(att)
 ```
 
-Our output estimate will be the ATT.
+Our output estimate will be the ATT - the average treatment effect for those units who received the treatment.

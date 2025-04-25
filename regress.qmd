@@ -1,0 +1,81 @@
+# Fully Interacted Estimator
+
+::: small
+See [here](soo.qmd) on how selection on observables works, and the other estimators available.
+:::
+
+Regression seems like a natural way to control for confounders in selection on observables:
+
+$$
+y_i = \alpha + d_i\tau + \b x_i^\top \b\beta + \eps_i
+$$
+
+::: small
+Where $y_i$ is the outcome $y$ value of observation $i$, $d_i$ is the treatment status of observation $i$, and vector $\b x_i$ is a vector of confounder values for observation $i$.
+:::
+
+The ordinary least squares (OLS) estimate $\hat\tau$ will be an unbiased estimator of the ATE if:
+
+1.  We account for all confounders (conditional ignorability) in vector $\b x_i$.
+2.  There is a linear relationship between all confounders $\b x_i$ and outcome $y_i$.
+3.  There is no treatment heterogeneity - every individual has the same treatment effect.
+
+::: small
+The estimate is unbiased because conditional ignorability implies exogeneity, which means OLS is an [unbiased linear estimator](https://en.wikipedia.org/wiki/Gauss–Markov_theorem), and the [Frisch–Waugh–Lovell theorem](https://en.wikipedia.org/wiki/Frisch–Waugh–Lovell_theorem) partials out the effect of confounders.
+:::
+
+Our [main concern for now is with the third statement]{.underline}. Almost all treatments have heterogeneity - individuals will have different causal effects. If there is treatment heterogeneity, OLS is no longer unbiasedly estimating the ATE.
+
+::: small
+With heterogeneous treatment effects, OLS can be an unbiased estimator for an unhelpful weighted average of the ATT and ATU (Słoczyński, 2022).
+:::
+
+Lin (2013) proposes the **fully interacted estimator**, which allows for consistent estimation of the ATE even with heterogeneity:
+
+$$
+y_i = \alpha + d_i \tau + (\b x_i - \mean{\b x})^\top\b\beta + d_i(\b x_i - \mean{\b x})^\top \b\gamma + \eps_i
+$$
+
+::: small
+Where the notation remains the same as above, and $\mean{\b x}$ is a vector of the means of each confounder.
+:::
+
+The new OLS estimate of $\widehat\tau$ will be a rougly unbiased estimator of the ATE in large samples. Thus, we generally want to use the fully interacted estimator unless we are confident that we have homogenous treatment effects.
+
+::: small
+Roughly unbiased because there is a bias, but it is arbitrarily small (Freedman 2008, Sloczynski 2022).
+:::
+
+::: {.callout-note appearance="minimal"}
+<div>
+
+**Kevin's Estimator Score**: <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i> (3/5)
+
+-   Fully interacted estimator is decent at estimating the ATE, especially in large samples. We should be more careful in smaller samples.
+-   Big concern: the fully interacted estimator still assumes a linear relationship between confounders and the outcome. The other estimators covered later are non-parametric (not model based), so if we have any reason to suspect non-linearity, we should not use this estimator.
+
+</div>
+:::
+
+Before you implement the estimator, make sure you have reasons to believe you meet the neccessary assumptions for [selection on observables](soo.qmd):
+
+1.  Conditional Ignorability
+2.  Common Support
+3.  Stable Unit Treatment Value Assumption (SUTVA)
+
+We will need the **estimatr** package:
+
+```{r, eval = FALSE}
+library(estimatr)
+```
+
+Then, we can use the **lm_lin()** function to estimate:
+
+```{r, eval = FALSE}
+ate <- estimatr::lm_lin(Y ~ D,
+                        covariates = ~ X1 + X2 + X3,
+                        data = my_data)
+summary(ate)
+```
+
+The output will be the ATE - the average treatment effect for all units in the study.

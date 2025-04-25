@@ -13,6 +13,10 @@ pre, code, .sourceCode {
   color: #666;
 }
 
+table {
+  font-size: 0.94em; /* Adjust the size as needed */
+}
+
 /* Target sidebar navigation links */
 .sidebar .nav-link, .sidebar-item a {
   /* Optional: Style the default state */

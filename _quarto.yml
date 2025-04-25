@@ -17,29 +17,25 @@ book:
     logo: lse.png
   chapters:
     - index.qmd
-    - part: "Causal Inference Basics"
+    - part: frameworks.qmd
       chapters:
-        - frameworks.qmd
         - correlation.qmd
         - randomisation.qmd
     - "---"
-    - part: "Classical Differences-in-Differences"
+    - part: did.qmd
       chapters:
         - did.qmd
-    - part: "Staggered Differences-in-Differences"
+    - part: rdd.qmd
       chapters:
-        - did.qmd
-    - part: "Regression Discontinuity"
-      chapters:
-        - rdd.qmd
         - fuzzy.qmd
-    - part: "Selection on Observables"
+    - part: soo.qmd
       chapters:
-        - soo.qmd
+        - regress.qmd
         - distance.qmd
         - pscore.qmd
         - genetic.qmd
         - weighting.qmd
+    - part: "Instrumental Variables"
     - "---"
     - part: "Regression Models"
     - part: "Latent Variable Models"
@@ -65,7 +61,7 @@ format:
       sidebar-width: 270px
       body-width: 720px
       margin-width: 50px
-      gutter-width: 2em
+      gutter-width: 1.5em
     html-math-method: mathjax
     crossref:
       eq-prefix: eq.

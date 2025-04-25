@@ -1,4 +1,8 @@
-# Weighting Estimator
+# Inverse Probability Weighting
+
+::: small
+See [here](soo.qmd) on how selection on observables works, and the other estimators available.
+:::
 
 Let us look at this example, with a confounder.
 
@@ -30,7 +34,7 @@ Note: smartness is not the only confounder. This is for demonstration purposes.
 Let's pretend there are only dumb and smart people (for simplicity). Our treated and control groups might be:
 
 |                                         |                                                   |
-|-----------------------------------------|---------------------------------------------------|
+|--------------------------------|----------------------------------------|
 | [Treated (Got Scholarship)]{.smallcaps} | [Untreated (Did not get scholarship)]{.smallcaps} |
 | Smart Students (x4)                     | Smart Students (x1)                               |
 | Dumb Students (x1)                      | Dumb Students (x4)                                |
@@ -44,7 +48,7 @@ We are assuming being smarter makes you more likely to get the scholarship, sinc
 Our two groups have pre-existing differences. However, by emphasising certain individuals, we can make it seem like there are no more imbalances. For example, weighting might make our above table become:
 
 |                                         |                                                   |
-|-----------------------------------------|---------------------------------------------------|
+|--------------------------------|----------------------------------------|
 | [Treated (Got Scholarship)]{.smallcaps} | [Untreated (Did not get scholarship)]{.smallcaps} |
 | Smart Students (x4)                     | Smart Students (emphasise to x4)                  |
 | Dumb Students (emphasise to x4)         | Dumb Students (x4)                                |
@@ -70,7 +74,7 @@ We can see there is no more pre-existing differences after weighting.
 </div>
 :::
 
-Before you inverse probability weighting, make sure you have reasons to believe you meet the neccessary assumptions for selection on observables:
+Before you inverse probability weighting, make sure you have reasons to believe you meet the neccessary assumptions for [selection on observables](soo.qmd):
 
 1.  Conditional Ignorability
 2.  Common Support
@@ -86,7 +90,9 @@ library(estimatr)
 To estimate the propensity scores and weights, we can use the **glm()** command:
 
 ```{r, eval = FALSE}
-propensity <- glm(D ~ X1 + X2, data = my_data, family = "binomial")
+propensity <- glm(D ~ X1 + X2,
+                  data = my_data,
+                  family = "binomial")
 my_data$pscore <- predict(propensity, type = "response")
 my_data$ipw <- ifelse(mydata$D == 1, 1/my_data$pscore, 1/(1-my_data$pscore))
 ```
@@ -98,4 +104,4 @@ ate <- estimatr::lm_robust(Y ~ D, data = my_data, weights = ipw)
 summary(ate)
 ```
 
-This will output the ATT.
+The output will be the ATE - the average treatment effect for all units in the study.

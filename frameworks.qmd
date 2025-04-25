@@ -1,4 +1,8 @@
-# Potential Outcomes
+# Causal Inference Basics
+
+::: small
+This page covers the potential outcomes framework and the causal estimands.
+:::
 
 In causal inference, we are interested in causal questions:
 
@@ -27,7 +31,7 @@ We generally assume the treatment $D$ is binary.
 Imagine we have two hypothetical parallel worlds that are copies of each other. Both of these worlds are identical except for one aspect: the treatment:
 
 |                                  |                         |                                 |
-|:-------------------------|:-------------------|:-------------------------|
+|:---------------------------------|:------------------------|:--------------------------------|
 | [Parallel World]{.smallcaps}     | [Treatment]{.smallcaps} | [Potential Outcome]{.smallcaps} |
 | Kevin does not Receive Treatment | $D_\text{Kevin} = 0$    | $\purple{Y_\text{Kevin}^{(0)}}$ |
 | Kevin Receives Treatment         | $D_\text{Kevin} = 1$    | $\purple{Y_\text{Kevin}^{(1)}}$ |
@@ -49,7 +53,7 @@ Technically, we need another assumption, SUTVA, for this to be true. I will expl
 However, in reality, we do not have two parallel worlds. Thus, by definition, one of the potential outcomes is not observed in our real world - the [counterfactual]{.mark}.
 
 |                                             |                                                  |                              |
-|:-------------------------|:---------------------------|:-----------------|
+|:--------------------------------------------|:-------------------------------------------------|:-----------------------------|
 | [In the Real World]{.smallcaps}             | [Observed Outcome]{.smallcaps}                   | [Counterfactual]{.smallcaps} |
 | Kevin receives treatment (treated)          | $Y_\text{Kevin}= \purple{Y_\text{Kevin}^{(1)}}$  | $\red{Y_\text{Kevin}^{(0)}}$ |
 | Kevin did not receive treatment (untreated) | $Y_\text{Kevin} = \purple{Y_\text{Kevin}^{(0)}}$ | $\red{Y_\text{Kevin}^{(1)}}$ |
@@ -61,7 +65,7 @@ However, in reality, we do not have two parallel worlds. Thus, by definition, on
 The [fundamental problem of causal inference]{.mark} is that in order to calculate our individual treatment effect $\tau$, we need both potential outcomes. Our goal is to estimate causal effects without observing counterfactuals. This is difficult at the individual level, so instead, we focus on average treatment effects for groups:
 
 |                                               |                        |                                                                                               |
-|:-----------------|:-----------------|:------------------------------------|
+|:----------------------------------------------|:-----------------------|:----------------------------------------------------------------------------------------------|
 | [Group Effects]{.smallcaps}                   | [Notation]{.smallcaps} | [Definition]{.smallcaps}                                                                      |
 | Average Treatment Effect (ATE)                | $\tau_\text{ATE}$      | The average treatment effects for all individuals in our study (treated and untreated).       |
 | Average Treatment Effect on the Treated (ATT) | $\tau_\text{ATT}$      | The average treatment effect but only for individuals who receive the treatment in our study. |

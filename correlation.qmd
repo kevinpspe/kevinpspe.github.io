@@ -1,5 +1,9 @@
 # Issue of Selection Bias
 
+::: small
+This page covers how confounders cause pre-existing differences between treated and untreated (selection bias), meaning correlation is not causation.
+:::
+
 Let us look at this causal question:
 
 ::: center-graph
@@ -46,7 +50,7 @@ $$
 $$
 
 ::: small
-$\textcolor{purple}{\mean Y_\text{untreated}^{(0)}}$ and $\textcolor{red}{\mean Y_\text{treated}^{(0)}}$ are pre-treatment potential outcomes.
+These two quantities are potential outcomes under control, or in another way to think of it, outcomes of the two groups prior to treatment happening.
 :::
 
 Thus, if there is a difference between the average outcomes between treated and untreated before treatment is administered, then correlation is not equal to causation. This is because we cannot tell if the difference between the groups is due to treatment, or [due to their pre-existing differences]{.mark}.

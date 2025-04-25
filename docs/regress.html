@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Selection on Observables</title>
+<title>Fully Interacted Estimator</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -29,8 +63,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./regress.html" rel="next">
-<link href="./fuzzy.html" rel="prev">
+<link href="./distance.html" rel="next">
+<link href="./soo.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -111,7 +145,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./soo.html">Selection on Observables</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./soo.html">Selection on Observables</a></li><li class="breadcrumb-item"><a href="./regress.html"><span class="chapter-title">Fully Interacted Estimator</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -199,7 +233,7 @@ window.Quarto = {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./soo.html" class="sidebar-item-text sidebar-link active">
+            <a href="./soo.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Selection on Observables</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -208,7 +242,7 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./regress.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Fully Interacted Estimator</span></a>
+  <a href="./regress.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Fully Interacted Estimator</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -265,9 +299,9 @@ window.Quarto = {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./soo.html">Selection on Observables</a></li><li class="breadcrumb-item"><a href="./regress.html"><span class="chapter-title">Fully Interacted Estimator</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Selection on Observables</h1>
+<h1 class="title"><span class="chapter-title">Fully Interacted Estimator</span></h1>
 </div>
 
 
@@ -285,153 +319,73 @@ window.Quarto = {
 
 
 <div class="small">
-<p>This is an overview of selection on observables. For estimators and R-code, use the sidebar.</p>
+<p>See <a href="./soo.html">here</a> on how selection on observables works, and the other estimators available.</p>
 </div>
-<p>Our issue in causal inference is that a confounder is causing pre-existing differences:</p>
-<div class="center-graph">
-<div class="cell" data-fig-width="4" data-fig-height="1.1" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class="figure"><p></p>
-<div>
-<svg width="384" height="106" viewbox="0.00 0.00 380.31 117.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
-<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 113)">
-<title>example2</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-113 376.31,-113 376.31,4 -4,4"></polygon>
-<!-- D -->
-<g id="node1" class="node">
-<title>D</title>
-<polygon fill="none" stroke="black" points="142.54,-36 -0.18,-36 -0.18,0 142.54,0 142.54,-36"></polygon>
-<text text-anchor="middle" x="71.18" y="-13.8" font-family="Times,serif" font-size="14.00">Receiving Scholarship</text>
-</g>
-<!-- Y -->
-<g id="node3" class="node">
-<title>Y</title>
-<polygon fill="none" stroke="black" points="372.43,-36 253.93,-36 253.93,0 372.43,0 372.43,-36"></polygon>
-<text text-anchor="middle" x="313.18" y="-13.8" font-family="Times,serif" font-size="14.00">University Grades</text>
-</g>
-<!-- D&#45;&gt;Y -->
-<g id="edge1" class="edge">
-<title>D-&gt;Y</title>
-<path fill="none" stroke="black" d="M142.48,-18C174.44,-18 211.99,-18 243.72,-18"></path>
-<polygon fill="black" stroke="black" points="243.81,-21.5 253.81,-18 243.81,-14.5 243.81,-21.5"></polygon>
-<text text-anchor="middle" x="198.21" y="-25.2" font-family="Times,serif" font-size="14.00">Causal Effect</text>
-</g>
-<!-- X -->
-<g id="node2" class="node">
-<title>X</title>
-<polygon fill="none" stroke="black" points="267.93,-109 114.43,-109 114.43,-73 267.93,-73 267.93,-109"></polygon>
-<text text-anchor="middle" x="191.18" y="-86.8" font-family="Times,serif" font-size="14.00">Smartness (Confounder)</text>
-</g>
-<!-- X&#45;&gt;D -->
-<g id="edge2" class="edge">
-<title>X-&gt;D</title>
-<path fill="none" stroke="black" d="M162.44,-72.99C146.38,-63.49 126.17,-51.54 108.86,-41.29"></path>
-<polygon fill="black" stroke="black" points="110.49,-38.19 100.11,-36.11 106.93,-44.22 110.49,-38.19"></polygon>
-</g>
-<!-- X&#45;&gt;Y -->
-<g id="edge3" class="edge">
-<title>X-&gt;Y</title>
-<path fill="none" stroke="black" d="M229.29,-67.82C243.85,-59.35 260.44,-49.69 275,-41.22"></path>
-<polygon fill="black" stroke="black" points="227.29,-64.94 220.4,-72.99 230.81,-70.99 227.29,-64.94"></polygon>
-<polygon fill="black" stroke="black" points="276.89,-44.17 283.77,-36.11 273.37,-38.12 276.89,-44.17"></polygon>
-</g>
-</g>
-</svg>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
-</div>
-<p>By definition, as the confounder <strong>changes</strong>, your likelihood of getting treatment changes.As the confounder <strong>changes</strong>, the outcome value will also change.</p>
-<p>These issues occur when the confounder <strong>changes</strong> in value. So what if we hold the confounders constant? Let us assume that the confounder, smartness, has two categories: smart and dumb. Within each category, we calculate the causal effect:</p>
+<p>Regression seems like a natural way to control for confounders in selection on observables:</p>
 <p><span class="math display">\[
-\begin{align}
-\tau_\text{smart} &amp; = \purple{\mean Y_\text{smart}^{(1)}} - \purple{\mean Y_\text{smart}^{(0)}} \\
-\tau_\text{dumb} &amp; = \purple{\mean Y_\text{dumb}^{(1)}} - \purple{\mean Y_\text{dumb}^{(0)}}
-\end{align}
+y_i = \alpha + d_i\tau + \b x_i^\top \b\beta + \eps_i
 \]</span></p>
 <div class="small">
-<p>Obviously, most confounders will not have only 2 values. But the same intuition applies - for each value of confounders, we split all individuals into groups, and calculate the average treatment effect within each group.</p>
+<p>Where <span class="math inline">\(y_i\)</span> is the outcome <span class="math inline">\(y\)</span> value of observation <span class="math inline">\(i\)</span>, <span class="math inline">\(d_i\)</span> is the treatment status of observation <span class="math inline">\(i\)</span>, and vector <span class="math inline">\(\b x_i\)</span> is a vector of confounder values for observation <span class="math inline">\(i\)</span>.</p>
 </div>
-<p>Within both of these categories, the confounder is constant. Thus, within each category, correlation is equal to causation, as there is no selection bias. Thus, we can average them to get a final causal effect:</p>
-<p><span class="math display">\[
-\mean\tau = \text{average of } \tau_\text{smart} \text{ and } \tau_\text{dumb}
-\]</span></p>
-<p>For selection on observables to work, we need to meet 3 assumptions:</p>
-<table class="table-bordered table">
-<colgroup>
-<col style="width: 35%">
-<col style="width: 65%">
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><span class="smallcaps">Assumption</span></td>
-<td><span class="smallcaps">Description</span></td>
-</tr>
-<tr class="even">
-<td><mark>Conditional Ignorability</mark></td>
-<td>This means that we must account for <strong>all</strong> possible confounders (cannot miss a single one).</td>
-</tr>
-<tr class="odd">
-<td><mark>Common Support</mark></td>
-<td>This means no one can have a 100% chance of being in treatment or control. They always have a chance to be in either, no matter their confounding values.</td>
-</tr>
-<tr class="even">
-<td><mark>Stable Unit Treatment Value Assumption (SUTVA)</mark></td>
-<td>This means that if Ava is treated, that does not affect Mia’s outcome (and for any other 2 individuals).</td>
-</tr>
-</tbody>
-</table>
-<p><br></p>
-<p>We have a wide choice of estimators that we can use.</p>
-<table class="table-bordered table">
-<colgroup>
-<col style="width: 63%">
-<col style="width: 37%">
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><span class="smallcaps">Estimator</span></td>
-<td><span class="smallcaps">Kevin’s Rating</span></td>
-</tr>
-<tr class="even">
-<td><a href="./regress.html">Fully Interacted Estimator</a></td>
-<td><div>
-<p><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></p>
-</div></td>
-</tr>
-<tr class="odd">
-<td><a href="./distance.html">Distance Matching</a></td>
-<td><div>
-<p><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></p>
-</div></td>
-</tr>
-<tr class="even">
-<td><a href="./pscore.html">Propensity Score Matching</a></td>
-<td><div>
-<p><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></p>
-</div></td>
-</tr>
-<tr class="odd">
-<td><a href="./genetic.html">Genetic Matching</a></td>
-<td><div>
-<p><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></p>
-</div></td>
-</tr>
-<tr class="even">
-<td><a href="./weighting.html">Inverse Probability Weighting</a></td>
-<td><div>
-<p><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></p>
-</div></td>
-</tr>
-</tbody>
-</table>
+<p>The ordinary least squares (OLS) estimate <span class="math inline">\(\hat\tau\)</span> will be an unbiased estimator of the ATE if:</p>
+<ol type="1">
+<li>We account for all confounders (conditional ignorability) in vector <span class="math inline">\(\b x_i\)</span>.</li>
+<li>There is a linear relationship between all confounders <span class="math inline">\(\b x_i\)</span> and outcome <span class="math inline">\(y_i\)</span>.</li>
+<li>There is no treatment heterogeneity - every individual has the same treatment effect.</li>
+</ol>
 <div class="small">
-<p>Important: You should not always go for the higher rated estimator. Each estimator has its strengths/weaknesses, which the links for each page explain in more detail.</p>
+<p>The estimate is unbiased because conditional ignorability implies exogeneity, which means OLS is an <a href="https://en.wikipedia.org/wiki/Gauss–Markov_theorem">unbiased linear estimator</a>, and the <a href="https://en.wikipedia.org/wiki/Frisch–Waugh–Lovell_theorem">Frisch–Waugh–Lovell theorem</a> partials out the effect of confounders.</p>
 </div>
-<p>Use the sidebar or links in the table to access each estimator’s page.</p>
+<p>Our <u>main concern for now is with the third statement</u>. Almost all treatments have heterogeneity - individuals will have different causal effects. If there is treatment heterogeneity, OLS is no longer unbiasedly estimating the ATE.</p>
+<div class="small">
+<p>With heterogeneous treatment effects, OLS can be an unbiased estimator for an unhelpful weighted average of the ATT and ATU (Słoczyński, 2022).</p>
+</div>
+<p>Lin (2013) proposes the <strong>fully interacted estimator</strong>, which allows for consistent estimation of the ATE even with heterogeneity:</p>
+<p><span class="math display">\[
+y_i = \alpha + d_i \tau + (\b x_i - \mean{\b x})^\top\b\beta + d_i(\b x_i - \mean{\b x})^\top \b\gamma + \eps_i
+\]</span></p>
+<div class="small">
+<p>Where the notation remains the same as above, and <span class="math inline">\(\mean{\b x}\)</span> is a vector of the means of each confounder.</p>
+</div>
+<p>The new OLS estimate of <span class="math inline">\(\widehat\tau\)</span> will be a rougly unbiased estimator of the ATE in large samples. Thus, we generally want to use the fully interacted estimator unless we are confident that we have homogenous treatment effects.</p>
+<div class="small">
+<p>Roughly unbiased because there is a bias, but it is arbitrarily small (Freedman 2008, Sloczynski 2022).</p>
+</div>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div>
+<p><strong>Kevin’s Estimator Score</strong>: <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i> (3/5)</p>
+<ul>
+<li>Fully interacted estimator is decent at estimating the ATE, especially in large samples. We should be more careful in smaller samples.</li>
+<li>Big concern: the fully interacted estimator still assumes a linear relationship between confounders and the outcome. The other estimators covered later are non-parametric (not model based), so if we have any reason to suspect non-linearity, we should not use this estimator.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<p>Before you implement the estimator, make sure you have reasons to believe you meet the neccessary assumptions for <a href="./soo.html">selection on observables</a>:</p>
+<ol type="1">
+<li>Conditional Ignorability</li>
+<li>Common Support</li>
+<li>Stable Unit Treatment Value Assumption (SUTVA)</li>
+</ol>
+<p>We will need the <strong>estimatr</strong> package:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(estimatr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Then, we can use the <strong>lm_lin()</strong> function to estimate:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>ate <span class="ot">&lt;-</span> estimatr<span class="sc">::</span><span class="fu">lm_lin</span>(Y <span class="sc">~</span> D,</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">covariates =</span> <span class="sc">~</span> X1 <span class="sc">+</span> X2 <span class="sc">+</span> X3,</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">data =</span> my_data)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(ate)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The output will be the ATE - the average treatment effect for all units in the study.</p>
 
 
 
@@ -858,13 +812,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./fuzzy.html" class="pagination-link" aria-label="Fuzzy Discontinuity">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Fuzzy Discontinuity</span></span>
+      <a href="./soo.html" class="pagination-link" aria-label="Selection on Observables">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Selection on Observables</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./regress.html" class="pagination-link" aria-label="Fully Interacted Estimator">
-        <span class="nav-page-text"><span class="chapter-title">Fully Interacted Estimator</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./distance.html" class="pagination-link" aria-label="Distance Matching">
+        <span class="nav-page-text">Distance Matching</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -1,4 +1,8 @@
-# Overview of Selection on Observables {.unnumbered}
+# Selection on Observables {.unnumbered}
+
+::: small
+This is an overview of selection on observables. For estimators and R-code, use the sidebar.
+:::
 
 Our issue in causal inference is that a confounder is causing pre-existing differences:
 
@@ -25,7 +29,7 @@ digraph example2 {
 
 By definition, as the confounder **changes**, your likelihood of getting treatment changes.As the confounder **changes**, the outcome value will also change.
 
-These issues occur when the confounder **changes** in value. So what if we hold the confounders constant? Let us assume that the confounder, smartness, has two categories: smart and dumb. We divide our study individuals into these two categories (smart and dumb). Within each category, we calculate the causal effect:
+These issues occur when the confounder **changes** in value. So what if we hold the confounders constant? Let us assume that the confounder, smartness, has two categories: smart and dumb. Within each category, we calculate the causal effect:
 
 $$
 \begin{align}
@@ -38,75 +42,65 @@ $$
 Obviously, most confounders will not have only 2 values. But the same intuition applies - for each value of confounders, we split all individuals into groups, and calculate the average treatment effect within each group.
 :::
 
-Within both of these categories, the confounder is not changing - it is constant. Thus, within each category, correlation is equal to causation, as there is no selection bias. That means we can calculate the effects within each category. Then, we can average them to get a final causal effect:
+Within both of these categories, the confounder is constant. Thus, within each category, correlation is equal to causation, as there is no selection bias. Thus, we can average them to get a final causal effect:
 
 $$
 \mean\tau = \text{average of } \tau_\text{smart} \text{ and } \tau_\text{dumb}
 $$
 
-And wow! we have calculated the overall treatment effect. But we are not done - we need assumptions to ensure this works, and estimators to actually implement them (both right below this).
+For selection on observables to work, we need to meet 3 assumptions:
+
++---------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+
+| [Assumption]{.smallcaps}                                | [Description]{.smallcaps}                                                                                                                                 |
++---------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+
+| [Conditional Ignorability]{.mark}                       | This means that we must account for **all** possible confounders (cannot miss a single one).                                                              |
++---------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+
+| [Common Support]{.mark}                                 | This means no one can have a 100% chance of being in treatment or control. They always have a chance to be in either, no matter their confounding values. |
++---------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+
+| [Stable Unit Treatment Value Assumption (SUTVA)]{.mark} | This means that if Ava is treated, that does not affect Mia's outcome (and for any other 2 individuals).                                                  |
++---------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+: {tbl-colwidths="\[35,65\]" .bordered}
 
 <br />
 
-### Important Assumptions
+We have a wide choice of estimators that we can use.
 
-+---------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------+
-| Assumption                                              | Description                                                                                                                                               | How to Check                                  |
-+:========================================================+:==========================================================================================================================================================+:==============================================+
-| [Conditional Ignorability]{.mark}                       | This means that we must account for **all** possible confounders (cannot miss a single one).                                                              | We can conduct balance checks.                |
-+---------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------+
-| [Common Support]{.mark}                                 | This means no one can have a 100% chance of being in treatment or control. They always have a chance to be in either, no matter their confounding values. | Hard to check. Use theoretical reasoning.     |
-+---------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------+
-| [Stable Unit Treatment Value Assumption (SUTVA)]{.mark} | This means that if Ava is treated, that does not affect Mia's outcome (and for any other 2 individuals).                                                  | We have to use our own theoretical reasoning. |
-+---------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------+
++------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------+
+| [Estimator]{.smallcaps}                        | [Kevin's Rating]{.smallcaps}                                                                                                            |
++------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------+
+| [Fully Interacted Estimator](regress.qmd)      | <div>                                                                                                                                   |
+|                                                |                                                                                                                                         |
+|                                                | <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i> |
+|                                                |                                                                                                                                         |
+|                                                | </div>                                                                                                                                  |
++------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------+
+| [Distance Matching](distance.qmd)              | <div>                                                                                                                                   |
+|                                                |                                                                                                                                         |
+|                                                | <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i> |
+|                                                |                                                                                                                                         |
+|                                                | </div>                                                                                                                                  |
++------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------+
+| [Propensity Score Matching](pscore.qmd)        | <div>                                                                                                                                   |
+|                                                |                                                                                                                                         |
+|                                                | <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i> |
+|                                                |                                                                                                                                         |
+|                                                | </div>                                                                                                                                  |
++------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------+
+| [Genetic Matching](genetic.qmd)                | <div>                                                                                                                                   |
+|                                                |                                                                                                                                         |
+|                                                | <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i> |
+|                                                |                                                                                                                                         |
+|                                                | </div>                                                                                                                                  |
++------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------+
+| [Inverse Probability Weighting](weighting.qmd) | <div>                                                                                                                                   |
+|                                                |                                                                                                                                         |
+|                                                | <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i> |
+|                                                |                                                                                                                                         |
+|                                                | </div>                                                                                                                                  |
++------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------+
 
-: {tbl-colwidths="\[27,45,28\]" .bordered}
-
-<br />
-
-### Possible Estimators to Use
-
-+------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------+---------------------+
-| Estimator                                      | Kevin's Rating                                                                                                                          | Estimand            |
-+================================================+=========================================================================================================================================+=====================+
-| OLS Estimator (Regression)                     | <div>                                                                                                                                   | ATE                 |
-|                                                |                                                                                                                                         |                     |
-|                                                | <i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i> |                     |
-|                                                |                                                                                                                                         |                     |
-|                                                | </div>                                                                                                                                  |                     |
-+------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------+---------------------+
-| Fully Interacted Estimator (Regression)        | <div>                                                                                                                                   | ATE                 |
-|                                                |                                                                                                                                         |                     |
-|                                                | <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i> |                     |
-|                                                |                                                                                                                                         |                     |
-|                                                | </div>                                                                                                                                  |                     |
-+------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------+---------------------+
-| [Distance Matching](distance.qmd)              | <div>                                                                                                                                   | ATT                 |
-|                                                |                                                                                                                                         |                     |
-|                                                | <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i> |                     |
-|                                                |                                                                                                                                         |                     |
-|                                                | </div>                                                                                                                                  |                     |
-+------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------+---------------------+
-| [Propensity Score Matching](pscore.qmd)        | <div>                                                                                                                                   | ATT                 |
-|                                                |                                                                                                                                         |                     |
-|                                                | <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i> |                     |
-|                                                |                                                                                                                                         |                     |
-|                                                | </div>                                                                                                                                  |                     |
-+------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------+---------------------+
-| [Genetic Matching](genetic.qmd)                | <div>                                                                                                                                   | ATT                 |
-|                                                |                                                                                                                                         |                     |
-|                                                | <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i> |                     |
-|                                                |                                                                                                                                         |                     |
-|                                                | </div>                                                                                                                                  |                     |
-+------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------+---------------------+
-| [Inverse Probability Weighting](weighting.qmd) | <div>                                                                                                                                   | ATE                 |
-|                                                |                                                                                                                                         |                     |
-|                                                | <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i> |                     |
-|                                                |                                                                                                                                         |                     |
-|                                                | </div>                                                                                                                                  |                     |
-+------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------+---------------------+
-
-: {tbl-colwidths="\[42,35,23\]" .bordered}
+: {tbl-colwidths="\[63,37\]" .bordered}
 
 ::: small
 Important: You should not always go for the higher rated estimator. Each estimator has its strengths/weaknesses, which the links for each page explain in more detail.

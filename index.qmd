@@ -4,9 +4,10 @@ This is a collection of resources and notes for political science and political 
 
 The resources in this collection include:
 
--   Causal inference, including details (and modern advancements) on differences-in-differences, regression discontinuity, and selection on observables.
--   Some general content covering regression models.
--   Some content on latent variable (multivariate) models, like factor analysis.
+-   Causal inference, including details (and modern advancements) in difference-in-differences, regression discontinuity, and selection on observables.
+-   Some general content on statistical models.
+
+The sidebar/menu contains parts. Each part contains an overview, and several follow-up pages regarding specific estimators/topics.
 
 I am continuously adding more to this collection as a learn more. Some parts may be incomplete, and you may see some changes in existing parts.
 

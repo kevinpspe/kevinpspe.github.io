@@ -1,13 +1,3 @@
-# Differences-in-Differences
+# Difference-in-Differences
 
-Differences-in-Differences is a popular design, used when all individuals are untreated in one year, and some individuals get treated the next year.
-
-```{=html}
-<div>
-  Validity: <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><span> (3/5)</span>
-</div>
-<div>
-  Interpretability:  <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></i><i class="far fa-star"></i><span> (4/5)</span>
-</div>
-```
-<br />
+Coming soon

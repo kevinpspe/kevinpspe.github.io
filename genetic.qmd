@@ -1,5 +1,9 @@
 # Genetic Matching {.unnumbered}
 
+::: small
+See [here](soo.qmd) on how selection on observables works, and the other estimators available.
+:::
+
 Mia is in our study and receives the treatment. Mia's causal effect is:
 
 $$
@@ -40,7 +44,7 @@ The weights $\b W$ are estimated to make the treated and untreated groups as sim
 </div>
 :::
 
-Before you genetic matching, make sure you have reasons to believe you meet the neccessary assumptions for selection on observables:
+Before you start genetic matching, make sure you have reasons to believe you meet the neccessary assumptions for [selection on observables](soo.qmd):
 
 1.  Conditional Ignorability
 2.  Common Support
@@ -101,4 +105,4 @@ att <- Match(Y = my_data$Y,
              Weight = 3)
 ```
 
-Our output will be the ATT.
+Our output estimate will be the ATT - the average treatment effect for those units who received the treatment.

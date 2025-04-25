@@ -1,5 +1,9 @@
 # The Magic of Randomisation
 
+::: small
+This chapter covers how randomisation solves the problem of selection bias, and why randomisation is considered the "gold standard" of causal inference.
+:::
+
 Let us say we are interested in this question:
 
 ::: center-graph
