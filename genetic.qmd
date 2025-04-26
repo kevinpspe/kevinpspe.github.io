@@ -19,7 +19,7 @@ $$
 Like [distance matching](distance.qmd), genetic matching matches an individual that is treated (like Mia) with one that is not treated based on how **close** their confounding values are. However, genetic matching uses a slightly different variation of mahalanobis distance:
 
 $$
-\delta_{i, j}(\b W) = \sqrt{(\b x_i - \b x_j)^\top (\b\Sigma_x^{-1/2})^\top \b W \b\Sigma_x^{-1/2}  (\b x_i - \b x_j)}
+\delta_{i, j}(\b W) = \sqrt{(\b x_i - \b x_j)' \ (\b\Sigma_x^{-\frac{1}{2}})' \ \b W \ \b\Sigma_x^{-\frac{1}{2}}  (\b x_i - \b x_j)}
 $$
 
 ::: small

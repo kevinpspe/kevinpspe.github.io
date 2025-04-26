@@ -13,7 +13,7 @@ Our issue in causal inference is that a confounder is causing pre-existing diffe
 digraph example2 {
   // Nodes
   D [shape=box, pos = "0,0!", label="Receiving Scholarship"]
-  X [shape=box, pos = "2,0!", label="Smartness (Confounder)"]
+  X [shape=box, pos = "2,0!", label="Intellegence (Confounder)"]
   Y [shape=box, pos = "1,-1!", label="University Grades"]
 
   // Edges
@@ -27,26 +27,28 @@ digraph example2 {
 ```
 :::
 
-By definition, as the confounder **changes**, your likelihood of getting treatment changes.As the confounder **changes**, the outcome value will also change.
+By definition, as the confounder **changes**, your likelihood of getting treatment changes. As the confounder **changes**, the outcome value will also change.
 
-These issues occur when the confounder **changes** in value. So what if we hold the confounders constant? Let us assume that the confounder, smartness, has two categories: smart and dumb. Within each category, we calculate the causal effect:
+These issues occur when the confounder **changes** in value. So what if we hold the confounders constant? Let's assume that intellegence has two values: smart and dumb. Let us calculate the treatment effect within each level of intellegence:
 
 $$
-\begin{align}
-\tau_\text{smart} & = \purple{\mean Y_\text{smart}^{(1)}} - \purple{\mean Y_\text{smart}^{(0)}} \\
-\tau_\text{dumb} & = \purple{\mean Y_\text{dumb}^{(1)}} - \purple{\mean Y_\text{dumb}^{(0)}}
-\end{align}
+\tau_\text{smart} = \purple{\mean Y_\text{smart}^{(1)}} - \purple{\mean Y_\text{smart}^{(0)}}
+, \quad \tau_\text{dumb} = \purple{\mean Y_\text{dumb}^{(1)}} - \purple{\mean Y_\text{dumb}^{(0)}}
 $$
 
 ::: small
 Obviously, most confounders will not have only 2 values. But the same intuition applies - for each value of confounders, we split all individuals into groups, and calculate the average treatment effect within each group.
 :::
 
-Within both of these categories, the confounder is constant. Thus, within each category, correlation is equal to causation, as there is no selection bias. Thus, we can average them to get a final causal effect:
+The confounder is constant here, so no selection bias. Thus, within each category, correlation is equal to causation. Our overall causal effect will be a weighted average of the categories:
 
 $$
-\mean\tau = \text{average of } \tau_\text{smart} \text{ and } \tau_\text{dumb}
+\tau = \tau_\text{smart} Pr(\text{smart})  \ + \ \tau_\text{dumb} Pr(\text{dumb})
 $$
+
+::: small
+The weights of this weighted average are the probability/frequency of that value of the confounder.
+:::
 
 For selection on observables to work, we need to meet 3 assumptions:
 

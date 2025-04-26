@@ -68,6 +68,35 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <script src="mathjax-config.js"></script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -263,9 +292,9 @@ ul.task-list li input[type="checkbox"] {
 <li>Some general content on statistical models.</li>
 </ul>
 <p>The sidebar/menu contains parts. Each part contains an overview, and several follow-up pages regarding specific estimators/topics.</p>
-<p>I am continuously adding more to this collection as a learn more. Some parts may be incomplete, and you may see some changes in existing parts.</p>
-<p>This isn’t meant to teach you stuff - more of a supplement + review + implementation guide so don’t use it to self-learn that might not work as well. I’m not a teacher.</p>
 <p><br></p>
+<p>Notation note: As with most causal inference notation, I will use capital letters to reference variables (such as treatment, outcome).</p>
+<p>I will use vectors/matrices for shortening regression equations. Because I am using capital letters to refer to variables, some vectors might be capitalised - which does not follow normal mathematical notation. Example: <span class="math inline">\(\b X_i\)</span> might be a vector of confounder values for unit <span class="math inline">\(i\)</span>.</p>
 
 
 </section>

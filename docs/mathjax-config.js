@@ -6,7 +6,7 @@ MathJax = {
         P: "\\mathbb{P}",
         eps: "\\varepsilon",
         pr: "\\varphi",
-        b: "\\boldsymbol",
+        b: ['\\class{bolder}{\\mathbf{#1}}', 1],
         mean: "\\overline",
         ind: "\\perp\\!\\!\\!\\!\\perp",
         T: "{\\textcolor{purple}{Y^{(1)}_i}}",

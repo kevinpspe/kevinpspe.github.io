@@ -9,8 +9,8 @@ The resources in this collection include:
 
 The sidebar/menu contains parts. Each part contains an overview, and several follow-up pages regarding specific estimators/topics.
 
-I am continuously adding more to this collection as a learn more. Some parts may be incomplete, and you may see some changes in existing parts.
-
-This isn't meant to teach you stuff - more of a supplement + review + implementation guide so don't use it to self-learn that might not work as well. I'm not a teacher.
-
 <br />
+
+Notation note: As with most causal inference notation, I will use capital letters to reference variables (such as treatment, outcome).
+
+I will use vectors/matrices for shortening regression equations. Because I am using capital letters to refer to variables, some vectors might be capitalised - which does not follow normal mathematical notation. Example: $\b X_i$ might be a vector of confounder values for unit $i$.

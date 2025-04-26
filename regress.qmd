@@ -4,39 +4,31 @@
 See [here](soo.qmd) on how selection on observables works, and the other estimators available.
 :::
 
-Regression seems like a natural way to control for confounders $\b x$ in selection on observables:
+Regression is a natural way to control for confounders in selection on observables:
 
 $$
-y_i = \alpha + d_i\tau + \b x_i^\top \b\beta + \eps_i
-$$
-
-The ordinary least squares (OLS) estimate $\hat\tau$ will be an unbiased estimator of the ATE if:
-
-1.  We account for all confounders (conditional ignorability) in vector $\b x_i$.
-2.  There is a linear relationship between all confounders $\b x_i$ and outcome $y_i$.
-3.  There is no treatment heterogeneity - every individual has the same treatment effect.
-
-::: small
-The estimate is unbiased because conditional ignorability implies exogeneity, which means OLS is an [unbiased linear estimator](https://en.wikipedia.org/wiki/Gauss–Markov_theorem), and the [Frisch–Waugh–Lovell theorem](https://en.wikipedia.org/wiki/Frisch–Waugh–Lovell_theorem) partials out the effect of confounders.
-:::
-
-Our [main concern for now is with the third statement]{.underline}. Almost all treatments have heterogeneity - individuals will have different causal effects. If there is treatment heterogeneity, OLS is no longer unbiasedly estimating the ATE.
-
-::: small
-With heterogeneous treatment effects, OLS can be an unbiased estimator for an unhelpful weighted average of the ATT and ATU (Słoczyński, 2022).
-:::
-
-Lin (2013) proposes the **fully interacted estimator**, which allows for consistent estimation of the ATE even with heterogeneity:
-
-$$
-y_i = \alpha + d_i \tau + (\b x_i - \mean{\b x})^\top\b\beta + d_i(\b x_i - \mean{\b x})^\top \b\gamma + \eps_i
+Y_i = \alpha + D_i\tau + \b X_i' \b\beta + \eps_i
 $$
 
 ::: small
-$\mean{\b x}$ is a vector of the means of each confounder.
+Where $\alpha$ is the intercept and $\b X_i$ is a vector of confounder values for individual $i$.
 :::
 
-The new OLS estimate of $\widehat\tau$ will be a rougly unbiased estimator of the ATE in large enough samples.
+The ordinary least squares (OLS) estimate $\hat\tau$ will be an good estimator of the ATE if we account for all confounders (conditional ignorability) in vector $\b X_i$, and **there is no treatment heterogeneity**.
+
+::: small
+Heterogeneity means not all individuals have the same treatment effect. With heterogeneity, OLS is an estimator for an unhelpful combination of the ATT and ATU, not the ATE (Słoczyński, 2022).
+:::
+
+Heterogeneity is present in almost all situations we will need causal inference. [Lin (2013)](https://projecteuclid.org/journals/annals-of-applied-statistics/volume-7/issue-1/Agnostic-notes-on-regression-adjustments-to-experimental-data--Reexamining/10.1214/12-AOAS583.full) proposes the **fully interacted estimator**, which allows for consistent estimation of the ATE even with heterogeneity:
+
+$$
+Y_i = \alpha + D_i \tau + (\b{X}_i - \mean{\b X})' \b\beta \ + D_i (\b X_i - \mean{\b X})' \b\gamma \  + \eps_i
+$$
+
+::: small
+$\mean{\b X}$ is a vector of the means of each confounder. $\tau$ is the estimate of the ATE. See [Lin (2013)](https://projecteuclid.org/journals/annals-of-applied-statistics/volume-7/issue-1/Agnostic-notes-on-regression-adjustments-to-experimental-data--Reexamining/10.1214/12-AOAS583.full) for proofs.
+:::
 
 ::: {.callout-note appearance="minimal"}
 <div>
@@ -44,7 +36,7 @@ The new OLS estimate of $\widehat\tau$ will be a rougly unbiased estimator of th
 **Kevin's Estimator Score**: <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i> (3/5)
 
 -   Fully interacted estimator is decent at estimating the ATE, especially in large samples. We should be more careful in smaller samples.
--   Big concern: the fully interacted estimator still assumes a linear relationship between confounders and the outcome. The other estimators covered later are non-parametric (not model based), so if we have any reason to suspect non-linearity, we should not use this estimator.
+-   Big concern: the fully interacted estimator still **assumes a linear relationship between confounders and the outcome**. The other estimators covered later are non-parametric (not model based), so if we have any reason to suspect non-linearity, we should not use this estimator.
 
 </div>
 :::

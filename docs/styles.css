@@ -17,6 +17,11 @@ table {
   font-size: 0.94em; /* Adjust the size as needed */
 }
 
+.bolder {
+  font-weight: 900;
+  color: #000000;
+}
+
 /* Target sidebar navigation links */
 .sidebar .nav-link, .sidebar-item a {
   /* Optional: Style the default state */

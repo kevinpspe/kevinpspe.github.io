@@ -320,8 +320,8 @@ window.Quarto = {
 <!-- X -->
 <g id="node2" class="node">
 <title>X</title>
-<polygon fill="none" stroke="black" points="267.93,-109 114.43,-109 114.43,-73 267.93,-73 267.93,-109"></polygon>
-<text text-anchor="middle" x="191.18" y="-86.8" font-family="Times,serif" font-size="14.00">Smartness (Confounder)</text>
+<polygon fill="none" stroke="black" points="273.28,-109 109.08,-109 109.08,-73 273.28,-73 273.28,-109"></polygon>
+<text text-anchor="middle" x="191.18" y="-86.8" font-family="Times,serif" font-size="14.00">Intellegence (Confounder)</text>
 </g>
 <!-- X&#45;&gt;D -->
 <g id="edge2" class="edge">
@@ -344,21 +344,22 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<p>By definition, as the confounder <strong>changes</strong>, your likelihood of getting treatment changes.As the confounder <strong>changes</strong>, the outcome value will also change.</p>
-<p>These issues occur when the confounder <strong>changes</strong> in value. So what if we hold the confounders constant? Let us assume that the confounder, smartness, has two categories: smart and dumb. Within each category, we calculate the causal effect:</p>
+<p>By definition, as the confounder <strong>changes</strong>, your likelihood of getting treatment changes. As the confounder <strong>changes</strong>, the outcome value will also change.</p>
+<p>These issues occur when the confounder <strong>changes</strong> in value. So what if we hold the confounders constant? Let’s assume that intellegence has two values: smart and dumb. Let us calculate the treatment effect within each level of intellegence:</p>
 <p><span class="math display">\[
-\begin{align}
-\tau_\text{smart} &amp; = \purple{\mean Y_\text{smart}^{(1)}} - \purple{\mean Y_\text{smart}^{(0)}} \\
-\tau_\text{dumb} &amp; = \purple{\mean Y_\text{dumb}^{(1)}} - \purple{\mean Y_\text{dumb}^{(0)}}
-\end{align}
+\tau_\text{smart} = \purple{\mean Y_\text{smart}^{(1)}} - \purple{\mean Y_\text{smart}^{(0)}}
+, \quad \tau_\text{dumb} = \purple{\mean Y_\text{dumb}^{(1)}} - \purple{\mean Y_\text{dumb}^{(0)}}
 \]</span></p>
 <div class="small">
 <p>Obviously, most confounders will not have only 2 values. But the same intuition applies - for each value of confounders, we split all individuals into groups, and calculate the average treatment effect within each group.</p>
 </div>
-<p>Within both of these categories, the confounder is constant. Thus, within each category, correlation is equal to causation, as there is no selection bias. Thus, we can average them to get a final causal effect:</p>
+<p>The confounder is constant here, so no selection bias. Thus, within each category, correlation is equal to causation. Our overall causal effect will be a weighted average of the categories:</p>
 <p><span class="math display">\[
-\mean\tau = \text{average of } \tau_\text{smart} \text{ and } \tau_\text{dumb}
+\tau = \tau_\text{smart} Pr(\text{smart})  \ + \ \tau_\text{dumb} Pr(\text{dumb})
 \]</span></p>
+<div class="small">
+<p>The weights of this weighted average are the probability/frequency of that value of the confounder.</p>
+</div>
 <p>For selection on observables to work, we need to meet 3 assumptions:</p>
 <table class="table-bordered table">
 <colgroup>
