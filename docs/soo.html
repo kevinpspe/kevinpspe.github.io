@@ -462,6 +462,7 @@ Appendix A: Formal Definition of Assumptions
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
+<div class="append">
 <p><strong>Conditional ignorability</strong> is the assumption that among units <span class="math inline">\(i\)</span> with identical confounder values <span class="math inline">\(\b X_i = \b x\)</span>, treatment <span class="math inline">\(D_i\)</span> is as-if randomly assigned. This also means potential outcomes are independent from treatment given <span class="math inline">\(\b X_i\)</span>.</p>
 <p><span class="math display">\[
 (\C, \T) \ind D_t \ | \ \b X_i = \b x
@@ -481,6 +482,7 @@ Appendix A: Formal Definition of Assumptions
 </div>
 </div>
 </div>
+</div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -493,6 +495,7 @@ Appendix B: Identification Proof of ATE
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
+<div class="append">
 <p>Be sure to see appendix A before starting this.</p>
 <p>Let us first find the conditional ATE, conditional on a specific confounder value <span class="math inline">\(\b x\)</span>:</p>
 <p><span class="math display">\[
@@ -517,6 +520,7 @@ Appendix B: Identification Proof of ATE
 </div>
 </div>
 </div>
+</div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -529,6 +533,7 @@ Appendix C: Identification Proof of ATT
 </div>
 <div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
+<div class="append">
 <p>Be sure to see appendix A before starting this.</p>
 <p>Let us first find the conditional ATE, conditional on a specific confounder value <span class="math inline">\(\b x\)</span>:</p>
 <p><span class="math display">\[
@@ -549,7 +554,8 @@ Appendix C: Identification Proof of ATT
 <p><span class="math display">\[
 \tau_{ATE} = \int \tau(\b x) \ d Pr(\b x| D_i = 1)
 \]</span></p>
-<p>We already know we can identify <span class="math inline">\(\tau(\b x)\)</span>. So, that means we have all we need to identify the ATE.</p>
+<p>We already know we can identify <span class="math inline">\(\tau(\b x)\)</span>. So, that means we have all we need to identify the ATT.</p>
+</div>
 </div>
 </div>
 </div>

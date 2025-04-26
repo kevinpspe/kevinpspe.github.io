@@ -111,6 +111,7 @@ We have thus derived the OLS estimates for $\hat\b\beta$.
 ::: {.callout-note collapse="true"}
 ## Appendix B: Unbiasedness of OLS
 
+::: append
 OLS can be shown to be an unbiased estimator of the relationship between two variables under the condition of strict exogeneity: $\E(\b\eps | \b X = \b\beta)$.
 
 -   Violations of exogeneity are caused by omitted variables. If conditional ignorability is met, exogeneity should be met.
@@ -147,10 +148,12 @@ $$
 \E\hat{\b\beta} = \b\beta
 $$
 :::
+:::
 
 ::: {.callout-note collapse="true"}
 ## Appendix C: OLS Bias under Heterogeneity
 
+::: append
 From the [selection on observables overview](soo.qmd), we know that our causal effect is a weighted average:
 
 $$
@@ -186,4 +189,5 @@ where $\pi(X)$ is the propensity score of being treated. The ATU weight is the c
 $$
 w_0 = 1 - w_1
 $$
+:::
 :::

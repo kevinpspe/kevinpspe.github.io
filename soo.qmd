@@ -119,6 +119,7 @@ Use the sidebar or links in the table to access each estimator's page.
 ::: {.callout-note collapse="true"}
 ## Appendix A: Formal Definition of Assumptions
 
+::: append
 **Conditional ignorability** is the assumption that among units $i$ with identical confounder values $\b X_i = \b x$, treatment $D_i$ is as-if randomly assigned. This also means potential outcomes are independent from treatment given $\b X_i$.
 
 $$
@@ -142,10 +143,12 @@ $$
 
 For all possible confounder values $\b x$.
 :::
+:::
 
 ::: {.callout-note collapse="true"}
 ## Appendix B: Identification Proof of ATE
 
+::: append
 Be sure to see appendix A before starting this.
 
 Let us first find the conditional ATE, conditional on a specific confounder value $\b x$:
@@ -176,10 +179,12 @@ $$
 
 We already know we can identify $\tau(\b x)$. So, that means we have all we need to identify the ATE.
 :::
+:::
 
 ::: {.callout-note collapse="true"}
 ## Appendix C: Identification Proof of ATT
 
+::: append
 Be sure to see appendix A before starting this.
 
 Let us first find the conditional ATE, conditional on a specific confounder value $\b x$:
@@ -208,5 +213,6 @@ $$
 \tau_{ATE} = \int \tau(\b x) \ d Pr(\b x| D_i = 1)
 $$
 
-We already know we can identify $\tau(\b x)$. So, that means we have all we need to identify the ATE.
+We already know we can identify $\tau(\b x)$. So, that means we have all we need to identify the ATT.
+:::
 :::
