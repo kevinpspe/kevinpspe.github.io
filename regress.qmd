@@ -17,7 +17,7 @@ Where $\alpha$ is the intercept and $\b X_i$ is a vector of confounder values fo
 The ordinary least squares (OLS) estimate $\hat\tau$ will be an good estimator of the ATE if we account for all confounders (conditional ignorability) in vector $\b X_i$, and **there is no treatment heterogeneity**.
 
 ::: small
-Heterogeneity means not all individuals have the same treatment effect. With heterogeneity, OLS is an estimator for an unhelpful combination of the ATT and ATU, not the ATE (Słoczyński, 2022).
+Heterogeneity means not all individuals have the same treatment effect. More details on OLS estimation and unbiasedness given in [appendix] A and B. Why OLS is not equal to the ATE is given in [appendix] C.
 :::
 
 Heterogeneity is present in almost all situations we will need causal inference. [Lin (2013)](https://projecteuclid.org/journals/annals-of-applied-statistics/volume-7/issue-1/Agnostic-notes-on-regression-adjustments-to-experimental-data--Reexamining/10.1214/12-AOAS583.full) proposes the **fully interacted estimator**, which allows for consistent estimation of the ATE even with heterogeneity:
@@ -59,3 +59,131 @@ summary(ate)
 ```
 
 The output will be the ATE - the average treatment effect for all units in the study.
+
+<br />
+
+#### Appendix
+
+::: {.callout-note collapse="true"}
+## Appendix A: OLS Estimator
+
+::: append
+The linear model can be written in matrix notation as:
+
+$$
+\b y = \b{X\beta} + \b\eps
+$$
+
+Where the treatment variable and confounders are included in matrix $\b X$.
+
+The ordinary least squares estimator minimises the sum of squared residuals (SSR):
+
+$$
+SSR = (\b y - \hat{\b y})'(\b y - \hat{\b y})
+$$
+
+We can re-arrange the SSR as follows:
+
+$$
+\begin{align}
+SSR & = (\b y - \hat{\b y})'(\b y - \hat{\b y}) \\
+& = (\b y - \b X \hat{\b\beta})'(\b y - \b X \hat{\b\beta})' \\
+& = \b y' \b y - 2 \hat{\b\beta}' \b X' \b y + \hat{\b\beta}' \b X' \b X \hat{\b\beta}
+\end{align}
+$$
+
+To minimise, we take the derivative in respect to $\hat{\b\beta}$, and set it equal to 0
+
+$$
+\begin{align}
+\frac{\partial SSR}{\partial \hat{\b\beta}} = -2 \b X' \b y + 2 \b X
+ \b X \hat{\b\beta} & = 0 \\
+2 \b X' \b X \hat{\b\beta} & = 2 \b X' \b y \\
+\hat{\b\beta} & = (2 \b X' \b X)^{-1} 2 \b X' \b y \\
+\hat{\b\beta} & = (\b X' \b X)^{-1} \b X' \b y
+\end{align}
+$$
+
+We have thus derived the OLS estimates for $\hat\b\beta$.
+:::
+:::
+
+::: {.callout-note collapse="true"}
+## Appendix B: Unbiasedness of OLS
+
+OLS can be shown to be an unbiased estimator of the relationship between two variables under the condition of strict exogeneity: $\E(\b\eps | \b X = \b\beta)$.
+
+-   Violations of exogeneity are caused by omitted variables. If conditional ignorability is met, exogeneity should be met.
+
+Start with our OLS solution from appendix A, and modify as follows:
+
+$$
+\begin{align}
+\hat{\b\beta} & = (\b X' \b X)^{-1} \b X' \b y \\
+& = (\b X' \b X)^{-1} \b X'(\b{X\beta} + \b \eps) \\
+& = (\b X' \b X)^{-1} \b X' \b X \b\beta + (\b X' \b X)^{-1} \b X'\b\eps \\
+& = \b\beta + (\b X' \b X)^{-1} \b X'\b\eps
+\end{align}
+$$
+
+Now, let us find the expected value of our OLS estimator. For it to be unbiased, we should expect the expected value of our estimator, $\E \hat{\b\beta}$, should equal the true parameter value $\b\beta$.
+
+$$
+\begin{align}
+\E(\hat\beta|\b X) & = \E((\b\beta + \b X' \b X)^{-1} \b X'\b\eps) \\
+& = \b\beta + (\b X' \b X)^{-1} \E(\b \eps | \b X)
+\end{align}
+$$
+
+Using the condition of strict exogeneity $\E(\b\eps | \b X = \b\beta)$, we simplify to:
+
+$$
+\E(\hat\beta|\b X) = \b\beta
+$$
+
+Now, with the law of iterated expectations, we can show:
+
+$$
+\E\hat{\b\beta} = \b\beta
+$$
+:::
+
+::: {.callout-note collapse="true"}
+## Appendix C: OLS Bias under Heterogeneity
+
+From the [selection on observables overview](soo.qmd), we know that our causal effect is a weighted average:
+
+$$
+\tau_{ATE} = \sum\tau (\b x) Pr(\b x)
+$$
+
+Notice how the weights are the probability of the confounder values of $\b x$.
+
+With some complex math (Angrist 1998), we can actually show that OLS actually estimates:
+
+$$
+\hat\beta_{OLS} = \sum \tau(\b x) \frac{\V(D_i | \b x)Pr(\b x)}{\sum \V(D_i | \b x^c)Pr(\b x^c)}
+$$
+
+Where $\b x^c$ is the complement (not $\b x$).
+
+Notice how the weights are not equivalent. They are only equivalent if there is homogeneity. This is the reason why OLS under heterogeneity is not properly estimating our ATE.
+
+We can further explore what OLS is estimating. Słoczyński (2022) finds that OLS is actually unbiasedly estimating a weighted average of the ATT and ATU (effect on the untreated);
+
+$$
+\tau_{OLS} = w_1 \tau_{ATT} + w_0 \tau_{ATU}
+$$
+
+Where the weight for the ATT is defined as:
+
+$$
+w_1 = \frac{(1 - Pr(D = 1)) \V(\pi(X)|D = 0)}{Pr(D= 1) \V(\pi(X)|D=1) + (1-Pr(D=1)) \V(\pi(x)|D=0)}
+$$
+
+where $\pi(X)$ is the propensity score of being treated. The ATU weight is the complement:
+
+$$
+w_0 = 1 - w_1
+$$
+:::

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Fully Interacted Estimator</title>
+<title>Factor Analysis Model</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -63,8 +63,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./distance.html" rel="next">
-<link href="./soo.html" rel="prev">
+<link href="./latent.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -145,7 +144,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./soo.html">Selection on Observables</a></li><li class="breadcrumb-item"><a href="./regress.html"><span class="chapter-title">Fully Interacted Estimator</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./latent.html">Latent Variable Models</a></li><li class="breadcrumb-item"><a href="./factor.html"><span class="chapter-title">Factor Analysis Model</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -235,14 +234,14 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="./soo.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Selection on Observables</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./regress.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Fully Interacted Estimator</span></a>
+  <a href="./regress.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Fully Interacted Estimator</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -283,14 +282,14 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="./latent.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Latent Variable Models</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./factor.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Factor Analysis Model</span></a>
+  <a href="./factor.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Factor Analysis Model</span></a>
   </div>
 </li>
       </ul>
@@ -311,9 +310,9 @@ window.Quarto = {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./soo.html">Selection on Observables</a></li><li class="breadcrumb-item"><a href="./regress.html"><span class="chapter-title">Fully Interacted Estimator</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./latent.html">Latent Variable Models</a></li><li class="breadcrumb-item"><a href="./factor.html"><span class="chapter-title">Factor Analysis Model</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-title">Fully Interacted Estimator</span></h1>
+<h1 class="title"><span class="chapter-title">Factor Analysis Model</span></h1>
 </div>
 
 
@@ -331,55 +330,137 @@ window.Quarto = {
 
 
 <div class="small">
-<p>See <a href="./soo.html">here</a> on how selection on observables works, and the other estimators available.</p>
+<p>See <a href="./latent.html">here</a> for an overview of latent variable models, and the other models available.</p>
 </div>
-<p>Regression is a natural way to control for confounders in selection on observables:</p>
-<p><span class="math display">\[
-Y_i = \alpha + D_i\tau + \b X_i' \b\beta + \eps_i
-\]</span></p>
-<div class="small">
-<p>Where <span class="math inline">\(\alpha\)</span> is the intercept and <span class="math inline">\(\b X_i\)</span> is a vector of confounder values for individual <span class="math inline">\(i\)</span>.</p>
-</div>
-<p>The ordinary least squares (OLS) estimate <span class="math inline">\(\hat\tau\)</span> will be an good estimator of the ATE if we account for all confounders (conditional ignorability) in vector <span class="math inline">\(\b X_i\)</span>, and <strong>there is no treatment heterogeneity</strong>.</p>
-<div class="small">
-<p>Heterogeneity means not all individuals have the same treatment effect. More details on OLS estimation and unbiasedness given in <a href="#appendix">appendix</a> A and B. Why OLS is not equal to the ATE is given in <a href="#appendix">appendix</a> C.</p>
-</div>
-<p>Heterogeneity is present in almost all situations we will need causal inference. <a href="https://projecteuclid.org/journals/annals-of-applied-statistics/volume-7/issue-1/Agnostic-notes-on-regression-adjustments-to-experimental-data--Reexamining/10.1214/12-AOAS583.full">Lin (2013)</a> proposes the <strong>fully interacted estimator</strong>, which allows for consistent estimation of the ATE even with heterogeneity:</p>
-<p><span class="math display">\[
-Y_i = \alpha + D_i \tau + (\b{X}_i - \mean{\b X})' \b\beta \ + D_i (\b X_i - \mean{\b X})' \b\gamma \  + \eps_i
-\]</span></p>
-<div class="small">
-<p><span class="math inline">\(\mean{\b X}\)</span> is a vector of the means of each confounder. <span class="math inline">\(\tau\)</span> is the estimate of the ATE. See <a href="https://projecteuclid.org/journals/annals-of-applied-statistics/volume-7/issue-1/Agnostic-notes-on-regression-adjustments-to-experimental-data--Reexamining/10.1214/12-AOAS583.full">Lin (2013)</a> for proofs.</p>
-</div>
-<div class="callout callout-style-simple callout-note no-icon">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-body-container">
+<div class="center-graph">
+<div class="cell" data-fig-width="4" data-fig-height="1.4" data-layout-align="default">
+<div class="cell-output-display">
 <div>
-<p><strong>Kevin’s Estimator Score</strong>: <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i> (3/5)</p>
-<ul>
-<li>Fully interacted estimator is decent at estimating the ATE, especially in large samples. We should be more careful in smaller samples.</li>
-<li>Big concern: the fully interacted estimator still <strong>assumes a linear relationship between confounders and the outcome</strong>. The other estimators covered later are non-parametric (not model based), so if we have any reason to suspect non-linearity, we should not use this estimator.</li>
-</ul>
+<p></p><figure class="figure"><p></p>
+<div>
+<svg width="384" height="134" viewbox="0.00 0.00 326.09 132.80" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 128.8)">
+<title>example2</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-128.8 322.09,-128.8 322.09,4 -4,4"></polygon>
+<!-- F -->
+<g id="node1" class="node">
+<title>F</title>
+<polygon fill="none" stroke="black" points="214.68,-124.8 103.41,-124.8 103.41,-88.8 214.68,-88.8 214.68,-124.8"></polygon>
+<text text-anchor="middle" x="159.04" y="-102.6" font-family="Times,serif" font-size="14.00">Latent Factor (F)</text>
+</g>
+<!-- X1 -->
+<g id="node2" class="node">
+<title>X1</title>
+<polygon fill="none" stroke="black" points="82.13,-36 -0.04,-36 -0.04,0 82.13,0 82.13,-36"></polygon>
+<text text-anchor="middle" x="41.04" y="-13.8" font-family="Times,serif" font-size="14.00">Item 1 (X1)</text>
+</g>
+<!-- F&#45;&gt;X1 -->
+<g id="edge1" class="edge">
+<title>F-&gt;X1</title>
+<path fill="none" stroke="black" d="M135.73,-88.65C117.63,-75.34 92.35,-56.74 72.47,-42.11"></path>
+<polygon fill="black" stroke="black" points="74.44,-39.22 64.31,-36.11 70.29,-44.86 74.44,-39.22"></polygon>
+<text text-anchor="start" x="111.04" y="-58.2" font-family="Arial" font-size="14.00">λ</text>
+</g>
+<!-- X2 -->
+<g id="node3" class="node">
+<title>X2</title>
+<polygon fill="none" stroke="black" points="200.13,-36 117.96,-36 117.96,0 200.13,0 200.13,-36"></polygon>
+<text text-anchor="middle" x="159.04" y="-13.8" font-family="Times,serif" font-size="14.00">Item 2 (X2)</text>
+</g>
+<!-- F&#45;&gt;X2 -->
+<g id="edge2" class="edge">
+<title>F-&gt;X2</title>
+<path fill="none" stroke="black" d="M159.04,-88.65C159.04,-76.52 159.04,-60.02 159.04,-46.12"></path>
+<polygon fill="black" stroke="black" points="162.55,-46.11 159.04,-36.11 155.55,-46.11 162.55,-46.11"></polygon>
+<text text-anchor="start" x="159.04" y="-58.2" font-family="Arial" font-size="14.00">λ</text>
+</g>
+<!-- X3 -->
+<g id="node4" class="node">
+<title>X3</title>
+<polygon fill="none" stroke="black" points="318.13,-36 235.96,-36 235.96,0 318.13,0 318.13,-36"></polygon>
+<text text-anchor="middle" x="277.04" y="-13.8" font-family="Times,serif" font-size="14.00">Item 3 (X3)</text>
+</g>
+<!-- F&#45;&gt;X3 -->
+<g id="edge3" class="edge">
+<title>F-&gt;X3</title>
+<path fill="none" stroke="black" d="M182.36,-88.65C200.46,-75.34 225.74,-56.74 245.62,-42.11"></path>
+<polygon fill="black" stroke="black" points="247.8,-44.86 253.78,-36.11 243.65,-39.22 247.8,-44.86"></polygon>
+<text text-anchor="start" x="228.04" y="-58.2" font-family="Arial" font-size="14.00">λ</text>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
 </div>
 </div>
 </div>
 </div>
-<p>Before you implement the estimator, make sure you have reasons to believe you meet the neccessary assumptions for <a href="./soo.html">selection on observables</a>.</p>
-<p>We will need the <strong>estimatr</strong> package:</p>
+<p>Factor analysis assumes that the unobserved latent factor is continuous and distributed <span class="math inline">\(F \sim \mathcal N(0, 1)\)</span>. We assume the items <span class="math inline">\(X_1, X_2, \dots\)</span> are normally distributed.</p>
+<div class="small">
+<p>Technically, we don’t need <span class="math inline">\(F\)</span> to be strictly a standard normal. See <a href="#appendix">appendix</a> D.</p>
+</div>
+<p>We assume each observed item <span class="math inline">\(X_1, X_2, \dots\)</span> is related to the factor with a linear model:</p>
+<p><span class="math display">\[
+\begin{align}
+X_1 &amp; = \tau_1 + \lambda_1F + \delta_1 &amp;  \delta_1 \sim \mathcal N(0, \theta_{11})\\
+X_2 &amp; = \tau_2 + \lambda_2 F + \delta_2 &amp;  \delta_2 \sim \mathcal N(0, \theta_{22})
+\end{align}
+\]</span></p>
+<div class="small">
+<p>Factor loadings <span class="math inline">\(\lambda_1, \lambda_2, \dots\)</span> are the covariance between <span class="math inline">\(X_1, X_2, \dots\)</span> and the factor <span class="math inline">\(F\)</span>. If <span class="math inline">\(X_1, X_2, \dots\)</span> are standardised to a standard normal, then <span class="math inline">\(\lambda_1, \lambda_2, \dots\)</span> are also the correlation coefficient.</p>
+</div>
+<p>Factor analysis also works with multiple factors <span class="math inline">\(F_1, F_2, \dots\)</span>. Each item <span class="math inline">\(X_1, X_2, \dots\)</span> could measure all factors, or only some. Factors can also be correlated with each other. For multiple factors, the measurement model now relates each item to all factors:</p>
+<p><span class="math display">\[
+\begin{align}
+X_1 &amp; = \tau_1 + \lambda_{11}F_1 + \lambda_{12}F_2 + \dots + \delta_1 &amp;  \delta_1 \sim \mathcal N(0, \theta_{11})\\
+X_2 &amp; = \tau_2 + \lambda_{21} F_1 + \lambda_{22}F_2 + \dots +\delta_2 &amp;  \delta_2 \sim \mathcal N(0, \theta_{22})
+\end{align}
+\]</span></p>
+<div class="small">
+<p>The model not only estimates each <span class="math inline">\(\lambda\)</span>, but also the covariance between factors. When dealing with multiple factors, there are actually many different possible results, that involve rotation (see <a href="#appendix">appendix</a> A).</p>
+</div>
+<p>Interpretation of a factor <span class="math inline">\(F\)</span>, is based on the factor loadings <span class="math inline">\(\lambda\)</span>. A larger (absolute value) factor loading from one item indicates stronger “measurement” influence of a item by that factor. A closer to 0 loading means the factor does not measure that item. The sign of the factor describes the direction of the relationship.</p>
+<div class="small">
+<p>see <a href="#appendix">appendix</a> B for an example of interpretation.</p>
+</div>
+<p>We can also create factor scores for each individual in our model. These are linear combinations of the items with weights.</p>
+<p><span class="math display">\[
+\widetilde F = w_0 + w_1 X_1 + w_2X_2 + \dots
+\]</span></p>
+<div class="small">
+<p>The weights <span class="math inline">\(w_1, w_2, \dots\)</span> are for each item <span class="math inline">\(X_1, X_2, \dots\)</span> when creating the factor scores (see <a href="#appendix">appendix</a> C).</p>
+</div>
+<p>To implement factor analysis, we will need the <strong>psych</strong> and <strong>GPArotation</strong> package:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(estimatr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(psych)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(GPArotation)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Then, we can use the <strong>lm_lin()</strong> function to estimate:</p>
+<p>First, we should get rid of missing observations:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>ate <span class="ot">&lt;-</span> estimatr<span class="sc">::</span><span class="fu">lm_lin</span>(Y <span class="sc">~</span> D,</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">covariates =</span> <span class="sc">~</span> X1 <span class="sc">+</span> X2 <span class="sc">+</span> X3,</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">data =</span> my_data)</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(ate)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>all.obs <span class="ot">&lt;-</span> <span class="fu">apply</span>(my_data, <span class="dv">1</span>, <span class="at">FUN=</span><span class="cf">function</span>(x){<span class="fu">all</span>(<span class="sc">!</span><span class="fu">is.na</span>(x))})</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>dta <span class="ot">&lt;-</span> my_data[all.obs,]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>The output will be the ATE - the average treatment effect for all units in the study.</p>
+<p>For factor analysis with one factor, we use the syntax:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>fa <span class="ot">&lt;-</span> <span class="fu">fa</span>(data[,items], <span class="at">nfactors=</span><span class="dv">1</span>, <span class="at">fm=</span><span class="st">"ml"</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(fa1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="small">
+<p>see <a href="#appendix">appendix</a> B for an interpretation example.</p>
+</div>
+<p>For factor analysis with multiple factors, we use the syntax:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>fa <span class="ot">&lt;-</span> <span class="fu">fa</span>(data[,items], <span class="at">nfactors=</span><span class="dv">2</span>, <span class="at">fm=</span><span class="st">"ml"</span>, <span class="at">rotate=</span><span class="st">"oblimin"</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(fa)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="small">
+<p>This is the code for an oblique rotation. For an orthogonal rotation (don’t use unless your goal is dimensional reduction), change “oblimin” to “none”.</p>
+</div>
+<p>To access factor scores, use the code:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>fa<span class="sc">$</span>scores</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We can use these factor scores in other statistical models.</p>
 <p><br></p>
 <section id="appendix" class="level4">
 <h4 class="anchored" data-anchor-id="appendix">Appendix</h4>
@@ -389,41 +470,22 @@ Y_i = \alpha + D_i \tau + (\b{X}_i - \mean{\b X})' \b\beta \ + D_i (\b X_i - \me
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Appendix A: OLS Estimator
+Appendix A: Details on Factor Rotation
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="append">
-<p>The linear model can be written in matrix notation as:</p>
-<p><span class="math display">\[
-\b y = \b{X\beta} + \b\eps
-\]</span></p>
-<p>Where the treatment variable and confounders are included in matrix <span class="math inline">\(\b X\)</span>.</p>
-<p>The ordinary least squares estimator minimises the sum of squared residuals (SSR):</p>
-<p><span class="math display">\[
-SSR = (\b y - \hat{\b y})'(\b y - \hat{\b y})
-\]</span></p>
-<p>We can re-arrange the SSR as follows:</p>
-<p><span class="math display">\[
-\begin{align}
-SSR &amp; = (\b y - \hat{\b y})'(\b y - \hat{\b y}) \\
-&amp; = (\b y - \b X \hat{\b\beta})'(\b y - \b X \hat{\b\beta})' \\
-&amp; = \b y' \b y - 2 \hat{\b\beta}' \b X' \b y + \hat{\b\beta}' \b X' \b X \hat{\b\beta}
-\end{align}
-\]</span></p>
-<p>To minimise, we take the derivative in respect to <span class="math inline">\(\hat{\b\beta}\)</span>, and set it equal to 0</p>
-<p><span class="math display">\[
-\begin{align}
-\frac{\partial SSR}{\partial \hat{\b\beta}} = -2 \b X' \b y + 2 \b X
-\b X \hat{\b\beta} &amp; = 0 \\
-2 \b X' \b X \hat{\b\beta} &amp; = 2 \b X' \b y \\
-\hat{\b\beta} &amp; = (2 \b X' \b X)^{-1} 2 \b X' \b y \\
-\hat{\b\beta} &amp; = (\b X' \b X)^{-1} \b X' \b y
-\end{align}
-\]</span></p>
-<p>We have thus derived the OLS estimates for <span class="math inline">\(\hat\b\beta\)</span>.</p>
+<p>There are two types of rotation of factors.</p>
+<p>Orthogonal rotations basically assume that there is no correlation between the factors (they are perpendicular in vector space). This is good for dimensional reduction.</p>
+<p>Oblique rotations allow for correlation between factors. This is good for interpretation, as they get some loadings close to 0, allowing for easier interpretation of a factor.</p>
+<p>Below is a figure showing the difference between the two with 2 factors.</p>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-3687574227.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%"></p>
+</figure>
 </div>
 </div>
 </div>
@@ -434,40 +496,22 @@ SSR &amp; = (\b y - \hat{\b y})'(\b y - \hat{\b y}) \\
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Appendix B: Unbiasedness of OLS
+Appendix B: Interpretation Example
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>OLS can be shown to be an unbiased estimator of the relationship between two variables under the condition of strict exogeneity: <span class="math inline">\(\E(\b\eps | \b X = \b\beta)\)</span>.</p>
-<ul>
-<li>Violations of exogeneity are caused by omitted variables. If conditional ignorability is met, exogeneity should be met.</li>
-</ul>
-<p>Start with our OLS solution from appendix A, and modify as follows:</p>
-<p><span class="math display">\[
-\begin{align}
-\hat{\b\beta} &amp; = (\b X' \b X)^{-1} \b X' \b y \\
-&amp; = (\b X' \b X)^{-1} \b X'(\b{X\beta} + \b \eps) \\
-&amp; = (\b X' \b X)^{-1} \b X' \b X \b\beta + (\b X' \b X)^{-1} \b X'\b\eps \\
-&amp; = \b\beta + (\b X' \b X)^{-1} \b X'\b\eps
-\end{align}
-\]</span></p>
-<p>Now, let us find the expected value of our OLS estimator. For it to be unbiased, we should expect the expected value of our estimator, <span class="math inline">\(\E \hat{\b\beta}\)</span>, should equal the true parameter value <span class="math inline">\(\b\beta\)</span>.</p>
-<p><span class="math display">\[
-\begin{align}
-\E(\hat\beta|\b X) &amp; = \E((\b\beta + \b X' \b X)^{-1} \b X'\b\eps) \\
-&amp; = \b\beta + (\b X' \b X)^{-1} \E(\b \eps | \b X)
-\end{align}
-\]</span></p>
-<p>Using the condition of strict exogeneity <span class="math inline">\(\E(\b\eps | \b X = \b\beta)\)</span>, we simplify to:</p>
-<p><span class="math display">\[
-\E(\hat\beta|\b X) = \b\beta
-\]</span></p>
-<p>Now, with the law of iterated expectations, we can show:</p>
-<p><span class="math display">\[
-\E\hat{\b\beta} = \b\beta
-\]</span></p>
+<div class="append">
+<p>This is a typical output of factor anlaysis. ML1 and ML2 are the two factors, and the rows are items (which are trust in different institutions).</p>
+</div>
+<p><img src="images/clipboard-3872288459.png" class="img-fluid" style="width:75.0%"></p>
+<div class="append">
+<p>For factor 1 (ML1), we can see that <em>pol_parties</em>, <em>politicians</em> have very large loadings. <em>EP, parliament, and UN</em> have moderate loadings. <em>Police</em> and <em>legal</em> have almost 0 loadings. Almost all loadings are positive.</p>
+<p>This tells us that factor 1 is a latent variable that measures mostly trust in politicians, rather than the legal/policing system. Since the loadings are almost all positive, we can conclude that higher values of factor 1 mean higher levels of trust in legal/policing systems.</p>
+<p>For factor 2, we see that <em>legal</em> and <em>police</em> have the highest loadings, <em>UN</em> and <em>parliament</em> next, and the rest having very low loadings. These are positive loadings mostly.</p>
+<p>We might interpret this as higher values of factor 2 mean higher trust in institutions, rather than political actors, since the high loadings are with mostly institutions, while <em>politicians</em> and <em>pol_parties</em> are very close to 0.</p>
+</div>
 </div>
 </div>
 </div>
@@ -477,35 +521,51 @@ Appendix B: Unbiasedness of OLS
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Appendix C: OLS Bias under Heterogeneity
+Appendix C: Weights, Communality, and Reliability
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>From the <a href="./soo.html">selection on observables overview</a>, we know that our causal effect is a weighted average:</p>
+<div class="append">
+<p>Before we discuss the weights, let us define some concepts about the factor scores.</p>
+<p>Recall that for each item, <span class="math inline">\(\lambda\)</span> is a loading, and <span class="math inline">\(\theta\)</span> is the variance of the error term in the model.</p>
+<ul>
+<li><span class="math inline">\(\lambda^2\)</span> is known as the communality - the variance in the item explained by the factor.</li>
+<li><span class="math inline">\(\theta\)</span> is known as the residual variance or specific variance.</li>
+<li>The proportion <span class="math inline">\(\lambda^2 / (\lambda^2 + \theta)\)</span> is the <strong>reliability</strong> of the item.</li>
+</ul>
+<p>In factor scores, the items with the highest weights have the highest communalities.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Appendix D: Factor Distribution Assumption
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="append">
+<p>The factors <span class="math inline">\(F\)</span> are required to be normally distributed:</p>
 <p><span class="math display">\[
-\tau_{ATE} = \sum\tau (\b x) Pr(\b x)
+F \sim \mathcal N(\kappa, \phi)
 \]</span></p>
-<p>Notice how the weights are the probability of the confounder values of <span class="math inline">\(\b x\)</span>.</p>
-<p>With some complex math (Angrist 1998), we can actually show that OLS actually estimates:</p>
+<p>Where <span class="math inline">\(\kappa\)</span> is the mean, and <span class="math inline">\(\phi\)</span> is the variance.</p>
+<p>However, this specification means there is actually no unique solution to <span class="math inline">\(\lambda\)</span> estimates. This is an identification issue. Thus, we have to make further assumptions.</p>
+<p>The most common assumption is to make the factor a standard normal <span class="math inline">\(F \sim \mathcal N(0, 1)\)</span>, as we introduced above.</p>
+<p>However, instead of fixing the scale of the factor, we could also keep the factor flexible (allowing the model to estimate <span class="math inline">\(\kappa\)</span> and <span class="math inline">\(\phi\)</span>), and fix one item <span class="math inline">\(X_1\)</span>’s model as:</p>
 <p><span class="math display">\[
-\hat\beta_{OLS} = \sum \tau(\b x) \frac{\V(D_i | \b x)Pr(\b x)}{\sum \V(D_i | \b x^c)Pr(\b x^c)}
+X_1 = 0 + 1F + \delta_1
 \]</span></p>
-<p>Where <span class="math inline">\(\b x^c\)</span> is the complement (not <span class="math inline">\(\b x\)</span>).</p>
-<p>Notice how the weights are not equivalent. They are only equivalent if there is homogeneity. This is the reason why OLS under heterogeneity is not properly estimating our ATE.</p>
-<p>We can further explore what OLS is estimating. Słoczyński (2022) finds that OLS is actually unbiasedly estimating a weighted average of the ATT and ATU (effect on the untreated);</p>
-<p><span class="math display">\[
-\tau_{OLS} = w_1 \tau_{ATT} + w_0 \tau_{ATU}
-\]</span></p>
-<p>Where the weight for the ATT is defined as:</p>
-<p><span class="math display">\[
-w_1 = \frac{(1 - Pr(D = 1)) \V(\pi(X)|D = 0)}{Pr(D= 1) \V(\pi(X)|D=1) + (1-Pr(D=1)) \V(\pi(x)|D=0)}
-\]</span></p>
-<p>where <span class="math inline">\(\pi(X)\)</span> is the propensity score of being treated. The ATU weight is the complement:</p>
-<p><span class="math display">\[
-w_0 = 1 - w_1
-\]</span></p>
+<p>Where the intercept <span class="math inline">\(\tau_1\)</span> is fixed at 0, and the <span class="math inline">\(\lambda_1\)</span> is fixed at 1. This is less common.</p>
+</div>
 </div>
 </div>
 </div>
@@ -936,14 +996,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./soo.html" class="pagination-link" aria-label="Selection on Observables">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Selection on Observables</span>
+      <a href="./latent.html" class="pagination-link" aria-label="Latent Variable Models">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Latent Variable Models</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./distance.html" class="pagination-link" aria-label="Distance Matching">
-        <span class="nav-page-text">Distance Matching</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->

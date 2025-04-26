@@ -13,6 +13,11 @@ pre, code, .sourceCode {
   color: #666;
 }
 
+.append {
+  font-size: 0.9em;
+}
+
+
 table {
   font-size: 0.94em; /* Adjust the size as needed */
 }

@@ -47,7 +47,7 @@ $$
 $$
 
 ::: small
-The weights of this weighted average are the probability/frequency of that value of the confounder.
+The weights of this weighted average are the probability/frequency of that value of the confounder. A more formal proof is provided in the [appendix].
 :::
 
 For selection on observables to work, we need to meet 3 assumptions:
@@ -64,7 +64,9 @@ For selection on observables to work, we need to meet 3 assumptions:
 
 : {tbl-colwidths="\[35,65\]" .bordered}
 
-<br />
+::: small
+A more formal definition of these assumptions is provided in the [appendix].
+:::
 
 We have a wide choice of estimators that we can use.
 
@@ -109,3 +111,102 @@ Important: You should not always go for the higher rated estimator. Each estimat
 :::
 
 Use the sidebar or links in the table to access each estimator's page.
+
+<br />
+
+#### Appendix
+
+::: {.callout-note collapse="true"}
+## Appendix A: Formal Definition of Assumptions
+
+**Conditional ignorability** is the assumption that among units $i$ with identical confounder values $\b X_i = \b x$, treatment $D_i$ is as-if randomly assigned. This also means potential outcomes are independent from treatment given $\b X_i$.
+
+$$
+(\C, \T) \ind D_t \ | \ \b X_i = \b x
+$$
+
+This assumption implies the following:
+
+$$
+\begin{align}
+& \E(\C | D_i = 1, \b X_i = \b x) = \E(\C | D_i = 0, \b X_i = \b x) = \E(\C | \b X_i = \b x) \\
+& \E(\T | D_i = 1, \b X_i = \b x) = \E(\T | D_i = 0, \b X_i = \b x) = \E(\T | \b X_i = \b x) 
+\end{align}
+$$
+
+**Common Support** implies that for any unit $i$ with any value of confounders, they have a non-zero probability they can be assigned to both treatment and control.
+
+$$
+0 < Pr(D_i = 1 | \b X_i = \b x) < 1
+$$
+
+For all possible confounder values $\b x$.
+:::
+
+::: {.callout-note collapse="true"}
+## Appendix B: Identification Proof of ATE
+
+Be sure to see appendix A before starting this.
+
+Let us first find the conditional ATE, conditional on a specific confounder value $\b x$:
+
+$$
+\begin{align}
+\tau(\b x) & = \E(\T - \C) | \b X_i = \b x) \\
+& = \E(\T | \b X_i = \b x) - \E(\C | \b X_i = \b x)
+\end{align}
+$$
+
+Now, from the properties implied by conditional ignorability from appendix A, we get:
+
+$$
+\begin{align}
+\tau(\b x) & = \E(\T | D_i = 1, \b X_i = \b x) - \E(\C | D_i = 0, \b X_i = \b x) \\
+& = \E(Y_i | D_i = 1, \b X_i = \b x) - \E(Y_i |D_i = 0, \b X_i = \b x
+\end{align}
+$$
+
+Now, we can see under conditional ignorability, the conditional ATE is identifiable as all quantities are observed.
+
+Now, let us consider the definition of the ATE - which is a weighted average of all conditional ATE's:
+
+$$
+\tau_{ATE} = \int \tau(\b x) \ d Pr(\b x)
+$$
+
+We already know we can identify $\tau(\b x)$. So, that means we have all we need to identify the ATE.
+:::
+
+::: {.callout-note collapse="true"}
+## Appendix C: Identification Proof of ATT
+
+Be sure to see appendix A before starting this.
+
+Let us first find the conditional ATE, conditional on a specific confounder value $\b x$:
+
+$$
+\begin{align}
+\tau(\b x) & = \E(\T - \C) | \b X_i = \b x) \\
+& = \E(\T | \b X_i = \b x) - \E(\C | \b X_i = \b x)
+\end{align}
+$$
+
+Now, from the properties implied by conditional ignorability from appendix A, we get:
+
+$$
+\begin{align}
+\tau(\b x) & = \E(\T | D_i = 1, \b X_i = \b x) - \E(\C | D_i = 0, \b X_i = \b x) \\
+& = \E(Y_i | D_i = 1, \b X_i = \b x) - \E(Y_i |D_i = 0, \b X_i = \b x
+\end{align}
+$$
+
+Now, we can see under conditional ignorability, the conditional ATE is identifiable as all quantities are observed.
+
+Now, let us consider the definition of the ATT - which is a weighted average of all conditional ATE's but only for treated individuals.
+
+$$
+\tau_{ATE} = \int \tau(\b x) \ d Pr(\b x| D_i = 1)
+$$
+
+We already know we can identify $\tau(\b x)$. So, that means we have all we need to identify the ATE.
+:::

@@ -1,0 +1,72 @@
+# Latent Variable Models
+
+::: small
+This is an overview of latent variable models. For specific models and R-code, use the sidebar.
+:::
+
+A latent variable model connects a unobserved variable (**latent factor**) with a few observed variables (**items**) that are considered imperfect measures of the latent factor.
+
+::: center-graph
+```{dot}
+//| fig-width: 4
+//| fig-height: 1.4
+digraph example2 {
+  // Nodes
+  F [shape=box, pos = "0,0!", label="Latent Factor (F)"]
+  X1 [shape=box, pos = "2,0!", label="Item 1 (X1)"]
+  X2 [shape=box, pos = "1,-2!", label="Item 2 (X2)"]
+  X3 [shape=box, pos="1,0!", label="Item 3 (X3)"]
+
+  // Edges
+  {F -> X1 [label=<<FONT FACE="Arial">&lambda;</FONT>>]}
+  {F -> X2 [label=<<FONT FACE="Arial">&lambda;</FONT>>]}
+  {F -> X3 [label=<<FONT FACE="Arial">&lambda;</FONT>>]}
+  
+  graph [nodesep=0.5, ranksep=0.5]
+
+}
+```
+:::
+
+::: small
+For example, maybe we want to measure the political ideology of a senator. We cannot directly observe the political ideology (the latent factor), but we can observe how they vote on different bills (the items)
+:::
+
+Latent variable models assume we can model the relationship between each observed item and the latent factor with some sort of regression model. The coefficient of each regression (often denoted $\lambda$) is the relationship between each item and the factor.
+
+::: small
+For example, in the figure above, each item (X1, X2, X3) is related to the factor (F) with by a $\lambda$ coefficient.
+:::
+
+These $\lambda$ are called **factor loadings**. We can interpret the estimated factor loadings $\widehat\lambda$ to interpret what the unobserved factor actually is measuring.
+
+::: small
+For example, if a factor has a strong relationship with one item, and a weaker relationship with another item, we might conclude that the factor measures the first item more than the second item.
+:::
+
+We can also use latent variable models to create **factor scores** $\widetilde F_i$, which are basically actual values of the latent variable for each individual $i$ in our data. This allows us to use the latent variable in other statistical models.
+
+The choice of latent variable model depends on the type of items/factors:
+
+|                         |                           |                         |
+|-------------------------|---------------------------|-------------------------|
+| [Model]{.smallcaps}     | [Factor Type]{.smallcaps} | [Item Type]{.smallcaps} |
+| Factor Analysis         | Continuous                | Continuous              |
+| Item Response Theory    | Continous                 | Categorical/Binary      |
+| Structural Class Models | Categorical/Binary        | Categorical/Binary      |
+
+: {tbl-colwidths="\[36,32,32\]" .bordered}
+
+<br />
+
+Since latent variable models are estimated with maximum likelihood estimation, they have hypothesis tests and summary measures like any other MLE estimated model.
+
+So far, this introduction has assumed just one latent variable factor. However, all models allow for multiple factors as well. If we have many items, some items might only measure on factor, others both factors.
+
+Each latent model also has the ability to conduct **confirmatory analysis**. This is basically when we, based on theoretical reasons (such as reading the literature), impose certain restrictions on models, and test if this hypothesised model is good.
+
+::: small
+This typically takes the form of setting certain factor loadings $\lambda$ to 0, meaning a certain item does not measure one of the factors.
+:::
+
+We can also combine different structural models together to form **structural equation models**. For example, we might want to find the relationship between two latent variables. This implies some regression model between them. A structural equation model estimates this regression, alongside multiple latent measurement models, all together.

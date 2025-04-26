@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Fully Interacted Estimator</title>
+<title>Latent Variable Models</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,40 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -63,8 +29,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./distance.html" rel="next">
-<link href="./soo.html" rel="prev">
+<link href="./factor.html" rel="next">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -145,7 +110,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./soo.html">Selection on Observables</a></li><li class="breadcrumb-item"><a href="./regress.html"><span class="chapter-title">Fully Interacted Estimator</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./latent.html">Latent Variable Models</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -235,14 +200,14 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="./soo.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Selection on Observables</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./regress.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Fully Interacted Estimator</span></a>
+  <a href="./regress.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Fully Interacted Estimator</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -281,13 +246,13 @@ window.Quarto = {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./latent.html" class="sidebar-item-text sidebar-link">
+            <a href="./latent.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Latent Variable Models</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./factor.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Factor Analysis Model</span></a>
@@ -311,9 +276,9 @@ window.Quarto = {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./soo.html">Selection on Observables</a></li><li class="breadcrumb-item"><a href="./regress.html"><span class="chapter-title">Fully Interacted Estimator</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-title">Fully Interacted Estimator</span></h1>
+<h1 class="title">Latent Variable Models</h1>
 </div>
 
 
@@ -331,187 +296,124 @@ window.Quarto = {
 
 
 <div class="small">
-<p>See <a href="./soo.html">here</a> on how selection on observables works, and the other estimators available.</p>
+<p>This is an overview of latent variable models. For specific models and R-code, use the sidebar.</p>
 </div>
-<p>Regression is a natural way to control for confounders in selection on observables:</p>
-<p><span class="math display">\[
-Y_i = \alpha + D_i\tau + \b X_i' \b\beta + \eps_i
-\]</span></p>
-<div class="small">
-<p>Where <span class="math inline">\(\alpha\)</span> is the intercept and <span class="math inline">\(\b X_i\)</span> is a vector of confounder values for individual <span class="math inline">\(i\)</span>.</p>
-</div>
-<p>The ordinary least squares (OLS) estimate <span class="math inline">\(\hat\tau\)</span> will be an good estimator of the ATE if we account for all confounders (conditional ignorability) in vector <span class="math inline">\(\b X_i\)</span>, and <strong>there is no treatment heterogeneity</strong>.</p>
-<div class="small">
-<p>Heterogeneity means not all individuals have the same treatment effect. More details on OLS estimation and unbiasedness given in <a href="#appendix">appendix</a> A and B. Why OLS is not equal to the ATE is given in <a href="#appendix">appendix</a> C.</p>
-</div>
-<p>Heterogeneity is present in almost all situations we will need causal inference. <a href="https://projecteuclid.org/journals/annals-of-applied-statistics/volume-7/issue-1/Agnostic-notes-on-regression-adjustments-to-experimental-data--Reexamining/10.1214/12-AOAS583.full">Lin (2013)</a> proposes the <strong>fully interacted estimator</strong>, which allows for consistent estimation of the ATE even with heterogeneity:</p>
-<p><span class="math display">\[
-Y_i = \alpha + D_i \tau + (\b{X}_i - \mean{\b X})' \b\beta \ + D_i (\b X_i - \mean{\b X})' \b\gamma \  + \eps_i
-\]</span></p>
-<div class="small">
-<p><span class="math inline">\(\mean{\b X}\)</span> is a vector of the means of each confounder. <span class="math inline">\(\tau\)</span> is the estimate of the ATE. See <a href="https://projecteuclid.org/journals/annals-of-applied-statistics/volume-7/issue-1/Agnostic-notes-on-regression-adjustments-to-experimental-data--Reexamining/10.1214/12-AOAS583.full">Lin (2013)</a> for proofs.</p>
-</div>
-<div class="callout callout-style-simple callout-note no-icon">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-body-container">
+<p>A latent variable model connects a unobserved variable (<strong>latent factor</strong>) with a few observed variables (<strong>items</strong>) that are considered imperfect measures of the latent factor.</p>
+<div class="center-graph">
+<div class="cell" data-fig-width="4" data-fig-height="1.4" data-layout-align="default">
+<div class="cell-output-display">
 <div>
-<p><strong>Kevin’s Estimator Score</strong>: <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i> (3/5)</p>
-<ul>
-<li>Fully interacted estimator is decent at estimating the ATE, especially in large samples. We should be more careful in smaller samples.</li>
-<li>Big concern: the fully interacted estimator still <strong>assumes a linear relationship between confounders and the outcome</strong>. The other estimators covered later are non-parametric (not model based), so if we have any reason to suspect non-linearity, we should not use this estimator.</li>
-</ul>
+<p></p><figure class="figure"><p></p>
+<div>
+<svg width="384" height="134" viewbox="0.00 0.00 326.09 132.80" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 128.8)">
+<title>example2</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-128.8 322.09,-128.8 322.09,4 -4,4"></polygon>
+<!-- F -->
+<g id="node1" class="node">
+<title>F</title>
+<polygon fill="none" stroke="black" points="214.68,-124.8 103.41,-124.8 103.41,-88.8 214.68,-88.8 214.68,-124.8"></polygon>
+<text text-anchor="middle" x="159.04" y="-102.6" font-family="Times,serif" font-size="14.00">Latent Factor (F)</text>
+</g>
+<!-- X1 -->
+<g id="node2" class="node">
+<title>X1</title>
+<polygon fill="none" stroke="black" points="82.13,-36 -0.04,-36 -0.04,0 82.13,0 82.13,-36"></polygon>
+<text text-anchor="middle" x="41.04" y="-13.8" font-family="Times,serif" font-size="14.00">Item 1 (X1)</text>
+</g>
+<!-- F&#45;&gt;X1 -->
+<g id="edge1" class="edge">
+<title>F-&gt;X1</title>
+<path fill="none" stroke="black" d="M135.73,-88.65C117.63,-75.34 92.35,-56.74 72.47,-42.11"></path>
+<polygon fill="black" stroke="black" points="74.44,-39.22 64.31,-36.11 70.29,-44.86 74.44,-39.22"></polygon>
+<text text-anchor="start" x="111.04" y="-58.2" font-family="Arial" font-size="14.00">λ</text>
+</g>
+<!-- X2 -->
+<g id="node3" class="node">
+<title>X2</title>
+<polygon fill="none" stroke="black" points="200.13,-36 117.96,-36 117.96,0 200.13,0 200.13,-36"></polygon>
+<text text-anchor="middle" x="159.04" y="-13.8" font-family="Times,serif" font-size="14.00">Item 2 (X2)</text>
+</g>
+<!-- F&#45;&gt;X2 -->
+<g id="edge2" class="edge">
+<title>F-&gt;X2</title>
+<path fill="none" stroke="black" d="M159.04,-88.65C159.04,-76.52 159.04,-60.02 159.04,-46.12"></path>
+<polygon fill="black" stroke="black" points="162.55,-46.11 159.04,-36.11 155.55,-46.11 162.55,-46.11"></polygon>
+<text text-anchor="start" x="159.04" y="-58.2" font-family="Arial" font-size="14.00">λ</text>
+</g>
+<!-- X3 -->
+<g id="node4" class="node">
+<title>X3</title>
+<polygon fill="none" stroke="black" points="318.13,-36 235.96,-36 235.96,0 318.13,0 318.13,-36"></polygon>
+<text text-anchor="middle" x="277.04" y="-13.8" font-family="Times,serif" font-size="14.00">Item 3 (X3)</text>
+</g>
+<!-- F&#45;&gt;X3 -->
+<g id="edge3" class="edge">
+<title>F-&gt;X3</title>
+<path fill="none" stroke="black" d="M182.36,-88.65C200.46,-75.34 225.74,-56.74 245.62,-42.11"></path>
+<polygon fill="black" stroke="black" points="247.8,-44.86 253.78,-36.11 243.65,-39.22 247.8,-44.86"></polygon>
+<text text-anchor="start" x="228.04" y="-58.2" font-family="Arial" font-size="14.00">λ</text>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
 </div>
 </div>
 </div>
 </div>
-<p>Before you implement the estimator, make sure you have reasons to believe you meet the neccessary assumptions for <a href="./soo.html">selection on observables</a>.</p>
-<p>We will need the <strong>estimatr</strong> package:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(estimatr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="small">
+<p>For example, maybe we want to measure the political ideology of a senator. We cannot directly observe the political ideology (the latent factor), but we can observe how they vote on different bills (the items)</p>
 </div>
-<p>Then, we can use the <strong>lm_lin()</strong> function to estimate:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>ate <span class="ot">&lt;-</span> estimatr<span class="sc">::</span><span class="fu">lm_lin</span>(Y <span class="sc">~</span> D,</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">covariates =</span> <span class="sc">~</span> X1 <span class="sc">+</span> X2 <span class="sc">+</span> X3,</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">data =</span> my_data)</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(ate)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Latent variable models assume we can model the relationship between each observed item and the latent factor with some sort of regression model. The coefficient of each regression (often denoted <span class="math inline">\(\lambda\)</span>) is the relationship between each item and the factor.</p>
+<div class="small">
+<p>For example, in the figure above, each item (X1, X2, X3) is related to the factor (F) with by a <span class="math inline">\(\lambda\)</span> coefficient.</p>
 </div>
-<p>The output will be the ATE - the average treatment effect for all units in the study.</p>
+<p>These <span class="math inline">\(\lambda\)</span> are called <strong>factor loadings</strong>. We can interpret the estimated factor loadings <span class="math inline">\(\widehat\lambda\)</span> to interpret what the unobserved factor actually is measuring.</p>
+<div class="small">
+<p>For example, if a factor has a strong relationship with one item, and a weaker relationship with another item, we might conclude that the factor measures the first item more than the second item.</p>
+</div>
+<p>We can also use latent variable models to create <strong>factor scores</strong> <span class="math inline">\(\widetilde F_i\)</span>, which are basically actual values of the latent variable for each individual <span class="math inline">\(i\)</span> in our data. This allows us to use the latent variable in other statistical models.</p>
+<p>The choice of latent variable model depends on the type of items/factors:</p>
+<table class="table-bordered table">
+<colgroup>
+<col style="width: 36%">
+<col style="width: 32%">
+<col style="width: 32%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><span class="smallcaps">Model</span></td>
+<td><span class="smallcaps">Factor Type</span></td>
+<td><span class="smallcaps">Item Type</span></td>
+</tr>
+<tr class="even">
+<td>Factor Analysis</td>
+<td>Continuous</td>
+<td>Continuous</td>
+</tr>
+<tr class="odd">
+<td>Item Response Theory</td>
+<td>Continous</td>
+<td>Categorical/Binary</td>
+</tr>
+<tr class="even">
+<td>Structural Class Models</td>
+<td>Categorical/Binary</td>
+<td>Categorical/Binary</td>
+</tr>
+</tbody>
+</table>
 <p><br></p>
-<section id="appendix" class="level4">
-<h4 class="anchored" data-anchor-id="appendix">Appendix</h4>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<p>Since latent variable models are estimated with maximum likelihood estimation, they have hypothesis tests and summary measures like any other MLE estimated model.</p>
+<p>So far, this introduction has assumed just one latent variable factor. However, all models allow for multiple factors as well. If we have many items, some items might only measure on factor, others both factors.</p>
+<p>Each latent model also has the ability to conduct <strong>confirmatory analysis</strong>. This is basically when we, based on theoretical reasons (such as reading the literature), impose certain restrictions on models, and test if this hypothesised model is good.</p>
+<div class="small">
+<p>This typically takes the form of setting certain factor loadings <span class="math inline">\(\lambda\)</span> to 0, meaning a certain item does not measure one of the factors.</p>
 </div>
-<div class="callout-title-container flex-fill">
-Appendix A: OLS Estimator
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<div class="append">
-<p>The linear model can be written in matrix notation as:</p>
-<p><span class="math display">\[
-\b y = \b{X\beta} + \b\eps
-\]</span></p>
-<p>Where the treatment variable and confounders are included in matrix <span class="math inline">\(\b X\)</span>.</p>
-<p>The ordinary least squares estimator minimises the sum of squared residuals (SSR):</p>
-<p><span class="math display">\[
-SSR = (\b y - \hat{\b y})'(\b y - \hat{\b y})
-\]</span></p>
-<p>We can re-arrange the SSR as follows:</p>
-<p><span class="math display">\[
-\begin{align}
-SSR &amp; = (\b y - \hat{\b y})'(\b y - \hat{\b y}) \\
-&amp; = (\b y - \b X \hat{\b\beta})'(\b y - \b X \hat{\b\beta})' \\
-&amp; = \b y' \b y - 2 \hat{\b\beta}' \b X' \b y + \hat{\b\beta}' \b X' \b X \hat{\b\beta}
-\end{align}
-\]</span></p>
-<p>To minimise, we take the derivative in respect to <span class="math inline">\(\hat{\b\beta}\)</span>, and set it equal to 0</p>
-<p><span class="math display">\[
-\begin{align}
-\frac{\partial SSR}{\partial \hat{\b\beta}} = -2 \b X' \b y + 2 \b X
-\b X \hat{\b\beta} &amp; = 0 \\
-2 \b X' \b X \hat{\b\beta} &amp; = 2 \b X' \b y \\
-\hat{\b\beta} &amp; = (2 \b X' \b X)^{-1} 2 \b X' \b y \\
-\hat{\b\beta} &amp; = (\b X' \b X)^{-1} \b X' \b y
-\end{align}
-\]</span></p>
-<p>We have thus derived the OLS estimates for <span class="math inline">\(\hat\b\beta\)</span>.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Appendix B: Unbiasedness of OLS
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>OLS can be shown to be an unbiased estimator of the relationship between two variables under the condition of strict exogeneity: <span class="math inline">\(\E(\b\eps | \b X = \b\beta)\)</span>.</p>
-<ul>
-<li>Violations of exogeneity are caused by omitted variables. If conditional ignorability is met, exogeneity should be met.</li>
-</ul>
-<p>Start with our OLS solution from appendix A, and modify as follows:</p>
-<p><span class="math display">\[
-\begin{align}
-\hat{\b\beta} &amp; = (\b X' \b X)^{-1} \b X' \b y \\
-&amp; = (\b X' \b X)^{-1} \b X'(\b{X\beta} + \b \eps) \\
-&amp; = (\b X' \b X)^{-1} \b X' \b X \b\beta + (\b X' \b X)^{-1} \b X'\b\eps \\
-&amp; = \b\beta + (\b X' \b X)^{-1} \b X'\b\eps
-\end{align}
-\]</span></p>
-<p>Now, let us find the expected value of our OLS estimator. For it to be unbiased, we should expect the expected value of our estimator, <span class="math inline">\(\E \hat{\b\beta}\)</span>, should equal the true parameter value <span class="math inline">\(\b\beta\)</span>.</p>
-<p><span class="math display">\[
-\begin{align}
-\E(\hat\beta|\b X) &amp; = \E((\b\beta + \b X' \b X)^{-1} \b X'\b\eps) \\
-&amp; = \b\beta + (\b X' \b X)^{-1} \E(\b \eps | \b X)
-\end{align}
-\]</span></p>
-<p>Using the condition of strict exogeneity <span class="math inline">\(\E(\b\eps | \b X = \b\beta)\)</span>, we simplify to:</p>
-<p><span class="math display">\[
-\E(\hat\beta|\b X) = \b\beta
-\]</span></p>
-<p>Now, with the law of iterated expectations, we can show:</p>
-<p><span class="math display">\[
-\E\hat{\b\beta} = \b\beta
-\]</span></p>
-</div>
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Appendix C: OLS Bias under Heterogeneity
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>From the <a href="./soo.html">selection on observables overview</a>, we know that our causal effect is a weighted average:</p>
-<p><span class="math display">\[
-\tau_{ATE} = \sum\tau (\b x) Pr(\b x)
-\]</span></p>
-<p>Notice how the weights are the probability of the confounder values of <span class="math inline">\(\b x\)</span>.</p>
-<p>With some complex math (Angrist 1998), we can actually show that OLS actually estimates:</p>
-<p><span class="math display">\[
-\hat\beta_{OLS} = \sum \tau(\b x) \frac{\V(D_i | \b x)Pr(\b x)}{\sum \V(D_i | \b x^c)Pr(\b x^c)}
-\]</span></p>
-<p>Where <span class="math inline">\(\b x^c\)</span> is the complement (not <span class="math inline">\(\b x\)</span>).</p>
-<p>Notice how the weights are not equivalent. They are only equivalent if there is homogeneity. This is the reason why OLS under heterogeneity is not properly estimating our ATE.</p>
-<p>We can further explore what OLS is estimating. Słoczyński (2022) finds that OLS is actually unbiasedly estimating a weighted average of the ATT and ATU (effect on the untreated);</p>
-<p><span class="math display">\[
-\tau_{OLS} = w_1 \tau_{ATT} + w_0 \tau_{ATU}
-\]</span></p>
-<p>Where the weight for the ATT is defined as:</p>
-<p><span class="math display">\[
-w_1 = \frac{(1 - Pr(D = 1)) \V(\pi(X)|D = 0)}{Pr(D= 1) \V(\pi(X)|D=1) + (1-Pr(D=1)) \V(\pi(x)|D=0)}
-\]</span></p>
-<p>where <span class="math inline">\(\pi(X)\)</span> is the propensity score of being treated. The ATU weight is the complement:</p>
-<p><span class="math display">\[
-w_0 = 1 - w_1
-\]</span></p>
-</div>
-</div>
-</div>
+<p>We can also combine different structural models together to form <strong>structural equation models</strong>. For example, we might want to find the relationship between two latent variables. This implies some regression model between them. A structural equation model estimates this regression, alongside multiple latent measurement models, all together.</p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -936,13 +838,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./soo.html" class="pagination-link" aria-label="Selection on Observables">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Selection on Observables</span>
-      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./distance.html" class="pagination-link" aria-label="Distance Matching">
-        <span class="nav-page-text">Distance Matching</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./factor.html" class="pagination-link" aria-label="Factor Analysis Model">
+        <span class="nav-page-text"><span class="chapter-title">Factor Analysis Model</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

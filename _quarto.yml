@@ -38,7 +38,9 @@ book:
     - part: "Instrumental Variables"
     - "---"
     - part: "Regression Models"
-    - part: "Latent Variable Models"
+    - part: latent.qmd
+      chapters:
+        - factor.qmd
     - "---"
     - part: "Further Statistical Models"
     
